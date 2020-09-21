@@ -54,7 +54,7 @@
               My name is Sunday Ogbonnaya Onwuchekwa, and I am majoring in Applied Technology at Brigham Young University, Idaho. I am a Nigerian, but has been working in Ghana as an IT Service Desk Analyst for the last 5 years. I served in the Nigeria Lagos Mission between 2002 and 2004 and have been married since 2005. My wife and I are parents of three children--two girls and a boy.
             </p>
             <p class="content">
-              My wife and I currently serve as the Stake PathwayConnect Missionaries and Young Adult Advisers. These callings have help me to develop love for the young adult and a keen interest in their academic development. It has been difficult combining work, family, and church callings because I work forty hours per week. However, I have seen the hand of God directly me all the way even when I wanted to give up. I love seeing movies, playing games, singing, and eating.
+              My wife and I currently serve as the Stake PathwayConnect Missionaries and Young Adult Advisers. These callings have help me to develop love for the young adult and a keen interest in their academic development. It has been difficult combining work, family, and church callings because I work forty hours per week. However, I have seen the hand of God directing me all the way even when I wanted to give up. I love seeing movies, playing games, singing, and eating.
             </p>
               <blockquote>
                 <em class="d-block">
