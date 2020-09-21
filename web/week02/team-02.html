@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS begins-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/team-02-style.css">
+    <!--CSS ends-->
+    <title>Week 2 | Team Activity</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <div>
+            <h1>02 Teach : Team Activity</h1>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div id="firstDiv" class="boldText col-sm-12 col-md-3">Red</div>
+            <div id="secondDiv" class="boldText col-sm-12 col-md-3">Yellow</div>
+            <div id="thirdDiv" class="boldText col-sm-12 col-md-3">Green</div>
+        </div>
+        <button type="button" id="alertClicked" class="btn-primary btnStyle col-sm-12 col-md-4">Click Me</button>
+        <label class="top" for="colorText">
+            Color Name: <span class="required">*</span>
+            <input type="text" name="colorText" id="colorText" required placeholder="Enter a color name" class="col-sm-12 col-md-4">
+            <div class="errorMessage">The color name field is required</div> 
+        </label>
+        <button type="button" id="changeColor" class="btn-primary btnStyle col-sm-12 col-md-4">Change color</button>
+        <button type="button" id="changeVisibility" class="btn-primary btnStyle d-block col-sm-12 col-md-4">Toggle Visibility</button>
+    </main>
+
+    <footer class="container-fluid">
+        <small>
+            &copy; Copyright 2020 | All right reserved 
+        </small>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--<script src="js/team-02.js"></script>-->
+    <script src="js/team-02-jquery.js"></script>
+</body>
+</html>

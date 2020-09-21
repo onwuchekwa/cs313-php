@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header, footer {
+    background-color: blue;
+    color: white;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 2%;
+}
+
+#firstDiv {
+    background-color: red;
+    color: white;    
+}
+
+#secondDiv {
+    background-color: yellow;
+    color: purple;
+}
+
+#thirdDiv {
+    background-color: green;
+    color: orange;  
+}
+
+.boldText {
+    font-size: 2rem;
+    padding: 30px 0;
+    text-align: center;
+    margin: 0 2% 15px;
+    border-radius: 10px;
+}
+
+.boldText:hover {
+    font-weight: bold;
+}
+
+.top {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin: 0 2%;
+    text-align: left;
+}
+
+.top input {
+    background-color: rgba(255, 255, 255, 0.6); 
+    border: 1px solid #000;
+    border-radius: 5px;   
+    box-sizing: border-box;
+    display: block;
+    font-size: inherit;
+    padding: .75rem;
+    font-family: inherit;
+}
+
+.top span {
+    color: #a50404;
+}
+
+.top input:required, .top select:required {
+    border-left: 6px solid #a50404;
+}
+
+.top input:required:valid, .top select:required:valid {
+    border-left: 6px solid #004c00;
+}
+
+.errorMessage {
+    display: block;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #a50404;
+}
+
+.btnStyle {
+    border: none;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    margin: 0 2%;
+    margin-bottom: 0.5rem;
+    max-width: 20rem;  
+    padding: .75rem 1.5rem; 
+}

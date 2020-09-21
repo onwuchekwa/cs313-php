@@ -1,0 +1,166 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    background-color: rgba(218,165,32, 0.6);
+    font-size: 15px;
+}
+
+ main {
+     background-color: #fff;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.jumbotron {
+    background-image: url("../images/athletics.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    color: greenyellow;
+}
+
+.jumbotron:hover {
+    background-image: url("../images/arts.jpg");
+    color: yellow;
+}
+
+.jumbotron h1, .jumbotron p {    
+    font-weight: bolder;
+}
+
+.my-info {
+    margin: 2em 2%  0 2%;
+}
+
+.my-info h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    color: #428bca;
+}
+
+.float-left {
+    padding-right: 10px;
+}
+
+figcaption {
+    font-size: 0.7rem
+}
+
+.content {
+    text-align: justify;
+}
+
+blockquote {
+    color: white; 
+    font-size: 1.2rem; 
+    text-align: center; 
+    margin: 20px; 
+    padding: 20px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    border: 2px solid greenyellow; 
+    background-color: #428bca; 
+    border-radius: 30px;
+}
+
+footer {
+    padding: 10px;
+}
+
+footer .fa {
+    color: #fff;
+}
+
+.trademark {
+    color: #fff;
+}
+
+.trademark p {
+    margin-bottom: 0;
+}
+
+.socialWrapper {
+    text-align: left;
+}
+
+.contentText {
+    font-size: 5rem;
+    color: #428bca;
+    font-weight: bolder;
+    -webkit-animation: fadeIn 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation: fadeIn 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation: fadeIn 5s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    -o-animation: fadeIn 5s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+    animation: fadeIn 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 60em) {
+    .changeHeight {
+        height: 360px
+    }
+
+    .socialWrapper {
+        text-align: right;
+    }
+}
