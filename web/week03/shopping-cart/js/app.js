@@ -7,7 +7,7 @@
             data: JSON.stringify({itemCode: itemId}),
             success: function(data){
               $("#productModal").modal("show");
-              alert(data);
+              alert(data.itemCode);
             }
         });
       //$("#productModal").modal("show");
