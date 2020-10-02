@@ -25,33 +25,68 @@
                         <h3>Price: $<?php echo number_format($stockItem->itemPrice, 2); ?></h3>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-primary" data-id="<?php echo $stockItem->itemId; ?>" data-toggle="modal" data-target=".product-modal">View Product Details</button>
+                        <button type="button" class="btn btn-primary" name="openModal" data-toggle="modal" data-target="#productModal">View Product Details</button>
+                        <input type="hidden" name="itemCode" value="<?php echo $stockItem->itemId; ?>">
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </section>
-</main>
 
-<!-- Modal -->
-<div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <?php    
+      if(isset($_POST['openModal'])) {
+        $itemId = $_POST['itemCode'];
+        echo $itemId;
+        exit;
+      }
+    ?>
+
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contentLabel">Contact Us</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <img class="img-fluid w-100" src="images/bb_phlexi_modal.png" alt="BB Modal Image">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="modalFormWrapper">
+                      <form>
+                        <div class="form-group">
+                          <label for="forName">What's your full name?</label>
+                          <input type="text" class="form-control" id="forName" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="forEmail">What's your email address?</label>
+                          <input type="text" class="form-control" id="forEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="forComment">How can we help you?</label>
+                          <textarea class="form-control" id="forComment" placeholder="Comment" cols="30" rows="5"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-bg" id="sendMessage">Send</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>            
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+</main>
 
 <?php include './common/footer.php'; ?>
