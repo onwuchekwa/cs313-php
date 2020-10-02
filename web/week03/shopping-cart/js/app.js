@@ -5,7 +5,7 @@
         $.ajax({
             url: 'browse_item.php', 
             type: 'GET', 
-            data: {itemId: itemId} ,
+            data: {"itemId": itemId} ,
             success: function(data){
               $("#productModal").modal("show");
               $('#itemCode').val(data.itemId);
