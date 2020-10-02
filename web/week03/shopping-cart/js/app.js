@@ -3,11 +3,12 @@
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             data: {itemCode: itemId},
             success: function(data){
               $("#productModal").modal("show");
-              $('#itemCode').val(data.itemCode);
+              $('.openModal').val('<?php $itemCode =; ?>' + itemId);
+              $('#itemCode').val('<?php echo; ?>' + itemId);
             }
         });
       //$("#productModal").modal("show");
