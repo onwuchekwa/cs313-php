@@ -4,7 +4,7 @@
       e.preventDefault();
         $.ajax({
             url: 'browse_item.php', 
-            type: 'POST', 
+            type: 'GET', 
             data: {itemId: itemId} ,
             success: function(data){
               $("#productModal").modal("show");
