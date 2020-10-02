@@ -4,11 +4,14 @@
       e.preventDefault();
         $.ajax({
             url: 'browse_item.php', 
-            type: 'GET', 
-            data: {"itemId": itemId} ,
+            dataType: 'json', 
+            type: 'POST', 
+            data: JSON.stringify({"itemId": itemId}),
+            //data: {"itemId": itemId},
             success: function(data){
               $("#productModal").modal("show");
-              $('#itemCode').val(data);
+              $('#itemCode').val(data.itemId);
+            }
             }
         });
       //$("#productModal").modal("show");

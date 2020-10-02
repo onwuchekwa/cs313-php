@@ -58,7 +58,7 @@
                           <input type="text" class="form-control" id="forName" placeholder="Name">
                         </div>
                         <div class="form-group">
-                          <pre><?php var_dump($_GET); ?></pre>
+                          <pre><?php var_dump($_POST); ?></pre>
                           <label for="forEmail">What's your email address?<?php echo $_POST['itemId']; ?></label>
                           <input type="text" class="form-control" id="forEmail" placeholder="Email">
                         </div>
