@@ -7,7 +7,7 @@
             data: {itemCode: itemId},
             success: function(data){
               $("#productModal").modal("show");
-              $('#item_id').val(itemId);
+              $('#itemCode').val(itemId);
             }
         });
       //$("#productModal").modal("show");
