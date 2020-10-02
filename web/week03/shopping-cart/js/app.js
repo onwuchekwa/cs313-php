@@ -7,7 +7,8 @@
             type: 'POST', 
             data: itemId,
             success: function(data){
-              $("#productModal").modal("show")
+              $("#productModal").modal("show");
+              alert(itemId);
             }
         });
       //$("#productModal").modal("show");
