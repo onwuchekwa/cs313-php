@@ -57,8 +57,7 @@
                           <label for="forName">What's your full name?</label>
                           <input type="text" class="form-control" id="forName" placeholder="Name">
                         </div>
-                        <div class="form-group">
-                          <pre><?php var_dump($_POST); ?></pre>
+                        <div class="form-group">                          
                           <label for="forEmail">What's your email address?<?php if (isset($_POST["itemCode"])) echo $_POST["itemCode"]; ?></label>
                           <input type="text" class="form-control" id="forEmail" placeholder="Email">
                         </div>
