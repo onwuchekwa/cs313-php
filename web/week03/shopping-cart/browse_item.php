@@ -25,21 +25,12 @@
                         <h3>Price: $<?php echo number_format($stockItem->itemPrice, 2); ?></h3>
                     </div>
                     <div class="card-footer">
-                      <form method="POST" action="">
-                        <input type="submit" class="btn btn-primary" name="openModal" data-toggle="modal" data-target="#productModal">View Product Details</button>
-                        <input type="hidden" name="itemCode" value="<?php echo $stockItem->itemId; ?>">
-                      </form>
+                      <button type="button" class="btn btn-primary openModal" data-itemid="<?php echo $stockItem->itemId; ?>">View Product Details</button>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </section>
-
-    <?php    
-      if(isset($_POST['openModal'])) {
-        $itemId = $_POST['itemCode'];
-      }
-    ?>
 
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -63,7 +54,7 @@
                     <div class="modalFormWrapper">
                       <form>
                         <div class="form-group">
-                          <label for="forName">What's your full name?<?php echo $itemId; ?></label>
+                          <label for="forName">What's your full name?</label>
                           <input type="text" class="form-control" id="forName" placeholder="Name">
                         </div>
                         <div class="form-group">
@@ -88,5 +79,15 @@
         </div>
       </div>
 </main>
+
+<script>
+  $(document).ready(function() {
+    $(".openModal").click(function() {
+      let itemId = $(this).data("itemid");
+      alert(itemId);
+      $("#productModal").modal("show");
+    });
+  });
+</script>
 
 <?php include './common/footer.php'; ?>
