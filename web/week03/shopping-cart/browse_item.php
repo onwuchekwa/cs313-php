@@ -58,7 +58,7 @@
                           <input type="text" class="form-control" id="forName" placeholder="Name">
                         </div>
                         <div class="form-group">
-                          <label for="forEmail">What's your email address?</label>
+                          <label for="forEmail">What's your email address?<?php echo $_POST['itemId']; ?></label>
                           <input type="text" class="form-control" id="forEmail" placeholder="Email">
                         </div>
                         <div class="form-group">
@@ -84,8 +84,16 @@
   $(document).ready(function() {
     $(".openModal").click(function() {
       let itemId = $(this).data("itemid");
-      alert(itemId);
-      $("#productModal").modal("show");
+      e.preventDefault();
+        $.ajax({
+            url: 'browse_item.php', 
+            type: 'POST', 
+            data: itemId,
+            success: function(data){
+              $("#productModal").modal("show")
+            }
+        });
+      //$("#productModal").modal("show");
     });
   });
 </script>
