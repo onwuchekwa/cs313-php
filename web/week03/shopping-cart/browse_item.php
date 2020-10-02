@@ -25,8 +25,10 @@
                         <h3>Price: $<?php echo number_format($stockItem->itemPrice, 2); ?></h3>
                     </div>
                     <div class="card-footer">
+                      <form method="POST">
                         <button type="button" class="btn btn-primary" name="openModal" data-toggle="modal" data-target="#productModal">View Product Details</button>
                         <input type="hidden" name="itemCode" value="<?php echo $stockItem->itemId; ?>">
+                      </form>
                     </div>
                 </div>
             <?php endforeach; ?>
