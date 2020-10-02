@@ -7,7 +7,7 @@
             data: {itemCode: itemId},
             success: function(data){
               $("#productModal").modal("show");
-              $('.openModal').val('<?php $itemCode =; ?>' + itemId);
+              $('.openModal').load('<?php $itemCode =; ?>' + itemId);
               $('#itemCode').val('<?php echo; ?>' + itemId);
             }
         });
