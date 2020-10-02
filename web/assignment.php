@@ -39,8 +39,11 @@
       <div class="row">
         <div class="col-sm-12"> 
             <p class="content text-center">                    
-              <span class="contentText">Coming Soon</span>
-            </p>            
+              <span class="contentText">Link to Assignments</span>
+            </p> 
+             <ul class="text-center">
+               <li><a class="assignment-link" href="./week03/shopping-cart/browse_item.php" title="Shopping Cart">Shopping Cart</a></li>
+             </ul>     
           </div>
         </div>
     </div>

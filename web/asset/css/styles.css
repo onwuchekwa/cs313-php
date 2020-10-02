@@ -94,7 +94,7 @@ footer .fa {
 }
 
 .contentText {
-    font-size: 5rem;
+    font-size: 3rem;
     color: #428bca;
     font-weight: bolder;
     -webkit-animation: fadeIn 5s;
@@ -112,6 +112,10 @@ footer .fa {
     animation: fadeIn 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+.assignment-link {
+	font-size: 1.5rem;	
 }
 
 @keyframes fadeIn {

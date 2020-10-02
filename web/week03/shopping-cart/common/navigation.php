@@ -12,7 +12,7 @@
         <a class="nav-link" href="#">View Cart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Assignment Portal</a>
+        <a class="nav-link" href="/web/assignment.php">Assignment Portal</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">GitHub Repository</a>
