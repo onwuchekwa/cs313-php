@@ -82,7 +82,7 @@
 
 <script>
   $(document).ready(function() {
-    $(".openModal").click(function() {
+    $(".openModal").click(function(e) {
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
