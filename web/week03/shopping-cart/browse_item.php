@@ -36,8 +36,7 @@
     <?php    
       if(isset($_POST['openModal'])) {
         $itemId = $_POST['itemCode'];
-        echo $itemId;
-        exit;
+        echo $itemId;        
       }
     ?>
 
@@ -63,7 +62,7 @@
                     <div class="modalFormWrapper">
                       <form>
                         <div class="form-group">
-                          <label for="forName">What's your full name?</label>
+                          <label for="forName">What's your full name?<?=$itemId; ?></label>
                           <input type="text" class="form-control" id="forName" placeholder="Name">
                         </div>
                         <div class="form-group">
