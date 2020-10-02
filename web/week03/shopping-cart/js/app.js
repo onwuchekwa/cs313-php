@@ -3,15 +3,11 @@
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
-            url: 'browse_item.php', 
-            dataType: 'json', 
-            type: 'POST', 
-            data: JSON.stringify({"itemId": itemId}),
-            //data: {"itemId": itemId},
+            type: 'POST',
+            data: {itemCode: itemId},
             success: function(data){
               $("#productModal").modal("show");
               $('#itemCode').val(data.itemId);
-            }
             }
         });
       //$("#productModal").modal("show");
