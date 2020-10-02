@@ -1,6 +1,15 @@
   $(document).ready(function() {
-    $('#productModal').on('show.bs.modal', function(e) {
-        var itemId = $(e.relatedTarget).data('itemcode');
-        $(e.currentTarget).find('input[name="item_id"]').val(itemId);
+    $(".openModal").click(function(e) {
+      let itemId = $(this).data("itemid");
+      e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            data: {itemCode: itemId},
+            success: function(data){
+              $("#productModal").modal("show");
+              $('#item_id').val(itemId);
+            }
+        });
+      //$("#productModal").modal("show");
     });
   });
