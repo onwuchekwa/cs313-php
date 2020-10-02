@@ -8,7 +8,7 @@
             data: itemId,
             success: function(data){
               $("#productModal").modal("show");
-              alert(itemId);
+              $('#itemCode').val(data.itemId);
             }
         });
       //$("#productModal").modal("show");

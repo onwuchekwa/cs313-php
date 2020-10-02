@@ -74,6 +74,7 @@
               <div class="modal-footer">
                 <button type="submit" class="btn btn-bg" id="sendMessage">Send</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <input type="text" name="itemCode" id="itemCode">
               </div>            
             </form>
           </div>
