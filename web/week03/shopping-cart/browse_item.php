@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                           <pre><?php var_dump($_GET); ?></pre>
-                          <label for="forEmail">What's your email address?<?php echo $_SERVER['itemId']; ?></label>
+                          <label for="forEmail">What's your email address?<?php echo $_POST['itemId']; ?></label>
                           <input type="text" class="form-control" id="forEmail" placeholder="Email">
                         </div>
                         <div class="form-group">
