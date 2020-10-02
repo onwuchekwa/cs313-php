@@ -3,7 +3,7 @@
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
-            url: 'browse_item.php', 
+            url: 'browse_item.php?itemId=' + itemId, 
             type: 'POST', 
             data: itemId,
             success: function(data){
