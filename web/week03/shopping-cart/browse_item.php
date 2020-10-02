@@ -25,7 +25,7 @@
                         <h3>Price: $<?php echo number_format($stockItem->itemPrice, 2); ?></h3>
                     </div>
                     <div class="card-footer">
-                      <button type="button" class="btn btn-primary openModal" data-itemid="<?php echo $stockItem->itemId; ?>">View Product Details</button>
+                      <a class="btn btn-primary openModal" href="browse_item.php#productModal" data-itemcode="<?php echo $stockItem->itemId; ?>">View Product Details</a>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -73,7 +73,7 @@
               <div class="modal-footer">
                 <button type="submit" class="btn btn-bg" id="sendMessage">Send</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <input type="text" name="itemCode" id="itemCode">
+                <input type="text" name="item_id" value="">
               </div>            
             </form>
           </div>

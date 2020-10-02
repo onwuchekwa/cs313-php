@@ -1,15 +1,6 @@
   $(document).ready(function() {
-    $(".openModal").click(function(e) {
-      let itemId = $(this).data("itemid");
-      e.preventDefault();
-        $.ajax({
-            type: 'GET',
-            data: JSON.stringify({itemCode: itemId}),
-            success: function(data){
-              $("#productModal").modal("show");
-              alert(data.itemCode);
-            }
-        });
-      //$("#productModal").modal("show");
+    $('#productModal').on('show.bs.modal', function(e) {
+        var itemId = $(e.relatedTarget).data('itemcode');
+        $(e.currentTarget).find('input[name="item_id"]').val(itemId);
     });
   });
