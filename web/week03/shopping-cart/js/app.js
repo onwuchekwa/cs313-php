@@ -9,6 +9,7 @@
             success: function(data){
               $("#productModal").modal("show");
               $('#itemCode').val(data.itemId);
+              alert(data.itemId);
             }
         });
       //$("#productModal").modal("show");
