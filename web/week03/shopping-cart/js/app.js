@@ -3,8 +3,8 @@
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
-            type: 'POST',
-            data: {itemCode: itemId},
+            type: 'GET',
+            data: JSON.stringify({itemCode: itemId}),
             success: function(data){
               $("#productModal").modal("show");
               alert(data);
