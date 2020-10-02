@@ -3,13 +3,12 @@
       let itemId = $(this).data("itemid");
       e.preventDefault();
         $.ajax({
-            url: 'browse_item.php?itemId=' + itemId, 
-            type: 'GET', 
-            data: itemId,
+            url: 'browse_item.php', 
+            type: 'POST', 
+            data: {itemId: itemId} ,
             success: function(data){
               $("#productModal").modal("show");
-              $('#itemCode').val(itemId);
-              alert(itemId);
+              $('#itemCode').val(data.itemId);
             }
         });
       //$("#productModal").modal("show");
