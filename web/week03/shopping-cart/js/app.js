@@ -1,8 +1,8 @@
-  $(document).ready(function() {
-    $(".openModal").click(function(e) {
+ jQuery(document).ready(function() {
+    jQuery(".openModal").click(function(e) {
       let itemId = $(this).data("itemid");
       e.preventDefault();
-        $.ajax({
+      jQuery.ajax({
             url: 'browse_item.php', 
             type: 'POST', 
             data: itemId,
