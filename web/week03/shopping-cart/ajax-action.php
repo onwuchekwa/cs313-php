@@ -75,7 +75,7 @@
                 );
 
                 $_SESSION["clientData"] = $clientData;
-                include 'confirmation.php';
+                header('location: confirmation.php');
             break;
         }
     }
