@@ -59,7 +59,7 @@
 
                 if(empty($clientName) || empty($clientEmail) || empty($clientPhone) || empty($clientAddress) || empty($clientPostal) || empty($clientState)) {
                     $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                    header('Location: checkout.php');
+                    include 'checkout.php';
                     exit; 
                 }
 
@@ -74,7 +74,7 @@
                     'clientPostal' => $clientPostal,
                     'clientState' => $clientState
                 );
-
+echo 'trouble';
                 $_SESSION["clientData"] = $clientDataArray;
                 header('location: confirmation.php');
                 exit;
