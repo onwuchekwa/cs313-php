@@ -1,4 +1,3 @@
-
 function manageCart(action, itemCode) {
     let quertString = "";
     if(action != "") {
