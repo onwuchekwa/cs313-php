@@ -7,8 +7,8 @@
 <main>
     <section>
         <h1 class="heading">Product Listing</h1>
+        <a href="view_cart.php" title="View Cart" class="btn btn-primary"><img src="images/add-to-cart.png" alt="vew cart"> View Cart</a>
         <div class="product-container">
-          <a href="view_cart.php" title="View Cart" class="btn btn-primary"><img src="images/add-to-cart.png" alt="vew cart"> View Cart</a>
           <?php
             if(!empty($prodList)) {
               foreach($prodList as $row => $item) {
