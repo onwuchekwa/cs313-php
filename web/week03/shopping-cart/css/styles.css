@@ -157,7 +157,7 @@ footer {
     }
 
     .checkout-container {
-      grid-template-columns: 40% 60%;
+      grid-template-columns: repeat(2, 1fr);
     }
 }
 
