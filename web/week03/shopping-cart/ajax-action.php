@@ -78,6 +78,7 @@
                 $_SESSION["clientData"] = $clientDataArray;*/
                 //header('Location: confirmation.php');
                 //exit;
+                echo "I am here";
                 echo "<script type='text/javascript'>window.location='confirmation.php';</script>"; 
                 exit;
             break;
