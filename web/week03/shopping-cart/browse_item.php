@@ -16,7 +16,7 @@
               foreach($prodList as $row => $item) {
           ?>
           <div class="product-card">
-            <form action="" id="formProduct">
+            <form>
               <div class="prod-image">
                 <img src="<?php echo $prodList[$row]["productImage"]; ?>" alt="image of <?php echo $prodList[$row]["itemName"]; ?>">
               </div>
@@ -30,7 +30,7 @@
                   </div>
                 </div>
                 <div class="prod-info">
-                  Quantity: <input type="number" id="quantity_<?php echo $prodList[$row]["itemCode"]; ?>" name="quantity" value="1" size="2" min="1" >
+                  Quantity: <input type="number" id="quantity_<?php echo $prodList[$row]["itemCode"]; ?>" name="quantity" value="1" min="1" >
                 </div>
                 <div class="card-footer prod-info">
                   <button type="button" id="add_<?php echo $prodList[$row]["itemCode"]; ?>" class="btn btn-danger cart-action" onClick="manageCart('add','<?php echo $prodList[$row]["itemCode"]; ?>')"><img src="images/add-to-cart.png" alt="add to cart"> Add to cart</button>

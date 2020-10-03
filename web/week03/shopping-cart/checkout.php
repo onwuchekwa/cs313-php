@@ -12,7 +12,7 @@
         <h1 class="heading">Checkout</h1>
         <div id="client-checkout">
             <div class="customer info">
-                <form action="" method="POST">                    
+                <form>                    
                     <?php
                         if (isset($message)) {
                             echo $message;
