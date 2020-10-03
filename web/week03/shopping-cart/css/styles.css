@@ -93,7 +93,7 @@ form {
 }
 
 form label.top {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   padding-top: 1rem;
   text-align: left;    
   color: #000000;
@@ -107,7 +107,7 @@ form label > span {
 
 form label.top input {
   display: block;
-  font-size: 1rem;
+  font-size: .8rem;
   border: 1px solid #de2226;
   border-radius: 5px;
   padding: .75rem;
