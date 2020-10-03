@@ -30,7 +30,12 @@ function manageCart(action, itemCode) {
                 $("#add_" + itemCode + " img").attr("src", "images/icon-check.png");
                 $("#add_" + itemCode).attr("onclick", "");
             }
+            if(action == "checkout") {
+                window.location = "confirmation.php";
+            }
+        },
+            error : function() {
         }
-    })
+    });
 }
 

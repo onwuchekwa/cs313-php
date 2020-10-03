@@ -50,11 +50,6 @@
                 unset($_SESSION["cartItems"]);
             break;	
             case "checkout":
-                header('Location: confirmation.php');
-                exit;
-            break;
-            //case "checkout":
-                /*
                 $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
                 $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
                 $clientPhone = filter_input(INPUT_POST, 'clientPhone', FILTER_SANITIZE_STRING);
@@ -80,8 +75,7 @@
                     'clientState' => $clientState
                 );
 
-                $_SESSION["clientData"] = $clientDataArray;*/
-                
-            //break;
+                $_SESSION["clientData"] = $clientDataArray;
+            break;
         }
     }
