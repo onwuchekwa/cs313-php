@@ -48,6 +48,7 @@ main {
   background: #E2E2E2;
   border-top: #CCC 2px solid;
   margin: 15px 0px;
+  font-weight: bolder;
 }
 
 .heading a {

@@ -9,7 +9,7 @@
 
 <main>
     <div>
-        <div class="heading">View Cart <a class="btn btn-primary btnEmpty" class="cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></div>
+        <div class="heading">View Cart <a class="btn btn-primary btnEmpty cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></div>
         <div id="cartItems">
             <table class="cart-table">
                 <tbody>
@@ -26,7 +26,7 @@
                             <td><?php echo $item['itemCode']; ?></td>
                             <td class="text-right"><?php echo $item['quantity']; ?></td>
                             <td class="text-right"><?php echo "$". number_format($item['itemPrice'], 2); ?></td>
-                            <td class="text-center"><a onClick="manageCart('remove','<?php echo $item["itemCode"]; ?>')" class="btn btn-danger cart-action"><img src="images/icon-delete.png" ></a></td>
+                            <td class="text-center"><a onClick="manageCart('remove','<?php echo $item["itemCode"]; ?>')" class="btn btn-danger cart-action"><img src="images/icon-delete.png" alt="delete item"></a></td>
                         </tr>
                     <?php
                         $itemTotal += ($item['itemPrice'] * $item['quantity']);                
@@ -38,8 +38,8 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right"><a href="browse_item.php" title="View Cart" class="btn btn-dark">Add more item</a></td>
-                        <td colspan="2" class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
+                        <td colspan="4" class="text-right"><a href="browse_item.php" title="View Cart" class="btn btn-dark">Add more item</a></td>
+                        <td colspan="1" class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
                     </tr>
                 </tbody>
             </table>
