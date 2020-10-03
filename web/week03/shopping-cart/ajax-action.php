@@ -65,7 +65,7 @@
                 $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
                 $clientEmail = $valEmail;
 
-                $_SESSION["clientData"] = array(
+                $clientData = array(
                     'clientName' => $clientName,
                     'clientEmail' => $clientEmail,
                     'clientPhone' => $clientPhone,
@@ -73,6 +73,8 @@
                     'clientPostal' => $clientPostal,
                     'clientState' => $clientState
                 );
+
+                $_SESSION["clientData"] = $clientData;
             break;
         }
     }

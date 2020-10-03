@@ -5,10 +5,6 @@
     
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
-
-        foreach($_SESSION["cartItems"] as $row => $item) {
-            var_dump($_SESSION['clientData'][$row]['clientName']);
-        }
 ?>
 
 <main>
@@ -19,7 +15,8 @@
                 <tbody>
                     <tr>
                         <td class="table-header">Client Name</td>
-                        <td class="text-right"><?php echo $_SESSION['clientData']['clientName']; ?></td>
+                        <td class="text-right"><?php echo $_POST['clientName']; ?></td>
+                        <?php var_dump($_SESSION["clientData"]); exit; ?>
                     </tr>
                 </tbody>                        
             </table>
