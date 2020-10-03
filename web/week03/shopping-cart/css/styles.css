@@ -39,8 +39,12 @@ main {
     border-radius: 10px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
     padding: 16px;
-  }
-  
+}
+
+.view-cart-nav {
+  margin: 0 2%;
+  margin-bottom: 15px;;
+}
 
 footer {
     color: #fff;
