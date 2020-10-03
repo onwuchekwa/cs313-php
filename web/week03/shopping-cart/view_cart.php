@@ -17,7 +17,8 @@
                         <th><strong>Product Name</strong></th>
                         <th><strong>Product Code</strong></th>
                         <th class="text-right"><strong>Quantity Ordered</strong></th>
-                        <th class="text-right"><strong>Price</strong></th>
+                        <th class="text-right"><strong>Unit Price</strong></th>
+                        <th class="text-right"><strong>Amount</strong></th>
                         <th></th>
                     </tr>
                     <?php foreach($_SESSION['cartItems'] as $item):?>
@@ -26,6 +27,7 @@
                             <td><?php echo $item['itemCode']; ?></td>
                             <td class="text-right"><?php echo $item['quantity']; ?></td>
                             <td class="text-right"><?php echo "$". number_format($item['itemPrice'], 2); ?></td>
+                            <td class="text-right"><?php echo "$". number_format($item['itemPrice'] * $item['quantity'], 2); ?></td>
                             <td class="text-center"><a onClick="manageCart('remove','<?php echo $item["itemCode"]; ?>')" class="btn btn-danger cart-action"><img src="images/icon-delete.png" alt="delete item"></a></td>
                         </tr>
                     <?php
@@ -33,13 +35,13 @@
                         endforeach;
                     ?>
                     <tr>
-                        <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                        <td colspan="4" class="text-right"><strong>Total:</strong></td>
                         <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td colspan="4" class="text-right"><a href="browse_item.php" title="View Cart" class="btn btn-dark">Add more item</a></td>
-                        <td colspan="1" class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
+                        <td colspan="5" class="text-right"><a href="browse_item.php" title="View Cart" class="btn btn-dark">Add more item</a></td>
+                        <td class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
                     </tr>
                 </tbody>
             </table>
