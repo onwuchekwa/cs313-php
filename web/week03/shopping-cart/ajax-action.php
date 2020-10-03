@@ -43,13 +43,18 @@
                             unset($_SESSION["cartItems"]);
                     }
                 }
-                //echo '<script type="text/javascript">location.reload(true);</script>';
-                //exit;
+                echo '<script type="text/javascript">location.reload(true);</script>';
+                exit;
             break;
             case "empty":
                 unset($_SESSION["cartItems"]);
             break;	
-            case "checkout":/*
+            case "checkout":
+                header('Location: confirmation.php');
+                exit;
+            break;
+            //case "checkout":
+                /*
                 $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
                 $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
                 $clientPhone = filter_input(INPUT_POST, 'clientPhone', FILTER_SANITIZE_STRING);
@@ -76,11 +81,7 @@
                 );
 
                 $_SESSION["clientData"] = $clientDataArray;*/
-                //header('Location: confirmation.php');
-                //exit;
-                echo "I am here";
-                echo "<script type='text/javascript'>window.location='confirmation.php';</script>"; 
-                exit;
-            break;
+                
+            //break;
         }
     }
