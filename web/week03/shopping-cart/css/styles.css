@@ -132,7 +132,7 @@ form label.top input:required:valid {
   grid-gap: 20px;
   text-align: center;
   justify-content: center;
-  margin: 0 2%;
+  margin: 0 1%;
 }
 
 .customer-info {
@@ -157,7 +157,7 @@ footer {
     }
 
     .checkout-container {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 40% 60%;
     }
 }
 

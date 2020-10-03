@@ -36,7 +36,7 @@
                     ?>
                     <tr>
                         <td colspan="4" class="text-right"><strong>Total:</strong></td>
-                        <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
+                        <td colspan="2" class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
                         <td></td>
                     </tr>
                     <tr>
