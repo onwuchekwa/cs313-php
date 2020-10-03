@@ -78,6 +78,7 @@
 
                 $_SESSION["clientData"] = $clientData;
                 header('location: confirmation.php');
+                exit;
             break;
         }
     }
