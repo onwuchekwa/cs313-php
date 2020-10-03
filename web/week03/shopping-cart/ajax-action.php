@@ -49,7 +49,6 @@
                 unset($_SESSION["cartItems"]);
             break;	
             case "checkout":
-                header('location: confirmation.php');
                 exit;
                 $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
                 $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
@@ -57,16 +56,16 @@
                 $clientAddress = filter_input(INPUT_POST, 'clientAddress', FILTER_SANITIZE_STRING);
                 $clientPostal = filter_input(INPUT_POST, 'clientPostal', FILTER_SANITIZE_STRING);
                 $clientState = filter_input(INPUT_POST, 'clientState', FILTER_SANITIZE_STRING);
-
+/*
                 if(empty($clientName) || empty($clientEmail) || empty($clientPhone) || empty($clientAddress) || empty($clientPostal) || empty($clientState)) {
                     $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                    header('location: checkout.php');
+                    header('Location: checkout.php');
                     exit; 
                 }
 
                 $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
                 $clientEmail = $valEmail;
-
+*/
                 $clientDataArray = array(
                     'clientName' => $clientName,
                     'clientEmail' => $clientEmail,
