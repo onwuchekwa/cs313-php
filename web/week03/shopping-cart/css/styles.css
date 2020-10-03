@@ -139,6 +139,11 @@ form label.top input:required:valid {
   width: 600px;
 }
 
+.quantity {
+  width: 30px;
+  height: 30px;
+}
+
 footer {
     color: #fff;
     padding: 25px;

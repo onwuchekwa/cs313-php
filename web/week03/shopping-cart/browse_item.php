@@ -27,7 +27,7 @@
                   </div>
                 </div>
                 <div class="prod-info">
-                  Quantity: <input type="number" id="quantity_<?php echo $prodList[$row]["itemCode"]; ?>" name="quantity" value="1" min="1" >
+                  Quantity: <input type="number" id="quantity_<?php echo $prodList[$row]["itemCode"]; ?>" name="quantity" value="1" min="1" class="quantity">
                 </div>
                 <div class="card-footer prod-info">
                   <button type="button" id="add_<?php echo $prodList[$row]["itemCode"]; ?>" class="btn btn-danger cart-action" onClick="manageCart('add','<?php echo $prodList[$row]["itemCode"]; ?>')"><img src="images/add-to-cart.png" alt="add to cart"> Add to cart</button>
