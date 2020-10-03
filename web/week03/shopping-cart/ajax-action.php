@@ -9,9 +9,11 @@
             case "add":
                 if(!empty($_POST["quantity"])) {
                     $itemCode = $prodList[$_POST["itemCode"]];
+                    echo $itemCode;
+                    exit;
                     $itemArray = array(
                         $itemCode["itemCode"] => array(
-                            'itemName'=> $prodList["itemName"], 
+                            'itemName'=> $itemCode["itemName"], 
                             'itemCode'=>$itemCode["itemCode"], 
                             'quantity'=>$_POST["quantity"], 
                             'itemPrice'=>$itemCode["itemPrice"]
