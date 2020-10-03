@@ -13,6 +13,10 @@ function manageCart(action, itemCode) {
             case "empty":
                 quertString = "action=" + action;
                 break;
+
+            case "checkout":
+                quertString = "action=" + action;
+                break;
         }
     }
 

@@ -44,7 +44,7 @@
                 </tbody>
             </table>
     <?php } else { ?>
-            <p class="empty-cart text-center">Your cart is empty</p>
+            <p class="empty-cart text-center">Your cart is empty. Click <a href="browse_item.php" title="Return to browse item page">here</a> to add browse our products.</p>
     <?php } ?>
         </div>
     </section>
