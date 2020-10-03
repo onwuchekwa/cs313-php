@@ -76,6 +76,8 @@
                 );
 
                 $_SESSION["clientData"] = $clientDataArray;
+                header('location: confirmation.php');
+                exit;
             break;
         }
     }
