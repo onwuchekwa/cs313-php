@@ -75,9 +75,6 @@
                 );
 
                 $_SESSION["clientData"] = $clientData;
-                
-                var_dump($_SESSION["clientData"]); 
-                exit; 
                 include 'confirmation.php';
             break;
         }
