@@ -43,7 +43,8 @@
                             unset($_SESSION["cartItems"]);
                     }
                 }
-                include 'view_cart.php';
+                header('Location: view_cart.php');
+                exit;
             break;
             case "empty":
                 unset($_SESSION["cartItems"]);

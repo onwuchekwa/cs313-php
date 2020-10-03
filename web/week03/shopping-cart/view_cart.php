@@ -9,7 +9,7 @@
 
 <main>
     <section>
-        <h1 class="heading">View Cart <a id="btnEmpty" class="cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" /> Empty Cart</a></h1>
+        <h1 class="heading">View Cart <a id="btnEmpty" class="cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></h1>
         <div id="cartItems">
             <table class="cart-table">
                 <tbody>
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right"><a href="browse_item.php" title="View Cart" class="btn btn-dark">Add more item</a></td>
-                        <td colspan="3" class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
+                        <td colspan="2" class="text-left"><a href="checkout.php" title="Proceed to checkout" class="btn btn-success">Proceed to checkout</a></td>
                     </tr>
                 </tbody>
             </table>
