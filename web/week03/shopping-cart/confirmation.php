@@ -1,15 +1,15 @@
 <?php
     $pageTitle = 'Confirmation';
     include './common/header.php';
-    require_once("ajax-action.php");
-    
+    //require_once("ajax-action.php");
+    session_start();
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
 ?>
 
 <main>
     <section>
-        <h1 class="heading">Confirmm Purchase</h1>
+        <h1 class="heading">Confirm Purchase</h1>
         <div id="cartItems chechout-container">
             <table class="customer info">
                 <tbody>
