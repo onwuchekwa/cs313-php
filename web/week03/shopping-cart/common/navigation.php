@@ -6,20 +6,20 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="browse_item.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">View Cart</a>
+        <a class="nav-link" href="view_cart.php">View Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="checkout.php">Checkout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="confirmation.php">Confirmation</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/assignment.php">Assignment Portal</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">GitHub Repository</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Heroku Repository</a>
-      </li>
+      </li>      
     </ul>
   </div>
 </nav>

@@ -1,15 +1,33 @@
-  $(document).ready(function() {
-    $(".openModal").click(function(e) {
-      let itemId = $(this).data("itemid");
-      e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            data: {itemCode: itemId},
-            success: function(data){
-              $("#productModal").modal("show");
-              $('#itemCode').val(itemId);
+$(document).ready(function() {
+    const manageCart = (action, itemCode) => {
+        let quertString = "";
+        if(action != "") {
+            switch(action) {
+                case "add":
+                    quertString = "action=" + action + "&itemCode=" + itemCode + "&quantity=" + $("#quantity_" + itemCode).val();
+                    break;
+    
+                case "remove":
+                    quertString = "action=" + action + "&itemCode=" + itemCode;
+                    break;
+                    
+                case "empty":
+                    quertString = "action=" + action;
+                    break;
             }
-        });
-      //$("#productModal").modal("show");
-    });
-  });
+        }
+    
+        $.ajax({
+            url: "../ajax-action",
+            data: quertString,
+            type: "POST",
+            success: function(data) {
+                $("#cartItems").html(data);
+                if(action == "add") {
+                    $("#add_" + itemCode + " img").attr("src", "images/icon-check.png");
+                    $("#add_" + itemCode).attr("onclick", "");
+                }
+            }
+        })
+    }
+});
