@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const manageCart = (action, itemCode) => {
+    function manageCart(action, itemCode) {
         let quertString = "";
         if(action != "") {
             switch(action) {
