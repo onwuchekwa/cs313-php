@@ -8,7 +8,7 @@
         switch($_POST["action"]) {
             case "add":
                 if(!empty($_POST["quantity"])) {
-                    $itemCode = $productArray[$_POST["itemCode"]];
+                    $itemCode = $prodList[$_POST["itemCode"]];
                     $itemArray = array(
                         $itemCode["itemCode"] => array(
                             'itemName'=> $itemCode["itemName"], 
