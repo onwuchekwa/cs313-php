@@ -140,8 +140,8 @@ form label.top input:required:valid {
 }
 
 .quantity {
-  width: 30px;
-  height: 30px;
+  width: 10rem;
+  margin-bottom: 20px;
 }
 
 footer {
