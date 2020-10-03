@@ -25,20 +25,20 @@
             <table class="customerInfo">
                 <tbody>
                     <tr>
-                        <td class="table-header"><strong>Client Name:</strong></td>
-                        <td class="text-right"><?php echo $clientName; ?></td>
+                        <td class="text-left"><strong>Client Name:</strong></td>
+                        <td class="text-left"><?php echo $clientName; ?></td>
                     </tr>
                     <tr>
-                        <td class="table-header"><strong>Client Email:</strong></td>
-                        <td class="text-right"><?php echo $clientEmail; ?></td>
+                        <td class="text-left"><strong>Client Email:</strong></td>
+                        <td class="text-left"><?php echo $clientEmail; ?></td>
                     </tr>
                     <tr>
-                        <td class="table-header"><strong>Client Phone:</strong></td>
-                        <td class="text-right"><?php echo $clientPhone; ?></td>
+                        <td class="text-left"><strong>Client Phone:</strong></td>
+                        <td class="text-left"><?php echo $clientPhone; ?></td>
                     </tr>
                     <tr>
                         <td class="table-header"><strong>Client Address:</strong></td>
-                        <td class="text-right"><?php echo $clientAddress . ', '. $clientPostal . ', ' . $clientState; ?></td>
+                        <td class="text-left"><?php echo $clientAddress . ', '. $clientPostal . ', ' . $clientState; ?></td>
                     </tr>
                 </tbody>                        
             </table>
