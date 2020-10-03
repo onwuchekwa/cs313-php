@@ -5,8 +5,8 @@
 ?>
 
 <main>
-    <section>
-        <h1 class="heading">Product Listing</h1>
+    <div>
+        <div class="heading">Product Listing</div>
         <div class="view-cart-nav text-right">
           <a href="view_cart.php" title="View Cart" class="btn btn-primary"><img src="images/add-to-cart.png" alt="vew cart"> View Cart</a>
         </div>        
@@ -43,6 +43,6 @@
             }
             ?>
         </div>
-    </section>
+      </div>
 </main>
 <?php include './common/footer.php'; ?>

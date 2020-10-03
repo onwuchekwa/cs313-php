@@ -6,17 +6,39 @@
 
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
+
+        $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $clientPhone = filter_input(INPUT_POST, 'clientPhone', FILTER_SANITIZE_STRING);
+        $clientAddress = filter_input(INPUT_POST, 'clientAddress', FILTER_SANITIZE_STRING);
+        $clientPostal = filter_input(INPUT_POST, 'clientPostal', FILTER_SANITIZE_STRING);
+        $clientState = filter_input(INPUT_POST, 'clientState', FILTER_SANITIZE_STRING);
+
+        $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
+        $clientEmail = $valEmail;
 ?>
 
 <main>
-    <section>
-        <h1 class="heading">Confirm Purchase</h1>
-        <div id="cartItems" class="chechout-container">
-            <table class="customer info">
+    <div>
+        <div class="heading">Confirm Purchase</div>
+        <div id="cartItems" class="checkout-container">
+            <table class="customerInfo">
                 <tbody>
                     <tr>
                         <td class="table-header"><strong>Client Name:</strong></td>
-                        <td class="text-right"><?php echo $_POST['clientName']; ?></td>
+                        <td class="text-right"><?php echo $clientName; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="table-header"><strong>Client Email:</strong></td>
+                        <td class="text-right"><?php echo $clientEmail; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="table-header"><strong>Client Phone:</strong></td>
+                        <td class="text-right"><?php echo $clientPhone; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="table-header"><strong>Client Address:</strong></td>
+                        <td class="text-right"><?php echo $clientAddress . ', '. $clientPostal . ', ' . $clientState; ?></td>
                     </tr>
                 </tbody>                        
             </table>
@@ -43,13 +65,16 @@
                         <td colspan="3" class="text-right"><strong>Total:</strong></td>
                         <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
                     </tr>
+                    <tr>
+                        <td colspan="5" class="text-right"><a href="thanks.php" title="Procced to thank you page"  class="btn btn-success">Confirm Purchase</a></td>
+                    </tr>
                 </tbody>
             </table>
     <?php } else { ?>
             <p class="empty-cart text-center">Your cart is empty. Click <a href="browse_item.php" title="Return to browse item page">here</a> to add browse our products.</p>
     <?php } ?>
         </div>
-    </section>
+    </div>
 </main>
 
 <?php include './common/footer.php'; ?>

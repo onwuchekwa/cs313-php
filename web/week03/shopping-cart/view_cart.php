@@ -8,8 +8,8 @@
 ?>
 
 <main>
-    <section>
-        <h1 class="heading">View Cart <a id="btnEmpty" class="cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></h1>
+    <div>
+        <div class="heading">View Cart <a id="btnEmpty" class="cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></div>
         <div id="cartItems">
             <table class="cart-table">
                 <tbody>
@@ -47,7 +47,7 @@
             <p class="empty-cart text-center">Your cart is empty. Click <a href="browse_item.php" title="Return to browse item page">here</a> to add browse our products.</p>
     <?php } ?>
         </div>
-    </section>
+    </div>
 </main>
 
 <?php include './common/footer.php'; ?>

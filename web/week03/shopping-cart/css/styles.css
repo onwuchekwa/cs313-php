@@ -1,7 +1,9 @@
-h1,
-h2 {
-    text-align: center;
-    font-weight: bolder;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -45,6 +47,98 @@ main {
   margin-bottom: 15px;;
 }
 
+.heading {
+  padding: 5px 10px;
+  font-size: 1.3em;
+  background: #E2E2E2;
+  border-top: #CCC 2px solid;
+  margin: 30px 0px 10px 0px;
+}
+
+#btnEmpty {
+  font-size: 0.8em;
+  float: right;
+}
+
+#btnEmpty img {
+  vertical-align: middle;
+}
+
+.cart-action {
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  font-size: 0.9em;
+  border-spacing: initial;
+  margin: 20px 0px;
+  word-break: break-word;
+  table-layout: auto;
+}
+
+table th {
+  background-color: #f5f5f5;
+  padding: 5px;
+  text-align: left;
+}
+
+table td {
+  border-bottom: #f0f0f0 1px solid;
+  background-color: #ffffff;
+  padding: 5px;
+}
+
+form {
+  margin: 0 auto;
+}
+
+form label.top {
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  text-align: left;    
+  color: #000000;
+  display: block;
+}
+
+form label > span {
+  font-size: .9rem;
+  color: #de2226;
+}
+
+form label.top input {
+  display: block;
+  font-size: 1rem;
+  border: 1px solid #de2226;
+  border-radius: 5px;
+  padding: .75rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);    
+  box-sizing: border-box;
+}
+
+form label.top input:required {
+  border-left: 6px solid #de2226;
+}
+
+form label.top input:required:valid {
+  border-left: 6px solid #004c00;
+}
+
+.checkout-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 2%;
+}
+
+.customer-info {
+  width: 600px;
+}
+
 footer {
     color: #fff;
     padding: 25px;
@@ -53,6 +147,10 @@ footer {
 
 @media only screen and (min-width: 37.5em) {    
     .product-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checkout-container {
       grid-template-columns: repeat(2, 1fr);
     }
 }

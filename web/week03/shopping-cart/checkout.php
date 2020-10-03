@@ -8,10 +8,10 @@
 ?>
 
 <main>
-    <section>
-        <h1 class="heading">Checkout</h1>
+    <div>
+        <div class="heading">Checkout</div>
         <div id="client-checkout">
-            <div class="customer info">
+            <div class="customer-info">
                 <form action="confirmation.php" method="POST"> 
                     <label for="clientName" class="top"> Full Name: <span class="required">*</span>
                         <input type="text" name="clientName" id="clientName" placeholder="Enter your full name here" required>
@@ -39,7 +39,7 @@
             <p class="empty-cart text-center">Your cart is empty. Click <a href="browse_item.php" title="Return to browse item page">here</a> to add browse our products.</p>
     <?php } ?>
         </div>
-    </section>
+    </div>
 </main>
 
 <?php include './common/footer.php'; ?>
