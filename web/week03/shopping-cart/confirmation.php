@@ -3,6 +3,7 @@
     include './common/header.php';
     //require_once("ajax-action.php");
     session_start();
+
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
 ?>
@@ -10,7 +11,7 @@
 <main>
     <section>
         <h1 class="heading">Confirm Purchase</h1>
-        <div id="cartItems chechout-container">
+        <div id="cartItems" class="chechout-container">
             <table class="customer info">
                 <tbody>
                     <tr>
