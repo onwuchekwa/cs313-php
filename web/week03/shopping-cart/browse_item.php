@@ -6,10 +6,7 @@
 
 <main>
     <div>
-        <div class="heading">Product Listing</div>
-        <div class="view-cart-nav text-right">
-          <a href="view_cart.php" title="View Cart" class="btn btn-primary"><img src="images/add-to-cart.png" alt="vew cart"> View Cart</a>
-        </div>        
+        <div class="heading">Product Listing <a href="view_cart.php" title="View Cart" class="btn btn-primary btnEmpty"><img src="images/add-to-cart.png" alt="vew cart"> View Cart</a></div>
         <div class="product-container">
           <?php
             if(!empty($prodList)) {
