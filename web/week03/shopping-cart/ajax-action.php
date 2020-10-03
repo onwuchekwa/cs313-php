@@ -48,36 +48,6 @@
             break;
             case "empty":
                 unset($_SESSION["cartItems"]);
-            break;	
-            case "checkout":
-                $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
-                $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
-                $clientPhone = filter_input(INPUT_POST, 'clientPhone', FILTER_SANITIZE_STRING);
-                $clientAddress = filter_input(INPUT_POST, 'clientAddress', FILTER_SANITIZE_STRING);
-                $clientPostal = filter_input(INPUT_POST, 'clientPostal', FILTER_SANITIZE_STRING);
-                $clientState = filter_input(INPUT_POST, 'clientState', FILTER_SANITIZE_STRING);
-
-                if(empty($clientName) || empty($clientEmail) || empty($clientPhone) || empty($clientAddress) || empty($clientPostal) || empty($clientState)) {
-                    $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                    include 'checkout.php';
-                    exit; 
-                }
-
-                $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
-                $clientEmail = $valEmail;
-
-                $clientDataArray = array(
-                    'clientName' => $clientName,
-                    'clientEmail' => $clientEmail,
-                    'clientPhone' => $clientPhone,
-                    'clientAddress' => $clientAddress,
-                    'clientPostal' => $clientPostal,
-                    'clientState' => $clientState
-                );
-echo 'trouble';
-                $_SESSION["clientData"] = $clientDataArray;
-                header('location: confirmation.php');
-                exit;
             break;
         }
     }

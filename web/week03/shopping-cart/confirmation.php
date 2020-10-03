@@ -16,7 +16,7 @@
                 <tbody>
                     <tr>
                         <td class="table-header"><strong>Client Name:</strong></td>
-                        <td class="text-right"><?php echo $_SESSION["clientData"]['clientName']; ?></td>
+                        <td class="text-right"><?php echo $_POST['clientName']; ?></td>
                     </tr>
                 </tbody>                        
             </table>

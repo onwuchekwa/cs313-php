@@ -13,10 +13,6 @@ function manageCart(action, itemCode) {
             case "empty":
                 quertString = "action=" + action;
                 break;
-
-            case "checkout":
-                quertString = "action=" + action;
-                break;
         }
     }
 
@@ -29,10 +25,7 @@ function manageCart(action, itemCode) {
             if(action == "add") {
                 $("#add_" + itemCode + " img").attr("src", "images/icon-check.png");
                 $("#add_" + itemCode).attr("onclick", "");
-            }/*
-            if(action == "checkout") {
-                window.location = "confirmation.php";
-            }*/
+            }
         },
             error : function() {
         }

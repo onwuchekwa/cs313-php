@@ -12,12 +12,7 @@
         <h1 class="heading">Checkout</h1>
         <div id="client-checkout">
             <div class="customer info">
-                <form>                    
-                    <?php
-                        if (isset($message)) {
-                            echo $message;
-                        }
-                    ?>
+                <form action="confirmation.php" method="POST"> 
                     <label for="clientName" class="top"> Full Name: <span class="required">*</span>
                         <input type="text" name="clientName" id="clientName" placeholder="Enter your full name here" required>
                     </label>
@@ -37,7 +32,7 @@
                         <input type="text" name="clientState" id="clientState" placeholder="Enter your state here" required>
                     </label>
                     <a href="view_cart.php" title="Return to cart" class="btn btn-secondary">Return to cart</a>
-                    <button type="button" id="checkout" onClick="manageCart('checkout', '');" class="btn btn-primary">Checkout</button>
+                    <button type="submit" id="checkout" class="btn btn-primary">Checkout</button>
                 </form>
             </div>            
     <?php } else { ?>
