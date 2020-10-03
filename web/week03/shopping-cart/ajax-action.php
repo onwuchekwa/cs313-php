@@ -49,7 +49,7 @@
                 unset($_SESSION["cartItems"]);
             break;	
             case "checkout":
-                echo 'I am in the check switch area';
+                header('location: confirmation.php');
                 exit;
                 $clientName = filter_input(INPUT_POST, 'clientName', FILTER_SANITIZE_STRING);
                 $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
