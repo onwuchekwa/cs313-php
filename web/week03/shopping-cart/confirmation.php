@@ -14,9 +14,8 @@
             <table class="customer info">
                 <tbody>
                     <tr>
-                        <td class="table-header">Client Name</td>
+                        <td class="table-header"><strong>Client Name:</strong></td>
                         <td class="text-right"><?php echo $_POST['clientName']; ?></td>
-                        <?php var_dump($_SESSION["clientData"]); exit; ?>
                     </tr>
                 </tbody>                        
             </table>
