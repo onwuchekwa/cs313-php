@@ -22,7 +22,7 @@
     <div>
         <div class="heading">Confirm Purchase</div>
         <div id="cartItems" class="checkout-container">
-            <table class="customerInfo table table-striped table-bordered table-responsive">
+            <table class="customerInfo table table-striped table-bordered">
                 <tbody>
                     <tr>
                         <td class="text-left"><strong>Client Name:</strong></td>
@@ -42,7 +42,7 @@
                     </tr>
                 </tbody>                        
             </table>
-            <table class="cartTable table table-striped table-bordered table-responsive">
+            <table class="cartTable table table-striped table-bordered">
                 <tbody>
                     <tr>
                         <th><strong>Product Name</strong></th>
