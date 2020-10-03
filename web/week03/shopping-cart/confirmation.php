@@ -22,7 +22,7 @@
     <div>
         <div class="heading">Confirm Purchase</div>
         <div id="cartItems" class="checkout-container">
-            <table class="customerInfo table table-striped table-bordered">
+            <table class="customerInfo table table-striped table-bordered table-responsive">
                 <tbody>
                     <tr>
                         <td class="text-left"><strong>Client Name:</strong></td>
@@ -42,7 +42,7 @@
                     </tr>
                 </tbody>                        
             </table>
-            <table class="cartTable table table-striped table-bordered">
+            <table class="cartTable table table-striped table-bordered table-responsive">
                 <tbody>
                     <tr>
                         <th><strong>Product Name</strong></th>
@@ -68,7 +68,7 @@
                         <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right"><a href="thanks.php" title="Procced to thank you page"  class="btn btn-success">Confirm Purchase</a></td>
+                        <td colspan="5" class="text-right"><a href="thanks.php" title="Procced to thank you page"  class="btn btn-success">Confirm Purchase</a></td>
                     </tr>
                 </tbody>
             </table>
