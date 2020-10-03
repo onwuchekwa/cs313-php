@@ -26,24 +26,21 @@
                         <th><strong>Product Code</strong></th>
                         <th class="text-right"><strong>Quantity Ordered</strong></th>
                         <th class="text-right"><strong>Price</strong></th>
-                        <th></th>
                     </tr>
                     <?php foreach($_SESSION['cartItems'] as $item):?>
                         <tr>
                             <td><strong><?php echo $item['itemName']; ?></strong></td>
                             <td><?php echo $item['itemCode']; ?></td>
                             <td class="text-right"><?php echo $item['quantity']; ?></td>
-                            <td class="text-right"><?php echo "$". number_format($item['itemPrice'], 2); ?></td>
-                            <td class="text-center"><a onClick="manageCart('remove','<?php echo $item["itemCode"]; ?>')" class="btn btn-danger cart-action"><img src="images/icon-delete.png" ></a></td>
+                            <td class="text-right"><?php echo "$". number_format($item['itemPrice'], 2); ?></td>                            
                         </tr>
                     <?php
                         $itemTotal += ($item['itemPrice'] * $item['quantity']);                
                         endforeach;
                     ?>
                     <tr>
-                        <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                        <td colspan="2" class="text-right"><strong>Total:</strong></td>
                         <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
