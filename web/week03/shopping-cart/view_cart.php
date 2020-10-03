@@ -11,7 +11,7 @@
     <div>
         <div class="heading">View Cart <a class="btn btn-primary btnEmpty cart-action" onClick="manageCart('empty','');"><img src="images/icon-empty.png" alt="delete item"> Empty Cart</a></div>
         <div id="cartItems">
-            <table class="cart-table">
+            <table class="cart-table table table-striped table-bordered">
                 <tbody>
                     <tr>
                         <th><strong>Product Name</strong></th>

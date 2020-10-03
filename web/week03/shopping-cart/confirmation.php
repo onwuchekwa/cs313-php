@@ -22,7 +22,7 @@
     <div>
         <div class="heading">Confirm Purchase</div>
         <div id="cartItems" class="checkout-container">
-            <table class="customerInfo">
+            <table class="customerInfo table table-striped table-bordered">
                 <tbody>
                     <tr>
                         <td class="text-left"><strong>Client Name:</strong></td>
@@ -37,12 +37,12 @@
                         <td class="text-left"><?php echo $clientPhone; ?></td>
                     </tr>
                     <tr>
-                        <td class="table-header"><strong>Client Address:</strong></td>
+                        <td class="text-left"><strong>Client Address:</strong></td>
                         <td class="text-left"><?php echo $clientAddress . ', '. $clientPostal . ', ' . $clientState; ?></td>
                     </tr>
                 </tbody>                        
             </table>
-            <table class="cartTable">
+            <table class="cartTable table table-striped table-bordered">
                 <tbody>
                     <tr>
                         <th><strong>Product Name</strong></th>
