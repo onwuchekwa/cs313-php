@@ -5,6 +5,8 @@
     
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
+
+        var_dump($_SESSION['clientData']);
 ?>
 
 <main>
@@ -39,7 +41,7 @@
                         endforeach;
                     ?>
                     <tr>
-                        <td colspan="2" class="text-right"><strong>Total:</strong></td>
+                        <td colspan="3" class="text-right"><strong>Total:</strong></td>
                         <td class="text-right"><?php echo "$". number_format($itemTotal, 2); ?></td>
                     </tr>
                 </tbody>
