@@ -58,7 +58,7 @@
 
                 if(empty($clientName) || empty($clientEmail) || empty($clientPhone) || empty($clientAddress) || empty($clientPostal) || empty($clientState)) {
                     $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                    include '../view/checkout.php';
+                    include 'checkout.php';
                     exit; 
                 }
 
@@ -78,6 +78,7 @@
                 
                 var_dump($_SESSION["clientData"]); 
                 exit; 
+                include 'confirmation.php';
             break;
         }
     }
