@@ -60,14 +60,14 @@
 
                 if(empty($clientName) || empty($clientEmail) || empty($clientPhone) || empty($clientAddress) || empty($clientPostal) || empty($clientState)) {
                     $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                    include 'checkout.php';
+                    header('location: checkout.php');
                     exit; 
                 }
 
                 $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
                 $clientEmail = $valEmail;
 
-                $clientData = array(
+                $clientDataArray = array(
                     'clientName' => $clientName,
                     'clientEmail' => $clientEmail,
                     'clientPhone' => $clientPhone,
@@ -76,9 +76,9 @@
                     'clientState' => $clientState
                 );
 
-                $_SESSION["clientData"] = $clientData;
-                header('location: confirmation.php');
-                exit;
+                $_SESSION["clientData"] = $clientDataArray;
+                var_dump($_SESSION["clientData"]);
+                header('Location: confirmation.php');
             break;
         }
     }
