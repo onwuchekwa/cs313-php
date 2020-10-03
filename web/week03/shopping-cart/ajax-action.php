@@ -43,8 +43,8 @@
                             unset($_SESSION["cartItems"]);
                     }
                 }
-                echo '<script type="text/javascript">location.reload(true);</script>';
-                exit;
+                //echo '<script type="text/javascript">location.reload(true);</script>';
+                //exit;
             break;
             case "empty":
                 unset($_SESSION["cartItems"]);
@@ -78,7 +78,7 @@
                 $_SESSION["clientData"] = $clientDataArray;*/
                 //header('Location: confirmation.php');
                 //exit;
-                echo "<script type='text/javascript'>window.top.location='confirmation.php';</script>"; 
+                echo "<script type='text/javascript'>window.location='confirmation.php';</script>"; 
                 exit;
             break;
         }
