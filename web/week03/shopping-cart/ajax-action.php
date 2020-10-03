@@ -43,7 +43,7 @@
                             unset($_SESSION["cartItems"]);
                     }
                 }
-                header('Location: view_cart.php');
+                echo '<script type="text/javascript">location.reload(true);</script>';
                 exit;
             break;
             case "empty":
