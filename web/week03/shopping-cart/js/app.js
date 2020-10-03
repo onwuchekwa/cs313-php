@@ -18,7 +18,7 @@ function manageCart(action, itemCode) {
     }
 
     $.ajax({
-        url: "../ajax-action",
+        url: "../shopping-cart/ajax-action",
         data: quertString,
         type: "POST",
         success: function(data) {
