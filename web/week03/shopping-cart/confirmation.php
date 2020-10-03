@@ -6,7 +6,9 @@
     if(isset($_SESSION["cartItems"])){
         $itemTotal = 0;
 
-        var_dump($_SESSION['clientData']);
+        foreach($_SESSION["cartItems"] as $row => $item) {
+            var_dump($_SESSION['clientData'][$row]['clientName']);
+        }
 ?>
 
 <main>
