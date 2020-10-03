@@ -37,7 +37,7 @@
                         <input type="text" name="clientState" id="clientState" placeholder="Enter your state here" required>
                     </label>
                     <a href="view_cart.php" title="Return to cart" class="btn btn-secondary">Return to cart</a>
-                    <input type="button" value="Checkout" onClick="manageCart('checkout', '');" class="btn btn-primary">
+                    <input type="submit" value="Checkout" id="checkout" onClick="manageCart('checkout', '');" class="btn btn-primary">
                 </form>
             </div>            
     <?php } else { ?>
