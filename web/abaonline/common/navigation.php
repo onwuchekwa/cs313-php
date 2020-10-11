@@ -27,13 +27,13 @@
     </ul>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fas fa-plus fa-2x"></i> ADD BUSINESS</a>
+        <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-2x"></i> ADD BUSINESS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" title="Sign In" class="btn btn-outline-success"><i class="fas fa-sign-in fa-2x"></i> SIGN IN</a>
+        <a class="nav-link" href="#" title="Sign In" class="btn btn-outline-success"><i class="fa fa-sign-in fa-2x"></i> SIGN IN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" title="Sign Up" class="btn btn-dark"><i class="fas fa-user-plus fa-2x"></i> SIGN UP</a>
+        <a class="nav-link" href="#" title="Sign Up" class="btn btn-dark"><i class="fa fa-user-plus fa-2x"></i> SIGN UP</a>
       </li>
     </ul>
   </div>
