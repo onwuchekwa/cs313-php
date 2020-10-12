@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/abaonline/" title="Homepage">
+  <a class="navbar-brand" href="./index.php" title="Homepage">
     <img src="images/logo.png" class="d-inline-block img-logo" alt="company logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#abaOnlineDirectNavigation" aria-controls="abaOnlineDirectNavigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="abaOnlineDirectNavigation">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#" title="Homepage">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="./index.php" title="Homepage">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" title="Categories">CATEGORIES</a>
@@ -32,7 +32,7 @@
         <a class="nav-link btn btn-outline-success mr-2" href="#" title="Sign In"><i class="fa fa-sign-in fa-lg"></i> SIGN IN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-warning" href="#" title="Sign Up"><i class="fa fa-user-plus fa-lg"></i> SIGN UP</a>
+        <a class="nav-link btn btn-warning" href="./actions/index.php?action=registration" title="Sign Up"><i class="fa fa-user-plus fa-lg"></i> SIGN UP</a>
       </li>
     </ul>
   </div>
