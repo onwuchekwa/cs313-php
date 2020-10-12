@@ -1,7 +1,7 @@
 <?php 
     $pageTitle = 'Registration';
     $pageDescription = 'To add a business, you must have an account with us.';
-    include '../common/header.php'; 
+    include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
 
 <main>
@@ -38,4 +38,4 @@
     </div>
 </main>
 
-<?php include '../common/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/footer.php'; ?>

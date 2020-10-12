@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Sriracha%7CVollkorn:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/abaonline/css/styles.css">
+    <link rel="shortcut icon" href="/abaonline/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
     <div class="wrapper">        
-        <?php include 'navigation.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/navigation.php'; ?>
