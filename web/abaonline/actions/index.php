@@ -5,11 +5,11 @@
     // Create or access a Session
     session_start();
     // Get the database connection file
-    require_once 'library/connections.php';
+    require_once '../library/connections.php';
     // Get the acme model for use as needed
-    require_once 'model/aba-online.php';
+    require_once '../model/aba-online.php';
     // Get the functions.php file
-    require_once 'library/functions.php';
+    require_once '../library/functions.php';
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if ($action == NULL){
