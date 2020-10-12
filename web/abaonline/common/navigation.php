@@ -28,7 +28,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-lg"></i> ADD BUSINESS</a>
       </li>
-      <li class="nav-item">
+      <li>
         <a class="nav-link" href="#" title="Sign In" class="btn btn-outline-success"><i class="fa fa-sign-in fa-lg"></i> SIGN IN</a>
       </li>
       <li class="nav-item">
