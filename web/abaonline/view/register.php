@@ -5,7 +5,7 @@
 ?>
 
 <main>
-    <div class="col-md-3"></div>
+    <div class="col"></div>
     <div class="col-sm-12 col-md-6">
         <div class="card">
             <div class="card-header">
@@ -35,7 +35,7 @@
             </div> 
         </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col"></div>
 </main>
 
 <?php include '../common/footer.php'; ?>
