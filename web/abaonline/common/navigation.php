@@ -29,10 +29,10 @@
         <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-lg"></i> ADD BUSINESS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-outline-success" href="#" title="Sign In"><i class="fa fa-sign-in fa-lg"></i> SIGN IN</a>
+        <a class="nav-link btn btn-outline-success mr-2" href="#" title="Sign In"><i class="fa fa-sign-in fa-lg"></i> SIGN IN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link btn btn-dark" href="#" title="Sign Up"><i class="fa fa-user-plus fa-lg"></i> SIGN UP</a>
+        <a class="nav-link btn btn-warning" href="#" title="Sign Up"><i class="fa fa-user-plus fa-lg"></i> SIGN UP</a>
       </li>
     </ul>
   </div>
