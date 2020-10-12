@@ -6,7 +6,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="abaOnlineDirectNavigation">
+  <div class="collapse navbar-collapse justify-content-between" id="abaOnlineDirectNavigation">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#" title="Homepage">HOME <span class="sr-only">(current)</span></a>

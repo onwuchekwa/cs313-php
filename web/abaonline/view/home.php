@@ -5,7 +5,17 @@
 ?>
 
 <main>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Register with us</h1>
+            <p>This is a text place holder</p>
+            <button>Click me</button>
+        </div>
+    </div>
 
+    <div class="company listing">
+        <h1>FEATURED BUSINESS LISTINGS</h1>
+    </div>
 </main>
 
 <?php include './common/footer.php'; ?>
