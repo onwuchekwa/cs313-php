@@ -18,12 +18,12 @@
 
     switch ($action) {
         case 'registration':
-            include 'view/register.php';
+            include '../view/register.php';
             exit;
         break;
         
         default:
-            include 'view/login.php';
+            include '../view/login.php';
             exit;
         break;
     }
