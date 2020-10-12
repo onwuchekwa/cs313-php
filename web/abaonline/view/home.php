@@ -6,7 +6,7 @@
 
 <main>
     <div class="hero-image">
-        <img class="d-width" src= "./images/aba2.jpg"> 
+        <img class="w-100" src= "./images/aba2.jpg"> 
         <div class="hero-text">
             <h1>Register with us</h1>
             <p>This is a text place holder</p>
