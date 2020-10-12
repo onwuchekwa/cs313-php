@@ -2,6 +2,8 @@
 
     // Action Controller
 
+    // Create or access a Session
+    session_start();
     // Get the database connection file
     require_once 'library/connections.php';
     // Get the acme model for use as needed
@@ -14,13 +16,15 @@
         $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
     }
 
-    switch ($action){
+    switch ($action) {
         case 'registration':
             echo 'I am in registration';
+            exit;
             include 'view/register.php';
         break;
         
         default:
             include 'view/login.php';
+            exit;
         break;
     }
