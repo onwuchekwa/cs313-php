@@ -19,7 +19,8 @@ body, html {
     text-align:center; 
     position: absolute; 
     font-size: 18px; 
-    top: 50px; 
-    left: 27%; 
-    color: white; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: yellow; 
 }
