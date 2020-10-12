@@ -18,9 +18,8 @@
 
     switch ($action) {
         case 'registration':
-            echo 'I am in registration';
-            exit;
             include 'view/register.php';
+            exit;
         break;
         
         default:
