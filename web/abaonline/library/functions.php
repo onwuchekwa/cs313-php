@@ -10,7 +10,7 @@ function checkEmail($emailAddress){
 function buildContactTypeList($contactTypes) {
     $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
     $contactTypeList .= "<option value='' selected>Choose Contact Type</option>"; 
-    foreach ($contactTypes as $contactType) { 
+    foreach($contactTypes as $contactType) { 
     $contactTypeList .= "<option value='$contactType[contactTypeId]'>$contactType[description]</option>"; 
     } 
     $contactTypeList .= '</select>'; 
@@ -21,7 +21,7 @@ function buildContactTypeList($contactTypes) {
 function buildAddressTypeList($addressTypes) {
     $addressTypesList = '<id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
     $addressTypesList .= "<option value='' selected>Choose Address Type</option>"; 
-    foreach ($addressTypes as $addressType) { 
+    foreach($addressTypes as $addressType) { 
     $addressTypesList .= "<option value='$addressType[addressTypeId]'>$addressType[description]</option>"; 
     } 
     $addressTypesList .= '</select>'; 
