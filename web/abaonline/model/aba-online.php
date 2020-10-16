@@ -85,8 +85,9 @@ function getBusinessOwner($userName){
     $db = abaOnlineConnect();
     // The SQL statement
     $sql = 'SELECT firstName, middleName, lastName, gender, emailAddress, userName, 
-              contactData, `address`, city, stateLocated, userRoleId, `password`
+              contactData, address, city, stateLocated, userRoleId, password
             FROM businessOwner bo 
+			  JOIN userLogin ul ON ul.referenceId = bo.businessOwnerId
               JOIN contactDetail cd ON cd.referenceId = bo.businessOwnerId 
               JOIN addressDetail ad ON ad.referenceId = bo.businessOwnerId
             WHERE userName = :userName';
@@ -107,7 +108,7 @@ function getAddressType() {
   // Create a connection object from the acme connection function
   $db = abaOnlineConnect(); 
   // The SQL statement to be used with the database 
-  $sql = 'SELECT addressTypeId, `description` FROM addressType ORDER BY `description` ASC'; 
+  $sql = 'SELECT addressTypeId, description FROM addressType ORDER BY description ASC;'; 
   // The next line creates the prepared statement using the acme connection      
   $stmt = $db->prepare($sql);
   // The next line runs the prepared statement 
@@ -126,7 +127,7 @@ function getContactType() {
   // Create a connection object from the acme connection function
   $db = abaOnlineConnect(); 
   // The SQL statement to be used with the database 
-  $sql = 'SELECT contactTypeId, `description` FROM contactType ORDER BY `description` ASC'; 
+  $sql = 'SELECT contactTypeId, description FROM contactType ORDER BY description ASC;'; 
   // The next line creates the prepared statement using the acme connection      
   $stmt = $db->prepare($sql);
   // The next line runs the prepared statement 
