@@ -17,7 +17,7 @@
                             echo $message;
                         }
                     ?>
-                    <form action="/abaonline/actions/" method="POST">
+                    <form action="/abaonline/actions/index.php" method="POST">
                         <div class="form-group row">
                             <label for="userName" class="col-sm-4 col-form-label">User Name</label>
                             <div class="col-sm-8">
