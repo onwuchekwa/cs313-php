@@ -33,9 +33,9 @@
             exit;
         break;
 
-        case 'register':
-			echo 'I am in registration'
-			exit;
+        case 'registered':
+			//echo 'I am in registration'
+			//exit;
             // Filter and store the data
             $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);

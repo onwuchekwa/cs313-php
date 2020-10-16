@@ -132,7 +132,7 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <input type="submit" value="Register" class="btn btn-primary">
-                                <input type="hidden" name="action" value="register"> 
+                                <input type="hidden" name="action" value="registered"> 
                             </div>
                         </div>     
                     </form>
