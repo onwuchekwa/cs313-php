@@ -137,7 +137,7 @@
                         </div>     
                     </form>
                 </div> 
-                <div class="card-footer">
+                <div class="card-footer text-center">
                     <span class="d-block">Already a member?</span>
                     <a href="/abaonline/actions/index.php?action=login">Click here to login</a>
                 </div>

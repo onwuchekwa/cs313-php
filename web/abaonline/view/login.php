@@ -38,7 +38,7 @@
                         </div>     
                     </form>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer text-center">
                     <span class="d-block">Not a member?</span>
                     <a href="/abaonline/actions/index.php?action=registration">Click here to register</a>
                 </div>
