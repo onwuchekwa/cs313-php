@@ -132,5 +132,6 @@
             $bindContactList = buildContactTypeList($contactTypes);
             $businessOwnerId = $_SESSION['businessOwnerData']['businessOwnerId'];
             include '../view/dashboard.php';
+            exit;
         break;
     }
