@@ -19,7 +19,7 @@ function buildContactTypeList($contactTypes) {
 
 // Build the address type select list 
 function buildAddressTypeList($addressTypes) {
-    $addressTypesList = '<id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
+    $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
     $addressTypesList .= "<option value='' selected>Choose Address Type</option>"; 
     foreach($addressTypes as $addressType) { 
     $addressTypesList .= "<option value='$addressType[addressTypeId]'>$addressType[description]</option>"; 
