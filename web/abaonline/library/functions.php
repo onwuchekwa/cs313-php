@@ -11,7 +11,7 @@ function buildContactTypeList($contactTypes) {
     $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
     $contactTypeList .= "<option value='' selected>Choose Contact Type</option>"; 
     foreach($contactTypes as $contactType) { 
-    $contactTypeList .= "<option value='$contactType[contacttypeId]'>$contactType[contacttypeId] - $contactType[description]</option>"; 
+    $contactTypeList .= "<option value='$contactType[contacttypeid]'>$contactType[contacttypeid] - $contactType[description]</option>"; 
     } 
     $contactTypeList .= '</select>'; 
     return $contactTypeList; 
@@ -22,7 +22,7 @@ function buildAddressTypeList($addressTypes) {
     $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
     $addressTypesList .= "<option value='' selected>Choose Address Type</option>"; 
     foreach($addressTypes as $addressType) { 
-    $addressTypesList .= "<option value='$addressType[addresstypeId]'>$addressType[addresstypeId] - $addressType[description]</option>"; 
+    $addressTypesList .= "<option value='$addressType[addresstypeid]'>$addressType[addresstypeid] - $addressType[description]</option>"; 
     } 
     $addressTypesList .= '</select>'; 
     return $addressTypesList; 
