@@ -11,6 +11,10 @@
     // Get the functions.php file
     require_once '../library/functions.php';
 
+    // Get the array of contact and address types
+    $contactTypes = getContactType();
+    $addressTypes = getAddressType();
+
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if ($action == NULL){
         $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -124,7 +128,9 @@
         break;
         
         default:
-        $businessOwnerId = $_SESSION['businessOwnerData']['businessOwnerId'];
-        include '../view/dashboard.php';
+            $bindAddressList = buildAddressTypeList($addressTypes);
+            $bindContactList = buildContactTypeList($contactTypes);
+            $businessOwnerId = $_SESSION['businessOwnerData']['businessOwnerId'];
+            include '../view/dashboard.php';
         break;
     }
