@@ -6,9 +6,19 @@ DROP TABLE systemAdmin CASCADE;
 CREATE TABLE systemAdmin
 (
   systemAdminId SERIAL PRIMARY KEY
-, systemAdminName VARCHAR(50) UNIQUE NOT NULL
+, systemAdminName VARCHAR(50) NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , updateDate TIMESTAMP NOT NULL
+);
+
+INSERT INTO systemAdmin (
+  systemAdminName
+, updateDate
+)
+VALUES
+(
+  'Sunday Onwuchekwa'
+, NOW()
 );
 
 -------------------------------------------------------------------
@@ -19,7 +29,7 @@ DROP TABLE category CASCADE;
 CREATE TABLE category
 (
   categoryId SERIAL PRIMARY KEY
-, categoryName VARCHAR(50) UNIQUE NOT NULL
+, categoryName VARCHAR(255) UNIQUE NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
 , updateDate TIMESTAMP NOT NULL
@@ -30,6 +40,51 @@ CREATE TABLE category
     REFERENCES systemAdmin (systemAdminId)
 );
 
+INSERT INTO category (
+  categoryName
+, createdBy
+, updateDate
+, updateBy
+)
+VALUES
+(
+  'Oil and Gas'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Information and Communication Technology'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Engineering'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Import and Export'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Oil and Gas'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Security'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+);
+
+
 -------------------------------------------------------------------
 -- CREATE entityType TABLE
 -------------------------------------------------------------------
@@ -38,7 +93,7 @@ DROP TABLE entityType CASCADE;
 CREATE TABLE entityType
 (
   entityTypeId SERIAL PRIMARY KEY
-, description VARCHAR(15) UNIQUE NOT NULL
+, description VARCHAR(20) UNIQUE NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
 , updateDate TIMESTAMP NOT NULL
@@ -47,6 +102,26 @@ CREATE TABLE entityType
     REFERENCES systemAdmin (systemAdminId)
 , CONSTRAINT fk_entity_admin_2 FOREIGN KEY(updateBy) 
     REFERENCES systemAdmin (systemAdminId)
+);
+
+INSERT INTO category (
+  description
+, createdBy
+, updateDate
+, updateBy
+)
+VALUES
+(
+  'Business owner'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Company'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
 );
 
 -------------------------------------------------------------------
@@ -61,6 +136,7 @@ CREATE TABLE businessOwner
 , middleName VARCHAR(25)
 , lastName VARCHAR(50) NOT NULL
 , gender VARCHAR(1) NOT NULL
+, emailAddress VARCHAR(64) NOT NULL
 , entityTypeId INT NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , updateDate TIMESTAMP NOT NULL
@@ -76,8 +152,7 @@ DROP TABLE contactType CASCADE;
 CREATE TABLE contactType
 (
   contactTypeId SERIAL PRIMARY KEY
-, contactTypeCode VARCHAR(2) UNIQUE NOT NULL
-, description VARCHAR(15) UNIQUE NOT NULL
+, description VARCHAR(20) UNIQUE NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
 , updateDate TIMESTAMP NOT NULL
@@ -86,6 +161,32 @@ CREATE TABLE contactType
     REFERENCES systemAdmin (systemAdminId)
 , CONSTRAINT fk_contact_admin_2 FOREIGN KEY(updateBy) 
     REFERENCES systemAdmin (systemAdminId)
+);
+
+INSERT INTO contactType (
+  description
+, createdBy
+, updateDate
+, updateBy
+)
+VALUES
+(
+  'Home Phone'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Work Phone'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Mobile Phone'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
 );
 
 -------------------------------------------------------------------
@@ -122,8 +223,7 @@ DROP TABLE addressType CASCADE;
 CREATE TABLE addressType 
 (
   addressTypeId SERIAL PRIMARY KEY
-, addressTypeCode VARCHAR(3) UNIQUE NOT NULL
-, description VARCHAR(15) UNIQUE NOT NULL
+, description VARCHAR(20) UNIQUE NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
 , updateDate TIMESTAMP NOT NULL
@@ -133,6 +233,33 @@ CREATE TABLE addressType
 , CONSTRAINT fk_address_admin_2 FOREIGN KEY(updateBy) 
     REFERENCES systemAdmin (systemAdminId)
 );
+
+INSERT INTO addressType (
+  description
+, createdBy
+, updateDate
+, updateBy
+)
+VALUES
+(
+  'Residential'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Business'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'Correspondence'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+);
+
 
 -------------------------------------------------------------------
 -- CREATE addressDetail  TABLE
@@ -178,6 +305,7 @@ CREATE TABLE companyDetail
 , companySummary VARCHAR(50) NOT NULL
 , companyFullInfo TEXT NOT NULL
 , businessHour VARCHAR(150) NOT NULL
+, emailAddress VARCHAR(64) NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
 , updateDate TIMESTAMP NOT NULL
@@ -213,15 +341,36 @@ CREATE TABLE userRole
     REFERENCES systemAdmin (systemAdminId)
 );
 
+INSERT INTO userRole (
+  role
+, createdBy
+, updateDate
+, updateBy
+)
+VALUES
+(
+  'user'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+),
+(
+  'admin'
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+, NOW()
+, (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
+);
+
 -------------------------------------------------------------------
 -- CREATE userLogin   TABLE
 -------------------------------------------------------------------
-DROP TABLE addressDetail CASCADE;
+DROP TABLE userLogin CASCADE;
 
 CREATE TABLE userLogin 
 (
   userLoginId SERIAL PRIMARY KEY
 , userName VARCHAR(65) UNIQUE NOT NULL 
+, password VARCHAR(255) NOT NULL 
 , userRoleId INT NOT NULL
 , createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , createdBy INT NOT NULL
