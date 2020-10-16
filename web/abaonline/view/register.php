@@ -84,14 +84,14 @@
                                 <legend class="col-form-label col-sm-4 pt-0">Contact Information</legend>
                                 <div class="col-sm-8">
                                     <div class="form-group row">
-                                        <label for="contactTypeId" class="col-sm-5 col-form-label">Contact Type</label>
-                                        <div class="col-sm-7">
+                                        <label for="contactTypeId" class="col-sm-4 col-form-label">Contact Type</label>
+                                        <div class="col-sm-8">
                                             <?php //echo $bindContactList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="contactData" class="col-sm-5 col-form-label">Contact</label>
-                                        <div class="col-sm-7">
+                                        <label for="contactData" class="col-sm-4 col-form-label">Contact</label>
+                                        <div class="col-sm-8">
                                             <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required>
                                         </div>
                                     </div>                             
@@ -103,26 +103,26 @@
                                 <legend class="col-form-label col-sm-4 pt-0">Address Information</legend>
                                 <div class="col-sm-8">
                                     <div class="form-group row">
-                                        <label for="addressTypeId" class="col-sm-5 col-form-label">Address Type</label>
-                                        <div class="col-sm-7">
+                                        <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
+                                        <div class="col-sm-8">
                                             <?php //echo $bindbindAddressList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="address" class="col-sm-5 col-form-label">Address</label>
-                                        <div class="col-sm-7">
+                                        <label for="address" class="col-sm-4 col-form-label">Address</label>
+                                        <div class="col-sm-8">
                                             <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
-                                        <label for="city" class="col-sm-5 col-form-label">City</label>
-                                        <div class="col-sm-7">
+                                        <label for="city" class="col-sm-4 col-form-label">City</label>
+                                        <div class="col-sm-8">
                                             <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
-                                        <label for="stateLocated" class="col-sm-5 col-form-label">State</label>
-                                        <div class="col-sm-7">
+                                        <label for="stateLocated" class="col-sm-4 col-form-label">State</label>
+                                        <div class="col-sm-8">
                                             <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required>
                                         </div>
                                     </div>                             
