@@ -22,6 +22,8 @@
 
     switch ($action) {
         case 'registration':
+			$bindAddressList = buildAddressTypeList($addressTypes);
+            $bindContactList = buildContactTypeList($contactTypes);
             include '../view/register.php';
             exit;
         break;
@@ -128,8 +130,6 @@
         break;
         
         default:
-            $bindAddressList = buildAddressTypeList($addressTypes);
-            $bindContactList = buildContactTypeList($contactTypes);
             $businessOwnerId = $_SESSION['businessOwnerData']['businessOwnerId'];
             include '../view/dashboard.php';
             exit;
