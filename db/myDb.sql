@@ -72,7 +72,7 @@ VALUES
 , (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
 ),
 (
-  'Oil and Gas'
+  'Building'
 , (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
 , NOW()
 , (SELECT systemAdminId FROM systemAdmin WHERE systemAdminId = '1')
@@ -104,7 +104,7 @@ CREATE TABLE entityType
     REFERENCES systemAdmin (systemAdminId)
 );
 
-INSERT INTO category (
+INSERT INTO entityType (
   description
 , createdBy
 , updateDate
@@ -379,3 +379,6 @@ CREATE TABLE userLogin
 , CONSTRAINT fk_user_login FOREIGN KEY(userRoleId) 
     REFERENCES userRole (userRoleId)
 );
+
+
+-- heroku pg:psql

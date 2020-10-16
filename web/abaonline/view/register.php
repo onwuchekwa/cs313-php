@@ -86,7 +86,7 @@
                                     <div class="form-group row">
                                         <label for="contactTypeId" class="col-sm-4 col-form-label">Contact Type</label>
                                         <div class="col-sm-8">
-                                            <?php //echo $bindContactList; ?>
+                                            <?php echo $bindContactList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -105,7 +105,7 @@
                                     <div class="form-group row">
                                         <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
                                         <div class="col-sm-8">
-                                            <?php //echo $bindbindAddressList; ?>
+                                            <?php echo $bindbindAddressList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
