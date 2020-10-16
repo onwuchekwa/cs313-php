@@ -105,7 +105,7 @@
                                     <div class="form-group row">
                                         <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
                                         <div class="col-sm-8">
-                                            <?php echo $bindbindAddressList; ?>
+                                            <?php echo $bindAddressList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
