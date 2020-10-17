@@ -102,7 +102,7 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
-            var_dump(businessOwnerData);
+            var_dump($businessOwnerData);
             exit;
             // Compare the password just submitted against
             // the hashed password for the matching client
