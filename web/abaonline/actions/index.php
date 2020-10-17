@@ -46,6 +46,9 @@
             $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
 
+            echo 'After the files';
+            exit;
+
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
 
