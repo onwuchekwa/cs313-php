@@ -7,110 +7,33 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     // Create a connection object using the aba-online connection function
     $db = abaOnlineConnect();
     // The SQL statement
-     $sql = '
-       WITH boidkey AS 
-            (
-              INSERT INTO business_owner 
-              (
-                first_name
-              , middle_name
-              , last_name
-              , gender
-              , email_address
-              , entity_type_td
-              , update_date)
-              VALUES 
-              (
-                :firstName
-              , :middleName
-              , :lastName
-              , :gender
-              , :emailAddress
-              , :entityTypeId
-              , :updateDate
-              ) 
-              RETURNING businessownerid
-            ),
-            cdkey AS
-            (
-              INSERT INTO contact_detail 
-              (
-                contact_type_id
-              , reference_id
-              , entity_type_id
-              , contact_data
-              , created_by
-              , update_date
-              , update_by
-              )
-              VALUES 
-              (
-                :contactTypeId
-                , (SELECT businessownerid FROM boidkey)
-                , :entityTypeId
-                , :contactData
-                , (SELECT businessownerid FROM boidkey)
-                , :updateDate
-                , (SELECT businessownerid FROM boidkey)
-              )
-            ),
-            addkey AS 
-            (
-              INSERT INTO address_detail 
-              (
-                address_type_id
-              , reference_id
-              , entity_type_id
-              , address
-              , city
-              , state_located
-              , created_by
-              , update_date
-              , update_by
-              )
-              VALUES 
-              (
-                :addressTypeId
-              , (SELECT businessownerid FROM boidkey)
-              , :entityTypeId
-              , :address
-              , :city
-              , :stateLocated
-              , (SELECT businessownerid FROM boidkey)
-              , updateDate
-              , (SELECT businessownerid FROM boidkey)
-              )
-            )
-            INSERT INTO user_login 
-            (
-              reference_id
-            , user_name
-            , password
-            , user_role_id
-            , created_by
-            , update_date
-            , update_by
-            )
-            VALUES 
-            (
-              (SELECT businessownerid FROM boidkey)
-            , :userName
-            , :password
-            , :userRoleId
-            , (SELECT businessownerid FROM boidkey)
-            , updateDate
-            , (SELECT businessownerid FROM boidkey)
-          );
-    ';
-    // Get entityTypeID, updateDate, and userRole
+     $sql = 'WITH boidkey AS 
+     (
+       INSERT INTO business_owner (first_name, middle_name, last_name, gender, email_address, entity_type_id, update_date)
+       VALUES (:firstName, :middleName, :lastName, :gender, :emailAddress, :entityTypeId, NOW()) 
+       RETURNING business_owner_id
+     ),
+     cdkey AS
+     (
+       INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
+       VALUES (:contactTypeId, (SELECT business_owner_id FROM boidkey), :entityTypeId, :contactData, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey))
+     ),
+     addkey AS 
+     (
+       INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
+       VALUES (:addressTypeId, (SELECT business_owner_id FROM boidkey), :entityTypeId, :address, :city, :stateLocated, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey)) 
+     )
+     INSERT INTO user_login (reference_id, user_name, password, user_role_id, created_by, update_date, update_by)
+     VALUES ((SELECT business_owner_id FROM boidkey), :userName, :password, :userRoleId, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey));';
+    
+     // Get entityTypeID, updateDate, and userRole
     $entityTypeId = "
         SELECT 
           entity_type_id 
         FROM entity_type 
         WHERE entity_type_id = '1';
       ";
-    date_default_timezone_set('Africa/Accra'); 
-    $updateDate = date("Y-m-d H:i:s");
+
     $userRoleId = "
         SELECT 
           user_role_id 
@@ -128,7 +51,6 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
     $stmt->bindValue(':emailAddress', $emailAddress, PDO::PARAM_STR);
     $stmt->bindValue(':entityTypeId', $entityTypeId, PDO::PARAM_STR);
-    $stmt->bindValue(':updateDate', $updateDate, PDO::PARAM_STR);
     $stmt->bindValue(':userRoleId', $userRoleId, PDO::PARAM_STR);
     $stmt->bindValue(':contactTypeId', $contactTypeId, PDO::PARAM_STR);
     $stmt->bindValue(':contactData', $contactData, PDO::PARAM_STR);

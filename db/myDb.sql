@@ -385,22 +385,190 @@ CREATE TABLE user_login
 -- heroku pg:psql
 
 WITH boidkey AS 
+            (
+              INSERT INTO business_owner 
               (
-			    INSERT INTO business_owner (firstName, middleName, lastName, gender, emailAddress, entity_type_id, update_date)
-                VALUES ('Sunday', 'Ogbonnaya', 'Onwuchekwa', 'M', 'donsonde@gmail.com', '1', Now()) 
-				RETURNING businessownerid
-			  ),
+                first_name
+              , middle_name
+              , last_name
+              , gender
+              , email_address
+              , entity_type_td
+              , update_date)
+              VALUES 
+              (
+                'Sunday'
+              , 'Ogbonnaya'
+              , 'Onwuchekwa'
+              , 'M'
+              , 'donsonde@gmail.com
+              , '1'
+              , NOW()
+              ) 
+              RETURNING businessownerid
+            ),
             cdkey AS
+            (
+              INSERT INTO contact_detail 
               (
-			    INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
-                VALUES ('1', (SELECT businessownerid FROM boidkey), '1', '0241239547', (SELECT businessownerid FROM boidkey), 
-				Now(), (SELECT businessownerid FROM boidkey))
-			  ),
+                contact_type_id
+              , reference_id
+              , entity_type_id
+              , contact_data
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                '2'
+                , (SELECT businessownerid FROM boidkey)
+                , '1'
+                , '0241239547'
+                , (SELECT businessownerid FROM boidkey)
+                , NOW()
+                , (SELECT businessownerid FROM boidkey)
+              )
+            ),
             addkey AS 
+            (
+              INSERT INTO address_detail 
               (
-			    INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
-                VALUES ('1', (SELECT businessownerid FROM boidkey), '1', '12 Ndi-Okorie Street', 'Aba', 'Abia', (SELECT businessownerid FROM boidkey), 
-				Now(), (SELECT businessownerid FROM boidkey)) 
-			  )
-            INSERT INTO user_login (reference_id, user_name, password, user_role_id, created_by, update_date, update_by)
-            VALUES ((SELECT businessownerid FROM boidkey), 'donsonde', 'Sun@#$4321', '1', (SELECT businessownerid FROM boidkey), Now(), (SELECT businessownerid FROM boidkey));
+                address_type_id
+              , reference_id
+              , entity_type_id
+              , address
+              , city
+              , state_located
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                '2'
+              , (SELECT businessownerid FROM boidkey)
+              , '1'
+              , 'P. O. Box 149 Ministries'
+              , 'Accra'
+              , 'Greater Accra'
+              , (SELECT businessownerid FROM boidkey)
+              , NOW()
+              , (SELECT businessownerid FROM boidkey)
+              )
+            )
+            INSERT INTO user_login 
+            (
+              reference_id
+            , user_name
+            , password
+            , user_role_id
+            , created_by
+            , update_date
+            , update_by
+            )
+            VALUES 
+            (
+              (SELECT businessownerid FROM boidkey)
+            , 'donsonde'
+            , 'Sun@#$4321'
+            , '1'
+            , (SELECT businessownerid FROM boidkey)
+            , NOW()
+            , (SELECT businessownerid FROM boidkey)
+          );
+--------------------------------------------------------------------------------------------
+			
+			WITH boidkey AS 
+            (
+              INSERT INTO business_owner 
+              (
+                first_name
+              , middle_name
+              , last_name
+              , gender
+              , email_address
+              , entity_type_td
+              , update_date)
+              VALUES 
+              (
+                :firstName
+              , :middleName
+              , :lastName
+              , :gender
+              , :emailAddress
+              , :entityTypeId
+              , :updateDate
+              ) 
+              RETURNING businessownerid
+            ),
+            cdkey AS
+            (
+              INSERT INTO contact_detail 
+              (
+                contact_type_id
+              , reference_id
+              , entity_type_id
+              , contact_data
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                :contactTypeId
+                , (SELECT businessownerid FROM boidkey)
+                , :entityTypeId
+                , :contactData
+                , (SELECT businessownerid FROM boidkey)
+                , :updateDate
+                , (SELECT businessownerid FROM boidkey)
+              )
+            ),
+            addkey AS 
+            (
+              INSERT INTO address_detail 
+              (
+                address_type_id
+              , reference_id
+              , entity_type_id
+              , address
+              , city
+              , state_located
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                :addressTypeId
+              , (SELECT businessownerid FROM boidkey)
+              , :entityTypeId
+              , :address
+              , :city
+              , :stateLocated
+              , (SELECT businessownerid FROM boidkey)
+              , updateDate
+              , (SELECT businessownerid FROM boidkey)
+              )
+            )
+            INSERT INTO user_login 
+            (
+              reference_id
+            , user_name
+            , password
+            , user_role_id
+            , created_by
+            , update_date
+            , update_by
+            )
+            VALUES 
+            (
+              (SELECT businessownerid FROM boidkey)
+            , :userName
+            , :password
+            , :userRoleId
+            , (SELECT businessownerid FROM boidkey)
+            , updateDate
+            , (SELECT businessownerid FROM boidkey)
+          );

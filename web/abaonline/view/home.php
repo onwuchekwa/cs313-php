@@ -8,9 +8,9 @@
     <div class="hero-image">
         <img class="w-100" src= "/abaonline/images/aba2.jpg"> 
         <div class="hero-text">
-            <h1>Register with us</h1>
+            <!--<h1>Register with us</h1>
             <p>This is a text place holder</p>
-            <button>Click me</button>
+            <button>Click me</button>-->
         </div>
     </div>
 
