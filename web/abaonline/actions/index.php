@@ -51,11 +51,11 @@
 
             // Call the checkExistingEmail function
             $existingUserName = checkExistingUserName($userName);
+            echo 'After the files';
+            exit;
 
             // Check for existing email address in the table
-            if($existingUserName){
-                echo 'After the files';
-            exit;
+            if($existingUserName){                
                 $message = '<p class="error">That username  already exists. Do you want to login instead?</p>';
                 include '../view/login.php';
                 exit;
