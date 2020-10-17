@@ -12,8 +12,11 @@
     require_once '../library/functions.php';
 
     // Get the array of contact and address types
+    echo 'Before call';
     $contactTypes = getContactType();
     $addressTypes = getAddressType();
+    echo 'After call';
+    exit;
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if ($action == NULL){

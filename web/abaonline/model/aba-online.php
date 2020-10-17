@@ -8,23 +8,115 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     $db = abaOnlineConnect();
     // The SQL statement
      $sql = '
-       WITH boIdKey AS 
-              (INSERT INTO businessOwner (firstName, middleName, lastName, gender, emailAddress, entityTypeId, updateDate)
-                VALUES (:firstName, :middleName, :lastName, :gender, :emailAddress, :entityTypeId, :updateDate) RETURNING businessOwnerId),
-            cdKey AS
-              (INSERT INTO contactDetail (contactTypeId, referenceId, entityTypeId, contactData, createdBy, updateDate, updateBy)
-                VALUES (:contactTypeId, boIdKey.businessOwnerId, :entityTypeId, :contactData, boIdKey.businessOwnerId, :updateDate, boIdKey.businessOwnerId)),
-            addKey AS 
-              (INSERT INTO addressDetail (addressTypeId, referenceId, entityTypeId, address, city, stateLocated, createdBy, updateDate, updateBy)
-              VALUES (:addressTypeId, boIdKey.businessOwnerId,:entityTypeId, :address, :city, :stateLocated, boIdKey.businessOwnerId, updateDate, boIdKey.businessOwnerId))
-            INSERT INTO userLogin (userName, password, userRoleId, createdBy, updateDate, updateBy)
-              VALUES (:userName, :password, :userRoleId, boIdKey.businessOwnerId, updateDate, boIdKey.businessOwnerId);
+       WITH boidkey AS 
+            (
+              INSERT INTO business_owner 
+              (
+                first_name
+              , middle_name
+              , last_name
+              , gender
+              , email_address
+              , entity_type_td
+              , update_date)
+              VALUES 
+              (
+                :firstName
+              , :middleName
+              , :lastName
+              , :gender
+              , :emailAddress
+              , :entityTypeId
+              , :updateDate
+              ) 
+              RETURNING business_owner_id
+            ),
+            cdkey AS
+            (
+              INSERT INTO contact_detail 
+              (
+                contact_type_id
+              , reference_id
+              , entity_type_id
+              , contact_data
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                :contactTypeId
+                , boIdKey.businessOwnerId
+                , :entityTypeId
+                , :contactData
+                , boIdKey.businessOwnerId
+                , :updateDate
+                , boIdKey.businessOwnerId
+              )
+            ),
+            addkey AS 
+            (
+              INSERT INTO address_detail 
+              (
+                address_type_id
+              , reference_id
+              , entity_type_id
+              , address
+              , city
+              , state_located
+              , created_by
+              , update_date
+              , update_by
+              )
+              VALUES 
+              (
+                :addressTypeId
+              , boIdKey.businessOwnerId
+              , :entityTypeId
+              , :address
+              , :city
+              , :stateLocated
+              , boIdKey.businessOwnerId
+              , updateDate
+              , boIdKey.businessOwnerId
+              )
+            )
+            INSERT INTO user_login 
+            (
+              reference_id
+            , user_name
+            , password
+            , user_role_id
+            , created_by
+            , update_date
+            , update_by
+            )
+            VALUES 
+            (
+              boIdKey.businessOwnerId
+            , :userName
+            , :password
+            , :userRoleId
+            , boIdKey.businessOwnerId
+            , updateDate
+            , boIdKey.businessOwnerId
+          );
     ';
     // Get entityTypeID, updateDate, and userRole
-    $entityTypeId = "SELECT entityTypeId FROM entityType WHERE entityTypeId = '1';";
+    $entityTypeId = "
+        SELECT 
+          entity_type_id 
+        FROM entity_type 
+        WHERE entity_type_id = '1';
+      ";
     date_default_timezone_set('Africa/Accra'); 
     $updateDate = date("Y-m-d H:i:s");
-    $userRoleId = "SELECT userRoleId FROM userRole WHERE userRoleId = '1';";
+    $userRoleId = "
+        SELECT 
+          user_role_id 
+        FROM user_role 
+        WHERE user_role_id = '1';
+      ";
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the SQL
@@ -61,7 +153,12 @@ function checkExistingUsername($userName) {
     // Create a connection object using the acme connection function
     $db = abaOnlineConnect();
     // The SQL statement
-    $sql = 'SELECT userName FROM businessOwner WHERE userName = :userName';
+    $sql = '
+        SELECT 
+          user_name 
+        FROM business_owner 
+        WHERE user_name = :userName;
+      ';
     // Create the prepared statement using the aba-online connection
     $stmt = $db->prepare($sql);
     // The next line replace the placeholder in the SQL
@@ -84,13 +181,26 @@ function getBusinessOwner($userName){
     // Create a connection object using the acme connection function
     $db = abaOnlineConnect();
     // The SQL statement
-    $sql = 'SELECT firstName, middleName, lastName, gender, emailAddress, userName, 
-              contactData, address, city, stateLocated, userRoleId, password
-            FROM businessOwner bo 
-			  JOIN userLogin ul ON ul.referenceId = bo.businessOwnerId
-              JOIN contactDetail cd ON cd.referenceId = bo.businessOwnerId 
-              JOIN addressDetail ad ON ad.referenceId = bo.businessOwnerId
-            WHERE userName = :userName';
+    $sql = '
+        SELECT 
+          first_name
+        , middle_name
+        , last_name
+        , gender
+        , email_address
+        , user_name
+        , contact_data
+        , address
+        , city
+        , state_located
+        , user_role_id
+        , password
+        FROM business_owner bo 
+			    JOIN user_login ul ON ul.reference_id = bo.business_owner_id
+          JOIN contact_detail cd ON cd.reference_id = bo.business_owner_id 
+          JOIN address_detail ad ON ad.reference_id = bo.business_owner_id
+        WHERE user_name = :userName;
+      ';
     // Create the prepared statement using the aba-online connection
     $stmt = $db->prepare($sql);
     // The next line replace the placeholder in the SQL
@@ -108,7 +218,13 @@ function getAddressType() {
   // Create a connection object from the acme connection function
   $db = abaOnlineConnect(); 
   // The SQL statement to be used with the database 
-  $sql = 'SELECT addressTypeId, description FROM addressType ORDER BY description ASC;'; 
+  $sql = '
+    SELECT 
+      address_type_id
+    , description 
+    FROM address_type 
+    ORDER BY description ASC;
+  '; 
   // The next line creates the prepared statement using the acme connection      
   $stmt = $db->prepare($sql);
   // The next line runs the prepared statement 
@@ -127,7 +243,13 @@ function getContactType() {
   // Create a connection object from the acme connection function
   $db = abaOnlineConnect(); 
   // The SQL statement to be used with the database 
-  $sql = 'SELECT contactTypeId, description FROM contactType ORDER BY description ASC;'; 
+  $sql = '
+    SELECT 
+      contact_type_id
+    , description 
+    FROM contact_type 
+    ORDER BY description ASC;
+  '; 
   // The next line creates the prepared statement using the acme connection      
   $stmt = $db->prepare($sql);
   // The next line runs the prepared statement 
