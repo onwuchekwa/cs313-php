@@ -49,9 +49,6 @@
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
 
-            echo 'After the files';
-            exit;
-
             // Call the checkExistingEmail function
             $existingUserName = checkExistingUserName($userName);
 
@@ -61,6 +58,8 @@
                 include '../view/login.php';
                 exit;
             }
+            echo 'After the files';
+            exit;
 
             // Check for missing data
             if(empty($userName) || empty($firstName) || empty($lastName) || empty($password) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
