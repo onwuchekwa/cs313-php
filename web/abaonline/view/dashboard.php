@@ -5,15 +5,15 @@
         header("location: /abaonline/");
     }
 
-    $firstName = $_SESSION['businessOwnerData']['firstName'];
-    $lastName = $_SESSION['businessOwnerData']['lastName'];
-    $emailAddress = $_SESSION['businessOwnerData']['emailAddress'];
+    $firstName = $_SESSION['businessOwnerData']['first_name'];
+    $lastName = $_SESSION['businessOwnerData']['last_name'];
+    $emailAddress = $_SESSION['businessOwnerData']['email_address'];
     $gender = $_SESSION['businessOwnerData']['gender'];
-    $contactData = $_SESSION['businessOwnerData']['contactData'];
+    $contactData = $_SESSION['businessOwnerData']['contact_data'];
     $address = $_SESSION['businessOwnerData']['address'];
     $city = $_SESSION['businessOwnerData']['city'];
-    $stateLocated = $_SESSION['businessOwnerData']['stateLocated'];
-    $userName = $_SESSION['businessOwnerData']['userName'];
+    $stateLocated = $_SESSION['businessOwnerData']['state_located'];
+    $userName = $_SESSION['businessOwnerData']['user_name'];
 
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
