@@ -69,9 +69,9 @@
             // Hash the checked password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            echo 'After the files';
+            echo 'After the files now';
             exit;
-            
+
             // Send the data to the model
             $regOutcome = regBusinessOwner($userName, $password, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated);
 
