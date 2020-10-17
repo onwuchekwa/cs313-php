@@ -54,12 +54,12 @@
 
             // Check for existing email address in the table
             if($existingUserName){
+                echo 'After the files';
+            exit;
                 $message = '<p class="error">That username  already exists. Do you want to login instead?</p>';
                 include '../view/login.php';
                 exit;
             }
-            echo 'After the files';
-            exit;
 
             // Check for missing data
             if(empty($userName) || empty($firstName) || empty($lastName) || empty($password) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
