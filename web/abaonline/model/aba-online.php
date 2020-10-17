@@ -156,7 +156,7 @@ function checkExistingUsername($userName) {
     $sql = '
         SELECT 
           user_name 
-        FROM business_owner 
+        FROM user_login 
         WHERE user_name = :userName;
       ';
     // Create the prepared statement using the aba-online connection
