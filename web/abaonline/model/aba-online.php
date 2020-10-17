@@ -29,7 +29,7 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
               , :entityTypeId
               , :updateDate
               ) 
-              RETURNING business_owner_id
+              RETURNING businessownerid
             ),
             cdkey AS
             (
@@ -46,12 +46,12 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
               VALUES 
               (
                 :contactTypeId
-                , boIdKey.businessOwnerId
+                , (SELECT businessownerid FROM boidkey)
                 , :entityTypeId
                 , :contactData
-                , boIdKey.businessOwnerId
+                , (SELECT businessownerid FROM boidkey)
                 , :updateDate
-                , boIdKey.businessOwnerId
+                , (SELECT businessownerid FROM boidkey)
               )
             ),
             addkey AS 
@@ -71,14 +71,14 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
               VALUES 
               (
                 :addressTypeId
-              , boIdKey.businessOwnerId
+              , (SELECT businessownerid FROM boidkey)
               , :entityTypeId
               , :address
               , :city
               , :stateLocated
-              , boIdKey.businessOwnerId
+              , (SELECT businessownerid FROM boidkey)
               , updateDate
-              , boIdKey.businessOwnerId
+              , (SELECT businessownerid FROM boidkey)
               )
             )
             INSERT INTO user_login 
@@ -93,13 +93,13 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
             )
             VALUES 
             (
-              boIdKey.businessOwnerId
+              (SELECT businessownerid FROM boidkey)
             , :userName
             , :password
             , :userRoleId
-            , boIdKey.businessOwnerId
+            , (SELECT businessownerid FROM boidkey)
             , updateDate
-            , boIdKey.businessOwnerId
+            , (SELECT businessownerid FROM boidkey)
           );
     ';
     // Get entityTypeID, updateDate, and userRole
