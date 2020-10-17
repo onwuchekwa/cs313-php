@@ -71,8 +71,6 @@
 
             // Send the data to the model
             $regOutcome = regBusinessOwner($userName, $hashedPassword, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated);
-            echo 'After the files now';
-            exit;
 
             // Check and report the result
             if($regOutcome === 1){
@@ -102,19 +100,23 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
-            var_dump($businessOwnerData);
-            exit;
+           
             // Compare the password just submitted against
             // the hashed password for the matching client
-            $hashCheck = password_verify($password, $businessOwnerData['password']);
+//            $hashCheck = password_verify($password, $businessOwnerData['password']);
             // If the hashes don't match create an error
             // and return to the login view
-            if (!$hashCheck) {
+ /*           if (!$hashCheck) {
                 $message = '<p class="error">Please check your password and try again.</p>';
                 include '../view/login.php';
                 exit; 
             }
+*/
 
+            if ($password == $businessOwnerData['password']) {
+                echo 'success';
+                exit;
+            }
             // A valid user exists, log them in
             $_SESSION['loggedin'] = TRUE;
             // Delete cookie at login
