@@ -70,7 +70,7 @@
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             // Send the data to the model
-            $regOutcome = regBusinessOwner($userName, $password, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated);
+            $regOutcome = regBusinessOwner($userName, $hashedPassword, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated);
             echo 'After the files now';
             exit;
 
@@ -102,9 +102,11 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
+            var_dump(businessOwnerData);
+            exit;
             // Compare the password just submitted against
             // the hashed password for the matching client
-            $hashCheck = password_verify($password, $businessOwnerData['password']);
+//            $hashCheck = password_verify($password, $businessOwnerData['password']);
             // If the hashes don't match create an error
             // and return to the login view
             if (!$hashCheck) {
@@ -129,7 +131,7 @@
         break;
         
         default:
-            $businessOwnerId = $_SESSION['businessOwnerData']['businessOwnerId'];
+            $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
             include '../view/dashboard.php';
             exit;
         break;
