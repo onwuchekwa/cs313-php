@@ -62,13 +62,13 @@
                                 <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
                                 <div class="col-sm-8">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="F" <?php if (isset($gender) && gender =="F") echo "checked";?> checked>
+                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="F" <?php if (isset($gender) && $gender == "F") echo "checked";?> checked>
                                         <label class="form-check-label" for="genderFemale">
                                             Female
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="M" <?php if (isset($gender) && gender =="M") echo "checked";?>>
+                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="M" <?php if (isset($gender) && $gender == "M") echo "checked";?>>
                                         <label class="form-check-label" for="genderMale">
                                             Male
                                         </label>
