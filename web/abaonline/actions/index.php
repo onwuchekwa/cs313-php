@@ -69,6 +69,8 @@
 
             // Check if password matches with confirm password
             if($password != $confirmPassword) {
+                echo 'password issue';
+                exit;
                 $message = '<p class="error">Password is unmatched with confirm password filed</p>';
                 include '../view/registration.php';
                 exit; 
