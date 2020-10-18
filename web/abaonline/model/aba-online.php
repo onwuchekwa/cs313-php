@@ -26,21 +26,6 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
      INSERT INTO user_login (reference_id, user_name, password, user_role_id, created_by, update_date, update_by)
      VALUES ((SELECT business_owner_id FROM boidkey), :userName, :password, 1, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey));';
 
-      echo 'Username: ' . $userName;
-      echo 'Password: ' . $password;
-      echo 'First Name: ' . $firstName;
-      echo 'Middle Name: ' . $middleName;
-      echo 'Last Name: ' . $lastName;
-      echo 'Gender: ' . $gender;
-      echo 'Email Address: ' . $emailAddress;
-      echo 'Contact Type: ' . $contactTypeId;
-      echo 'Contact Data: ' . $contactData;
-      echo 'Address Type: ' . $addressTypeId;
-      echo 'Address: ' . $address;
-      echo 'City: ' . $city;
-      echo 'State: ' . $stateLocated;
-      exit;
-
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the SQL
@@ -59,6 +44,9 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     $stmt->bindValue(':stateLocated', $stateLocated, PDO::PARAM_STR);
     $stmt->bindValue(':userName', $userName, PDO::PARAM_STR);
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+
+    var_dump($stmt);
+    exit;
     // Insert the data
     $stmt->execute();
     // Ask how many rows changed as a result of our insert
