@@ -68,7 +68,7 @@
             }
 
             // Check if password matches with confirm password
-            if($password == $confirmPassword) {
+            if($password != $confirmPassword) {
                 $message = '<p class="error">Password is unmatched with confirm password filed</p>';
                 include '../view/registration.php';
                 exit; 
@@ -109,8 +109,8 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
-            var_dump( $businessOwnerData);
-            exit;
+            //var_dump( $businessOwnerData);
+            //exit;
            
             // Compare the password just submitted against
             // the hashed password for the matching client
