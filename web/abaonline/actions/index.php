@@ -107,10 +107,8 @@
             }
 
             // A valid password exists, proceed with the login process
-            // Query the client data based on the email address
+            // Query the business owner's data based on the username
             $businessOwnerData = getBusinessOwner($userName);
-            //var_dump( $businessOwnerData);
-            //exit;
            
             // Compare the password just submitted against
             // the hashed password for the matching client
@@ -125,25 +123,19 @@
             }
 
 
- //           if ($password == $businessOwnerData['password']) {
-                // A valid user exists, log them in
-                $_SESSION['loggedin'] = TRUE;
-                // Delete cookie at login
-                setcookie('firstname', '', strtotime('-1 year'), '/');
-                // Remove the password from the array
-                // the array_pop function removes the last
-                // element from an array
-                array_pop($businessOwnerData);
-                // Store the array into the session
-                $_SESSION['businessOwnerData'] = $businessOwnerData;            
-                // Send them to the admin view
-                header("location: /abaonline/actions/");
-                exit;
-/*            } else {
-                $message = '<p class="error">Please check your password and try again.</p>';
-                include '../view/login.php';
-                exit; 
-            }*/
+            // A valid user exists, log them in
+            $_SESSION['loggedin'] = TRUE;
+            // Delete cookie at login
+            setcookie('firstname', '', strtotime('-1 year'), '/');
+            // Remove the password from the array
+            // the array_pop function removes the last
+            // element from an array
+            array_pop($businessOwnerData);
+            // Store the array into the session
+            $_SESSION['businessOwnerData'] = $businessOwnerData;            
+            // Send them to the admin view
+            header("location: /abaonline/actions/");
+            exit;
         break;
         
         default:
