@@ -10,41 +10,27 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
      $sql = 'WITH boidkey AS 
      (
        INSERT INTO business_owner (first_name, middle_name, last_name, gender, email_address, entity_type_id, update_date)
-       VALUES (:firstName, :middleName, :lastName, :gender, :emailAddress, :entityTypeId, NOW()) 
+       VALUES (:firstName, :middleName, :lastName, :gender, :emailAddress, 1, NOW()) 
        RETURNING business_owner_id
      ),
      cdkey AS
      (
        INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
-       VALUES (:contactTypeId, (SELECT business_owner_id FROM boidkey), :entityTypeId, :contactData, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey))
+       VALUES (:contactTypeId, (SELECT business_owner_id FROM boidkey), 1, :contactData, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey))
      ),
      addkey AS 
      (
        INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
-       VALUES (:addressTypeId, (SELECT business_owner_id FROM boidkey), :entityTypeId, :address, :city, :stateLocated, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey)) 
+       VALUES (:addressTypeId, (SELECT business_owner_id FROM boidkey), 1, :address, :city, :stateLocated, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey)) 
      )
      INSERT INTO user_login (reference_id, user_name, password, user_role_id, created_by, update_date, update_by)
-     VALUES ((SELECT business_owner_id FROM boidkey), :userName, :password, :userRoleId, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey));';
-    
-     // Get entityTypeID, updateDate, and userRole
-    $entityTypeId = "
-        SELECT 
-          entity_type_id 
-        FROM entity_type 
-        WHERE entity_type_id = '1';
-      ";
-
-    $userRoleId = "
-        SELECT 
-          user_role_id 
-        FROM user_role 
-        WHERE user_role_id = '1';
-      ";
+     VALUES ((SELECT business_owner_id FROM boidkey), :userName, :password, 1, (SELECT business_owner_id FROM boidkey), NOW(), (SELECT business_owner_id FROM boidkey));';
 
       echo 'Username: ' . $userName;
       echo 'Password: ' . $password;
       echo 'First Name: ' . $firstName;
       echo 'Middle Name: ' . $middleName;
+      echo 'Last Name: ' . $lastName;
       echo 'Gender: ' . $gender;
       echo 'Email Address: ' . $emailAddress;
       echo 'Contact Type: ' . $contactTypeId;
@@ -53,8 +39,6 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
       echo 'Address: ' . $address;
       echo 'City: ' . $city;
       echo 'State: ' . $stateLocated;
-      echo 'User Role: ' . $entityTypeId;
-      echo 'entity Type: ' . $entityTypeId;
       exit;
 
     // Create the prepared statement using the acme connection
@@ -67,8 +51,6 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     $stmt->bindValue(':lastName', $lastName, PDO::PARAM_STR);
     $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
     $stmt->bindValue(':emailAddress', $emailAddress, PDO::PARAM_STR);
-    $stmt->bindValue(':entityTypeId', $entityTypeId, PDO::PARAM_STR);
-    $stmt->bindValue(':userRoleId', $userRoleId, PDO::PARAM_STR);
     $stmt->bindValue(':contactTypeId', $contactTypeId, PDO::PARAM_STR);
     $stmt->bindValue(':contactData', $contactData, PDO::PARAM_STR);
     $stmt->bindValue(':addressTypeId', $addressTypeId, PDO::PARAM_STR);
