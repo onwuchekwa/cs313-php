@@ -63,16 +63,14 @@
             // Check for missing data
             if(empty($userName) || empty($firstName) || empty($lastName) || empty($password) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
                 $message = '<p class="error">Please provide information for all empty form fields.</p>';
-                include '../view/registration.php';
+                include '../view/register.php';
                 exit; 
             }
 
             // Check if password matches with confirm password
             if($password != $confirmPassword) {
-                echo 'password issue';
-                exit;
                 $message = '<p class="error">Password is unmatched with confirm password filed</p>';
-                include '../view/registration.php';
+                include '../view/register.php';
                 exit; 
             }
 
@@ -91,7 +89,7 @@
                 exit;
             } else {
                 $message = "<p class='error'>Sorry $firstName, but the registration failed. Please try again.</p>";
-                include '../view/registration.php';
+                include '../view/register.php';
                 exit;
             }
         break;
