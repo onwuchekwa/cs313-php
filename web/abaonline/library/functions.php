@@ -9,9 +9,15 @@ function checkEmail($emailAddress){
 // Build the contact type select list 
 function buildContactTypeList($contactTypes) {
     $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
-    $contactTypeList .= "<option value='' selected>Choose Contact Type</option>"; 
+    $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
     foreach($contactTypes as $contactType) { 
-        $contactTypeList .= "<option value='$contactType[contact_type_id]'>$contactType[description]</option>"; 
+        $contactTypeList .= "<option value='$contactType[contact_type_id]'"; 
+        if(isset($contactTypeId)){
+            if($contactType['contact_type_id'] === $contactTypeId){
+                $contactTypeList .= ' selected ';
+            }
+        }
+        $contactTypeList .= ">$contactType[description]</option>";
     } 
     $contactTypeList .= '</select>'; 
     return $contactTypeList; 
@@ -20,9 +26,15 @@ function buildContactTypeList($contactTypes) {
 // Build the address type select list 
 function buildAddressTypeList($addressTypes) {
     $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
-    $addressTypesList .= "<option value='' selected>Choose Address Type</option>"; 
+    $addressTypesList .= "<option value='' selected disabled>Choose Address Type</option>"; 
     foreach($addressTypes as $addressType) { 
-        $addressTypesList .= "<option value='$addressType[address_type_id]'>$addressType[description]</option>"; 
+        $addressTypesList .= "<option value='$addressType[address_type_id]'>"; 
+        if(isset($addressTypeId)){
+            if($addressType['address_type_id'] === $addressTypeId){
+                $addressTypesList .= ' selected ';
+            }
+        }
+        $addressTypesList .= ">$addressType[description]</option>";
     } 
     $addressTypesList .= '</select>'; 
     return $addressTypesList; 

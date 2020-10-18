@@ -2,6 +2,9 @@
     $pageTitle = 'Registration';
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
+
+    $bindAddressList = buildAddressTypeList($addressList);
+    $bindContactList = buildContactTypeList($contactList);
 ?>
 
 <main>
@@ -21,7 +24,7 @@
                         <div class="form-group row">
                             <label for="userName" class="col-sm-4 col-form-label">User Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="userName" name="userName" placeholder="User name" required>
+                                <input type="text" class="form-control" id="userName" name="userName" placeholder="User name" required <?php if(isset($userName)){echo "value='$userName'";} ?>>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -39,19 +42,19 @@
                         <div class="form-group row">
                             <label for="firstName" class="col-sm-4 col-form-label">First Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required <?php if(isset($firstName)){echo "value='$firstName'";} ?>>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="middleName" class="col-sm-4 col-form-label">Middle Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle name">
+                                <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Middle name" <?php if(isset($middleName)){echo "value='$middleName'";} ?>>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lastName" class="col-sm-4 col-form-label">Last Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required <?php if(isset($lastName)){echo "value='$lastName'";} ?>>
                             </div>
                         </div>
                         <fieldset class="form-group">
@@ -59,13 +62,13 @@
                                 <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
                                 <div class="col-sm-8">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="F" checked>
+                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="F" <?php if (isset($gender) && gender =="F") echo "checked";?> checked>
                                         <label class="form-check-label" for="genderFemale">
                                             Female
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="M">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="M" <?php if (isset($gender) && gender =="M") echo "checked";?>>
                                         <label class="form-check-label" for="genderMale">
                                             Male
                                         </label>
@@ -76,7 +79,7 @@
                         <div class="form-group row">
                             <label for="emailAddress" class="col-sm-4 col-form-label">Email Address</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email Address" required>
+                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Email Address" required <?php if(isset($emailAddress)){echo "value='$emailAddress'";} ?>>
                             </div>
                         </div>
                         <fieldset class="form-group">
@@ -92,7 +95,7 @@
                                     <div class="form-group row">
                                         <label for="contactData" class="col-sm-4 col-form-label">Contact</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required>
+                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} ?>>
                                         </div>
                                     </div>                             
                                 </div>
@@ -111,19 +114,19 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-sm-4 col-form-label">Address</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+                                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" required <?php if(isset($address)){echo "value='$address'";} ?>>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
                                         <label for="city" class="col-sm-4 col-form-label">City</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required <?php if(isset($city)){echo "value='$city'";} ?>>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
                                         <label for="stateLocated" class="col-sm-4 col-form-label">State</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required>
+                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} ?>>
                                         </div>
                                     </div>                             
                                 </div>

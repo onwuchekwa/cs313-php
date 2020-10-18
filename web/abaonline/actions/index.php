@@ -11,6 +11,9 @@
     // Get the functions.php file
     require_once '../library/functions.php';
 
+    $addressList = getAddressType();
+    $contactList = getContactType();
+
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if ($action == NULL){
         $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -18,9 +21,6 @@
 
     switch ($action) {
         case 'registration':
-            // Get the array of contact and address types
-			$bindAddressList = buildAddressTypeList(getAddressType());
-            $bindContactList = buildContactTypeList(getContactType());
             include '../view/register.php';
             exit;
         break;
@@ -68,7 +68,7 @@
             }
 
             // Check if password matches with confirm password
-            if($password != $confirmPassword) {
+            if($password !== $confirmPassword) {
                 $message = '<p class="error">Password is unmatched with confirm password filed</p>';
                 include '../view/register.php';
                 exit; 

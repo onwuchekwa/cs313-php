@@ -21,13 +21,13 @@
                         <div class="form-group row">
                             <label for="userName" class="col-sm-2 col-form-label">User Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="userName" name="userName" placeholder="User name" required>
+                                <input type="text" class="form-control" id="userName" name="userName" placeholder="User name" required <?php if(isset($userName)){echo "value='$userName'";} ?>>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required >
                             </div>
                         </div>
                         <div class="form-group row">
