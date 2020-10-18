@@ -100,7 +100,7 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
-            echo $businessOwnerData;
+            var_dump( $businessOwnerData);
             exit;
            
             // Compare the password just submitted against
