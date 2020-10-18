@@ -45,6 +45,7 @@
             $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_EMAIL);
             $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
+            $confirmPassword = filter_input(INPUT_POST, 'confirmPassword', FILTER_SANITIZE_STRING);
 
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
@@ -65,6 +66,14 @@
                 include '../view/registration.php';
                 exit; 
             }
+
+            // Check if password matches with confirm password
+            if($password == $confirmPassword) {
+                $message = '<p class="error">Password is unmatched with confirm password filed</p>';
+                include '../view/registration.php';
+                exit; 
+            }
+
 
             // Hash the checked password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -87,7 +96,7 @@
 
         case 'signin':
             // Filter and store the data
-            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_EMAIL);
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
             // Run basic checks, return if errors
