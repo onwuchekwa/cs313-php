@@ -3,7 +3,7 @@
     aba-online model for site visitors
 */
 
-function regBusinessOwner($userName, $password, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated) {
+function regBusinessOwner($userName, $password, $firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated) { 
     // Create a connection object using the aba-online connection function
     $db = abaOnlineConnect();
     // The SQL statement
@@ -40,6 +40,23 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
         FROM user_role 
         WHERE user_role_id = '1';
       ";
+
+      echo 'Username: ' . $userName;
+      echo 'Password: ' . $password;
+      echo 'First Name: ' . $firstName;
+      echo 'Middle Name: ' . $middleName;
+      echo 'Gender: ' . $gender;
+      echo 'Email Address: ' . $emailAddress;
+      echo 'Contact Type: ' . $contactTypeId;
+      echo 'Contact Data: ' . $contactData;
+      echo 'Address Type: ' . $addressTypeId;
+      echo 'Address: ' . $address;
+      echo 'City: ' . $city;
+      echo 'State: ' . $stateLocated;
+      echo 'User Role: ' . $entityTypeId;
+      echo 'entity Type: ' . $entityTypeId;
+      exit;
+
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the SQL
