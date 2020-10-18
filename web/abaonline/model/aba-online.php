@@ -45,8 +45,6 @@ function regBusinessOwner($userName, $password, $firstName, $middleName, $lastNa
     $stmt->bindValue(':userName', $userName, PDO::PARAM_STR);
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
 
-    var_dump($stmt);
-    exit;
     // Insert the data
     $stmt->execute();
     // Ask how many rows changed as a result of our insert
