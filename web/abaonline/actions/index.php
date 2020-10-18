@@ -103,17 +103,17 @@
            
             // Compare the password just submitted against
             // the hashed password for the matching client
-//            $hashCheck = password_verify($password, $businessOwnerData['password']);
+            $hashCheck = password_verify($password, $businessOwnerData['password']);
             // If the hashes don't match create an error
             // and return to the login view
- /*           if (!$hashCheck) {
+            if (!$hashCheck) {
                 $message = '<p class="error">Please check your password and try again.</p>';
                 include '../view/login.php';
                 exit; 
             }
-*/
 
-            if ($password == $businessOwnerData['password']) {
+
+ //           if ($password == $businessOwnerData['password']) {
                 // A valid user exists, log them in
                 $_SESSION['loggedin'] = TRUE;
                 // Delete cookie at login
@@ -127,11 +127,11 @@
                 // Send them to the admin view
                 header("location: /abaonline/actions/");
                 exit;
-            } else {
+/*            } else {
                 $message = '<p class="error">Please check your password and try again.</p>';
                 include '../view/login.php';
                 exit; 
-            }
+            }*/
         break;
         
         default:
