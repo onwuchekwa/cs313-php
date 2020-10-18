@@ -13,7 +13,7 @@ function buildContactTypeList($contactTypes) {
     foreach($contactTypes as $contactType) { 
         $contactTypeList .= "<option value='$contactType[contact_type_id]'"; 
         if(isset($contactTypeId)){
-            if($contactType['contact_type_id'] == $contactTypeId){
+            if($contactType['contact_type_id'] === $contactTypeId){
                 $contactTypeList .= ' selected ';
             }
         }
@@ -30,7 +30,7 @@ function buildAddressTypeList($addressTypes) {
     foreach($addressTypes as $addressType) { 
         $addressTypesList .= "<option value='$addressType[address_type_id]'"; 
         if(isset($addressTypeId)){
-            if($addressType['address_type_id'] == $addressTypeId){
+            if($addressType['address_type_id'] === $addressTypeId){
                 $addressTypesList .= ' selected ';
             }
         }
