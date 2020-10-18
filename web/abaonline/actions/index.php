@@ -100,12 +100,13 @@
             // A valid password exists, proceed with the login process
             // Query the client data based on the email address
             $businessOwnerData = getBusinessOwner($userName);
+            echo $businessOwnerData;
+            exit;
            
             // Compare the password just submitted against
             // the hashed password for the matching client
             $hashCheck = password_verify($password, $businessOwnerData['password']);
-            echo $hashCheck;
-            exit;
+           
             // If the hashes don't match create an error
             // and return to the login view
             if (!$hashCheck) {
