@@ -3,8 +3,21 @@
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
-    $bindAddressList = buildAddressTypeList($addressList);
+    //$bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
+
+    $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
+    $addressTypesList .= "<option value='' selected disabled>Choose Address Type</option>"; 
+    foreach($addressList as $addressType) { 
+        $addressTypesList .= "<option value='$addressType[address_type_id]'"; 
+        if(isset($addressTypeId)){
+            if($addressType['address_type_id'] === $addressTypeId){
+                $addressTypesList .= ' selected ';
+            }
+        }
+        $addressTypesList .= ">$addressType[description]</option>";
+    } 
+    $addressTypesList .= '</select>'; 
 ?>
 
 <main>
@@ -108,7 +121,7 @@
                                     <div class="form-group row">
                                         <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
                                         <div class="col-sm-8">
-                                            <?php echo $bindAddressList; ?>
+                                            <?php echo $addressTypesList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
