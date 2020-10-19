@@ -26,6 +26,12 @@
     </ul>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <?php if(isset($login_session) == TRUE) {
+            echo '<a class="nav-link mr-2" href="/abaonline/actions/" title="View my profile"><i class="fa fa-user fa-lg"></i> <span>Welcome '. $first_name .'</span></a>';
+          }
+        ?>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-lg"></i> ADD BUSINESS</a>
       </li>
       <li class="nav-item">
@@ -33,7 +39,7 @@
       </li>
       <li class="nav-item">
         <?php if(isset($login_session) == TRUE) {
-          echo '<a class="nav-link mr-2" href="/abaonline/actions/" title="View my profile"><span>Welcome '. $first_name .'</span></a></li><li class="nav-item"><a href="/abaonline/actions/index.php?action=logout" title="Logout and return to the home page." class="nav-link btn btn-danger ml-2"><i class="fa fa-sign-out fa-lg"></i> Logout</a>';
+          echo '<a href="/abaonline/actions/index.php?action=logout" title="Logout and return to the home page." class="nav-link btn btn-danger ml-2"><i class="fa fa-sign-out fa-lg"></i> Logout</a>';
         } else {
           echo '<a class="nav-link btn btn-outline-success" href="/abaonline/actions/index.php?action=login" title="Sign In"><i class="fa fa-sign-in fa-lg"></i> SIGN IN</a>';          
         }
