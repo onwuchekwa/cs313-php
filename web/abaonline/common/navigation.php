@@ -27,7 +27,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <?php if(isset($login_session) == TRUE) {
-            echo '<a class="nav-link mr-2" href="/abaonline/actions/" title="View my profile"><i class="fa fa-user fa-lg"></i> <span>Welcome '. $first_name .'</span></a>';
+            echo '<a class="nav-link mr-2" href="/abaonline/actions/" title="View my profile"><i class="fa fa-user fa-lg"></i> <span class="text-uppercase">Welcome '. $first_name .'</span></a>';
           }
         ?>
       </li>
