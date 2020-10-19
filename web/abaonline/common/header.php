@@ -1,3 +1,10 @@
+<?php
+    if (isset($_SESSION['loggedin'])){
+        $first_name = $_SESSION['businessOwnerData']['first_name'];
+        $login_session = $_SESSION['loggedin'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

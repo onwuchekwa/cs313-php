@@ -30,6 +30,13 @@
             exit;
         break;
 
+        case 'logout':
+            session_destroy();
+            header('Location: /abaonline/');        
+            setcookie('firstname', '', strtotime('-1 year'), '/');
+            exit;
+        break;
+
         case 'registered':			
             // Filter and store the data
             $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
