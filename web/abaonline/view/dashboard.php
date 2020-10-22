@@ -24,8 +24,8 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+        <li class="breadcrumb-item"><a href="/abaonline/" title="return to home page">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Business Owner Dashboard</li>
       </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -37,16 +37,15 @@
             <div class="d-flex flex-column align-items-center text-center">
               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-3">
-                <h4>John Doe</h4>
-                <p class="text-secondary mb-1">Full Stack Developer</p>
-                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                <h4><?php echo $firstName . ' '. $lastName; ?></h4>
+                <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
                 <button class="btn btn-primary">Edit Profile</button>
                 <button class="btn btn-outline-primary">Send a Message</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="card mt-3">
+        <!--<div class="card mt-3">
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
@@ -69,7 +68,7 @@
               <span class="text-secondary">bootdey</span>
             </li>
           </ul>
-        </div>
+        </div>-->
       </div>
       <div class="col-md-8">
         <div class="card mb-3">
@@ -120,7 +119,7 @@
             </div>
           </div>
         </div>
-        <div class="row gutters-sm">
+        <!--<div class="row gutters-sm">
           <div class="col-sm-6 mb-3">
             <div class="card h-100">
               <div class="card-body">
@@ -175,7 +174,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
