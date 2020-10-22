@@ -37,3 +37,7 @@ body, html {
 .breadcrumb {
     margin-top: 10px;
 }
+
+.rounded-circle {
+ width: 150px;
+}
