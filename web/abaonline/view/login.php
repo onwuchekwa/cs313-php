@@ -4,7 +4,16 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
 
-<main>
+<main class="container main-section">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/abaonline/" title="return to home page">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Log in</li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
     <div class="row">
         <div class="col-sm-12 col-md-6 mx-auto">
             <div class="card">

@@ -19,7 +19,7 @@
 ?>
 
 <main class="container main-section">
-<div class="main-body">
+  <div class="main-body">
     
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -37,7 +37,7 @@
             <div class="d-flex flex-column align-items-center text-center">
               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-3">
-                <h4><?php echo $username; ?></h4>
+                <h4><?php echo $userName; ?></h4>
                 <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
                 <button class="btn btn-primary">Edit</button>
                 <button class="btn btn-danger">Delete</button>
