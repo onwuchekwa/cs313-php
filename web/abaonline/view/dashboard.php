@@ -39,8 +39,8 @@
               <div class="mt-3">
                 <h4><?php echo $userName; ?></h4>
                 <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
-                <button class="btn btn-primary">Edit Profile</button>
-                <button class="btn btn-outline-primary">Send a Message</button>
+                <a class="btn btn-primary" href="#" title="Edit my profile">Edit Profile</a>
+                <a class="btn btn-outline-primary" href="#" title="Send me a message">Send a Message</a>
               </div>
             </div>
           </div>
@@ -48,8 +48,8 @@
         <div class="card mt-3">
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <button class="btn btn-secondary mb-0">Add a Company</button>
-              <button class="btn btn-danger">Delete Account</button>
+              <a class="btn btn-secondary mb-0" href="#" title="Add a new company">Add a Company</a>
+              <a class="btn btn-danger" href="#" title="Remove my Account">Remove my Account</a>
             </li>
           </ul>
         </div>       
@@ -113,8 +113,8 @@
                     <h6 class="mb-0 text-secondary">Mattmeral Academy</h6>
                   </div>
                   <div class="col-sm-4">
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <a href="#" title="Edit this company">Edit</a> |
+                    <a href="#" title="Delete this company">Delete</a>
                   </div>                  
                 </div>
               </div>
