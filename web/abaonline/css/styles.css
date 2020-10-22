@@ -39,5 +39,9 @@ body, html {
 }
 
 .rounded-circle {
- width: 150px;
+    width: 150px;
+}
+
+.gutters-sm {
+    padding-top: 20px;
 }
