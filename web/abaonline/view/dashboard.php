@@ -49,7 +49,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <a class="btn btn-secondary mb-0" href="#" title="Add a new company">Add a Company</a>
-              <a class="btn btn-danger" href="#" title="Remove my Account">Remove my Account</a>
+              <a class="btn btn-danger" href="#" title="Remove my Account">Remove Account</a>
             </li>
           </ul>
         </div>       
