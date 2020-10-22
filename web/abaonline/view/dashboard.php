@@ -39,9 +39,9 @@
               <div class="mt-3">
                 <h4><?php echo $username; ?></h4>
                 <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
-                <button class="btn btn-primary">Edit Profile</button>
-                <button class="btn btn-danger">Delete Profile</button>
-                <button class="btn btn-outline-primary">Contact Me</button>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-outline-primary">Message</button>
               </div>
             </div>
           </div>
