@@ -114,7 +114,7 @@
                   </div>
                   <div class="col-sm-4">
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-secondary">Delete</button>
+                    <button class="btn btn-danger">Delete</button>
                   </div>                  
                 </div>
               </div>
