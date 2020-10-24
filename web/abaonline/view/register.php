@@ -3,6 +3,12 @@
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
+    $contactInfo = getContactInfo($reference_id);
+    $addressInfo = getContactInfo($reference_id);
+
+    $addressList = getAddressType();
+    $contactList = getContactType();
+    
     $bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
 ?>

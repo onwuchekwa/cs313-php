@@ -16,6 +16,10 @@ function buildContactTypeList($contactTypes) {
             if($contactType['contact_type_id'] === $contactTypeId){
                 $contactTypeList .= ' selected ';
             }
+        } elseif(isset($contactInfo['contact_type_id'])) {
+            if($contactType['contact_type_id'] === $contactInfo['contact_type_id']) {
+                $addressTypesList .= ' selected ';
+            }
         }
         $contactTypeList .= ">$contactType[description]</option>";
     } 
@@ -31,6 +35,10 @@ function buildAddressTypeList($addressTypes) {
         $addressTypesList .= "<option value='$addressType[address_type_id]'"; 
         if(isset($addressTypeId)){
             if($addressType['address_type_id'] === $addressTypeId){
+                $addressTypesList .= ' selected ';
+            }
+        } elseif(isset($addressInfo['address_type_id'])) {
+            if($addressType['address_type_id'] === $addressInfo['address_type_id']) {
                 $addressTypesList .= ' selected ';
             }
         }

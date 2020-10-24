@@ -102,6 +102,8 @@ function getBusinessOwner($userName){
         , city
         , state_located
         , user_role_id
+        , contact_detail_id
+        , address_detail_id
         , password
         FROM business_owner bo 
 			    JOIN user_login ul ON ul.reference_id = bo.business_owner_id
@@ -170,4 +172,99 @@ function getContactType() {
   // The next line sends the array of data back to where the function 
   // was called (this should be the controller) 
   return $contactTypes;
+}
+
+// Get contact details by reference id
+function getContactInfo($reference_id){
+  $db = abaOnlineConnect();
+  $sql = 'SELECT cd.*, ct.description FROM contact_detail cd JOIN contact_type ct ON cd.contact_type_id = ct.contact_type_id WHERE reference_id = :reference_id';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
+  $stmt->execute();
+  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $prodInfo;
+}
+
+
+// Get contact details by reference id
+function getAddressInfo($reference_id){
+  $db = abaOnlineConnect();
+  $sql = 'SELECT ad.*, ay.description FROM address_type ay JOIN address_detail ad ON ad.address_type_id = ay.address_type_id WHERE reference_id = :reference_id';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
+  $stmt->execute();
+  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $prodInfo;
+}
+
+// Update Business owner information
+function updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated, $businessOwnerId, $addressId, $contactId) {
+  // Create a connection object using the acme connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+  $sql = 'WITH updateBusinessOwner AS
+  ( 
+    UPDATE business_owner SET first_name = :firstName, middle_name = :middleName, last_name = :lastName, gender = :gender, email_address = :emailAddress, update_date = NOW() WHERE business_owner_id = :businessOwnerId
+  ),
+  updateContact AS
+  (
+    UPDATE contact_detail SET contact_data = :contactData, contact_type_id = :contactTypeId, update_date = NOW(), update_by = :businessOwnerId WHERE contact_detail_id = :contactId
+  )
+  UPDATE address_detail SET address_type_id = :addressTypeId, address = :address, city = :city, state_located = :stateLocated, update_date = NOW(), update_by = :businessOwnerId WHERE address_detail_id = :addressId;';
+  // Create the prepared statement using the acme connection
+  $stmt = $db->prepare($sql);
+  // The next four lines replace the placeholders in the SQL
+  // statement with the actual values in the variables
+  // and tells the database the type of data it is
+    $stmt->bindValue(':firstName', $firstName, PDO::PARAM_STR);
+    $stmt->bindValue(':middleName', $middleName, PDO::PARAM_STR);
+    $stmt->bindValue(':lastName', $lastName, PDO::PARAM_STR);
+    $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
+    $stmt->bindValue(':emailAddress', $emailAddress, PDO::PARAM_STR);
+    $stmt->bindValue(':contactTypeId', $contactTypeId, PDO::PARAM_STR);
+    $stmt->bindValue(':contactData', $contactData, PDO::PARAM_STR);
+    $stmt->bindValue(':addressTypeId', $addressTypeId, PDO::PARAM_STR);
+    $stmt->bindValue(':address', $address, PDO::PARAM_STR);
+    $stmt->bindValue(':city', $city, PDO::PARAM_STR);
+    $stmt->bindValue(':stateLocated', $stateLocated, PDO::PARAM_STR);
+    $stmt->bindValue(':addressId', $addressId, PDO::PARAM_STR);
+    $stmt->bindValue(':contactId', $contactId, PDO::PARAM_STR);
+    $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_STR);
+  // Insert the data
+  $stmt->execute();
+  // Ask how many rows changed as a result of our insert
+  $rowsChanged = $stmt->rowCount();
+  // Close the database interaction
+  $stmt->closeCursor();
+  // Return the indication of success (rows changed)
+  return $rowsChanged;
+}
+
+function deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId) {
+  $db = acmeConnect();
+  $sql = 'WITH deleteCredential AS
+  (
+    DELETE FROM user_login WHERE user_name = :userName
+  ),
+  deleteAddress AS 
+  (
+    DELETE FROM address_detail WHERE address_detail_id = :addressId
+  ),
+  deleteContact AS 
+  (
+    DELETE FROM contact_detail WHERE contact_detail_id = :contactId
+  )
+  DELETE FROM business_owner WHERE business_owner_id = :businessOwnerId;';
+  
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_INT);
+  $stmt->bindValue(':userName', $userName, PDO::PARAM_INT);
+  $stmt->bindValue(':addressId', $addressId, PDO::PARAM_INT);
+  $stmt->bindValue(':contactId', $contactId, PDO::PARAM_INT);
+  $stmt->execute();
+  $rowsChanged = $stmt->rowCount();
+  $stmt->closeCursor();
+  return $rowsChanged;
 }

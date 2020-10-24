@@ -14,6 +14,7 @@
     $city = $_SESSION['businessOwnerData']['city'];
     $stateLocated = $_SESSION['businessOwnerData']['state_located'];
     $userName = $_SESSION['businessOwnerData']['user_name'];
+    $reference_id = $_SESSION['businessOwnerData']['business_owner_id'];
 
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
@@ -39,7 +40,9 @@
               <div class="mt-3">
                 <h4><?php echo $userName; ?></h4>
                 <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
-                <a class="btn btn-primary" href="#" title="Edit my profile">Edit Profile</a>
+                <?php 
+                  echo "<a class='btn btn-primary' href='/abaonline/actions/index.php?action=edit_user&business_owner_id=$reference_id' title='Edit my profile'>Edit Profile</a>";
+                ?>
                 <a class="btn btn-outline-primary" href="#" title="Send me a message">Send a Message</a>
               </div>
             </div>
@@ -49,7 +52,9 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <a class="btn btn-secondary mb-0" href="#" title="Add a new company">Add a Company</a>
-              <a class="btn btn-danger" href="#" title="Remove my Account">Remove Account</a>
+              <?php 
+                  echo "<a class='btn btn-danger' href='/abaonline/actions/index.php?action=delete_user&business_owner_id=$reference_id' title='Remove my Account'>Remove Account</a>";
+              ?>
             </li>
           </ul>
         </div>       
