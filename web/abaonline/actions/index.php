@@ -59,21 +59,21 @@
 
             // Check for existing email address in the table
             if($existingUserName){                
-                $message = '<p class="background-danger">That username  already exists. Do you want to login instead?</p>';
+                $message = '<p class="bg-danger">That username  already exists. Do you want to login instead?</p>';
                 include '../view/login.php';
                 exit;
             }
 
             // Check for missing data
             if(empty($userName) || empty($firstName) || empty($lastName) || empty($password) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
-                $message = '<p class="background-danger">Please provide information for all empty form fields.</p>';
+                $message = '<p class="bg-danger">Please provide information for all empty form fields.</p>';
                 include '../view/register.php';
                 exit; 
             }
 
             // Check if password matches with confirm password
             if($password !== $confirmPassword) {
-                $message = '<p class="background-danger">Password is unmatched with confirm password filed</p>';
+                $message = '<p class="bg-danger">Password is unmatched with confirm password filed</p>';
                 include '../view/register.php';
                 exit; 
             }
@@ -88,11 +88,11 @@
             // Check and report the result
             if($regOutcome === 1){
                 setcookie('firstname', $firstName, strtotime('+1 year'), '/');
-                $message = "<p class='background-success'>Thanks for registering, $firstName. Please use your email and password to login.</p>";
+                $message = "<p class='bg-success'>Thanks for registering, $firstName. Please use your email and password to login.</p>";
                 include '../view/login.php';
                 exit;
             } else {
-                $message = "<p class='background-danger'>Sorry $firstName, but the registration failed. Please try again.</p>";
+                $message = "<p class='bg-danger'>Sorry $firstName, but the registration failed. Please try again.</p>";
                 include '../view/register.php';
                 exit;
             }
@@ -105,7 +105,7 @@
 
             // Run basic checks, return if errors
             if(empty($userName) || empty($password)) {
-                $message = '<p class="background-danger">Please provide a valid username and password.</p>';
+                $message = '<p class="bg-danger">Please provide a valid username and password.</p>';
                 include '../view/login.php';
                 exit; 
             }
@@ -118,10 +118,10 @@
             // the hashed password for the matching client
             $hashCheck = password_verify($password, $businessOwnerData['password']);
            
-            // If the hashes don't match create an background-danger
+            // If the hashes don't match create an bg-danger
             // and return to the login view
             if (!$hashCheck) {
-                $message = '<p class="background-danger">Please check your password and try again.</p>';
+                $message = '<p class="bg-danger">Please check your password and try again.</p>';
                 include '../view/login.php';
                 exit; 
             }
@@ -171,7 +171,7 @@
 
             // Check for missing data
             if(empty($firstName) || empty($lastName) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
-                $message = '<p class="background-danger">Please provide information for all empty form fields.</p>';
+                $message = '<p class="bg-danger">Please provide information for all empty form fields.</p>';
                 include '../view/business-owner-update.php';
                 exit; 
             }
@@ -184,7 +184,7 @@
 
             // Check and report the result
             if($updateInfoOutcome === 1){
-                $message = "<p class='background-success'>Your data has been updated.</p>";
+                $message = "<p class='bg-success'>Your data has been updated.</p>";
                 $_SESSION['message'] = $message;
                 // Remove the password from the array
                 // the array_pop function removes the last
@@ -194,7 +194,7 @@
                 header('location: /abaonline/actions/'); 
                 exit;
             } else {
-                $message = "<p class='background-danger'>Your data update failed. Please try again.</p>";
+                $message = "<p class='bg-danger'>Your data update failed. Please try again.</p>";
                 header('location: /abaonline/actions/');
                 exit;
             }
@@ -214,12 +214,12 @@
                 
             $deleteBusinessOwner = deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId);
             if ($deleteBusinessOwner) {
-                $message = "<p class='background-success'>$userName was successfully deleted.</p>";
+                $message = "<p class='bg-success'>$userName was successfully deleted.</p>";
                 $_SESSION['message'] = $message;
                 header('location: /abaonline/');
                 exit;
             } else {
-                $message = "<p class='background-danger'>Error: $userName was not deleted.</p>";
+                $message = "<p class='bg-danger'>Error: $userName was not deleted.</p>";
                 $_SESSION['message'] = $message;
                 include '../view/business-owner-delete.php';
                 exit;
