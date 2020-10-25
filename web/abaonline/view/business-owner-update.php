@@ -13,10 +13,6 @@
     $addressList = getAddressType();
     $contactList = getContactType();
 
-    print_r(getAddressType());
-    print_r(getAddressInfo($reference_id));
-    exit;
-
     $bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
 
