@@ -46,7 +46,7 @@
                         }
                     ?>
                     <form action="/abaonline/actions/index.php" method="POST">
-                        <p class='background-danger'>This action will delete the business owner information and related companies. Are you sure you want to proceed with this action because it cannot be undone?</p>
+                        <p class='bg-danger p-3 text-white'>This action will delete the business owner information and related companies. Are you sure you want to proceed with this action because it cannot be undone?</p>
                         <div class="form-group row">
                             <label for="firstName" class="col-sm-4 col-form-label">First Name</label>
                             <div class="col-sm-8">
