@@ -166,6 +166,9 @@
             $addressId = filter_input(INPUT_POST, 'addressId', FILTER_SANITIZE_NUMBER_INT);
             $contactId = filter_input(INPUT_POST, 'contactId', FILTER_SANITIZE_NUMBER_INT);
 
+            echo $userName;
+            exit;
+
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
 
@@ -181,8 +184,6 @@
 
             // Query the business owner data based on the user name
             $businessOwnerData = getBusinessOwner($userName); 
-            var_dump($businessOwnerData);
-            exit;
 
             // Check and report the result
             if($updateInfoOutcome === 1){
