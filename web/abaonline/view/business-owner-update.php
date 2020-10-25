@@ -13,7 +13,7 @@
     $addressList = getAddressType();
     $contactList = getContactType();
 
-    var_dump(getAddressType().address_type_id);
+    print_r(getAddressType());
     exit;
 
     $bindAddressList = buildAddressTypeList($addressList);
