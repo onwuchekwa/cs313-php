@@ -194,11 +194,11 @@
                 header('location: /abaonline/actions/'); 
                 exit;
 
-            } else {
+            } /*else {
                 $message = "<p class='bg-danger'>Your data update failed. Please try again.</p>";
                 header('location: /abaonline/actions/');
                 exit;
-            }
+            }*/
         break;
 
         case 'delete_user':
