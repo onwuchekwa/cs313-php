@@ -4,7 +4,7 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
     $contactInfo = getContactInfo($reference_id);
-    $addressInfo = getContactInfo($reference_id);
+    $addressInfo = getAddressInfo($reference_id);
 
     $addressList = getAddressType();
     $contactList = getContactType();
