@@ -88,7 +88,7 @@
             // Check and report the result
             if($regOutcome === 1){
                 setcookie('firstname', $firstName, strtotime('+1 year'), '/');
-                $message = "<p class='bg-success p-3 text-white'>Thanks for registering, $firstName. Please use your email and password to login.</p>";
+                $message = "<p class='bg-success p-3 text-white'>Thanks for registering, $firstName. Please use your username and password to login.</p>";
                 include '../view/login.php';
                 exit;
             } else {
