@@ -180,7 +180,9 @@
             $updateInfoOutcome = updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated, $businessOwnerId, $addressId, $contactId);
 
             // Query the business owner data based on the user name
-            $businessOwnerData = getBusinessOwner($userName);  
+            $businessOwnerData = getBusinessOwner($userName); 
+            var_dump($businessOwnerData);
+            exit;
 
             // Check and report the result
             if($updateInfoOutcome === 1){
@@ -193,6 +195,7 @@
                 $_SESSION['businessOwnerData'] = $businessOwnerData;
                 header('location: /abaonline/actions/'); 
                 exit;
+
             } else {
                 $message = "<p class='bg-danger'>Your data update failed. Please try again.</p>";
                 header('location: /abaonline/actions/');
