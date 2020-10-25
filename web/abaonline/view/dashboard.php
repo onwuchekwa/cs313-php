@@ -7,6 +7,7 @@
 
     $firstName = $_SESSION['businessOwnerData']['first_name'];
     $lastName = $_SESSION['businessOwnerData']['last_name'];
+    $middleName = $_SESSION['businessOwnerData']['middle_name'];
     $emailAddress = $_SESSION['businessOwnerData']['email_address'];
     $gender = $_SESSION['businessOwnerData']['gender'];
     $contactData = $_SESSION['businessOwnerData']['contact_data'];
@@ -35,9 +36,9 @@
       <div class="col-md-4 mb-3">
         <div class="card">
           <?php
-              if (isset($message)) {
-                  echo $message;
-              }
+              if(isset($_SESSION['message'])){
+                echo $_SESSION['message']; 
+            }
           ?>
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
@@ -72,7 +73,12 @@
                 <h6 class="mb-0">Full Name</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?php echo $firstName . ' ' . $lastName; ?>
+                <?php 
+                  if(!empty($middleName))
+                    echo $firstName . ' ' . $middleName . ' '. $lastName;
+                  else
+                    echo $firstName . ' ' . $lastName; 
+                ?>
               </div>
             </div>
             <hr>            

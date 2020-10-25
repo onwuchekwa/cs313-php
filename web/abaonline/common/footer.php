@@ -13,3 +13,5 @@
         <script src="/abaonline/js/app.js"></script>
     </body>
 </html>
+
+<?php unset($_SESSION['message']); ?>
