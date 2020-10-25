@@ -7,14 +7,14 @@
         header("location: /abaonline/");
     }
 
-    var_dump(getAddressInfo($reference_id));
-    exit;
-
     $contactInfo = getContactInfo($reference_id);
     $addressInfo = getContactInfo($reference_id);
 
     $addressList = getAddressType();
     $contactList = getContactType();
+
+    var_dump(getAddressType());
+    exit;
 
     $bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
