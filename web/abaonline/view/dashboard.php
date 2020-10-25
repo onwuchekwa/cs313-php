@@ -32,14 +32,14 @@
     </nav>
     <!-- /Breadcrumb -->
 
+    <?php
+      if(isset($_SESSION['message'])){
+        echo $_SESSION['message']; 
+      }
+    ?>
     <div class="row mt-3">
       <div class="col-md-4 mb-3">
-        <div class="card">
-          <?php
-              if(isset($_SESSION['message'])){
-                echo $_SESSION['message']; 
-            }
-          ?>
+        <div class="card">          
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle">
