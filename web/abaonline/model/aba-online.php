@@ -261,7 +261,7 @@ function deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId
 
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_INT);
-  $stmt->bindValue(':userName', $userName, PDO::PARAM_INT);
+  $stmt->bindValue(':userName', $userName, PDO::PARAM_STR);
   $stmt->bindValue(':addressId', $addressId, PDO::PARAM_INT);
   $stmt->bindValue(':contactId', $contactId, PDO::PARAM_INT);
   $stmt->execute();
