@@ -244,7 +244,7 @@ function updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $e
 }
 
 function deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId) {
-  $db = acmeConnect();
+  $db = abaOnlineConnect();
   $sql = 'WITH deleteCredential AS
   (
     DELETE FROM user_login WHERE user_name = :userName
