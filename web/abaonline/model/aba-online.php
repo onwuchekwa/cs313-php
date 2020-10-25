@@ -232,6 +232,9 @@ function updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $e
     $stmt->bindValue(':addressId', $addressId, PDO::PARAM_STR);
     $stmt->bindValue(':contactId', $contactId, PDO::PARAM_STR);
     $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_STR);
+
+    var_dump($stmt);
+    exit;
   // Insert the data
   $stmt->execute();
   // Ask how many rows changed as a result of our insert
@@ -257,7 +260,7 @@ function deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId
     DELETE FROM contact_detail WHERE contact_detail_id = :contactId
   )
   DELETE FROM business_owner WHERE business_owner_id = :businessOwnerId;';
-  
+
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_INT);
   $stmt->bindValue(':userName', $userName, PDO::PARAM_INT);

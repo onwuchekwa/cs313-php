@@ -181,8 +181,6 @@
 
             // Query the business owner data based on the user name
             $businessOwnerData = getBusinessOwner($userName); 
-            var_dump($businessOwnerData);
-            exit;
 
             // Check and report the result
             if($updateInfoOutcome === 1){
