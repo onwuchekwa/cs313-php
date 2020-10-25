@@ -233,8 +233,6 @@ function updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $e
     $stmt->bindValue(':contactId', $contactId, PDO::PARAM_STR);
     $stmt->bindValue(':businessOwnerId', $businessOwnerId, PDO::PARAM_STR);
 
-    var_dump($stmt);
-    exit;
   // Insert the data
   $stmt->execute();
   // Ask how many rows changed as a result of our insert
