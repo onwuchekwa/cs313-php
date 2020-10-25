@@ -161,13 +161,10 @@
             $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
             $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
-            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_NUMBER_INT);
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $businessOwnerId = filter_input(INPUT_POST, 'businessOwnerId', FILTER_SANITIZE_NUMBER_INT);
             $addressId = filter_input(INPUT_POST, 'addressId', FILTER_SANITIZE_NUMBER_INT);
             $contactId = filter_input(INPUT_POST, 'contactId', FILTER_SANITIZE_NUMBER_INT);
-
-            echo $userName;
-            exit;
 
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
