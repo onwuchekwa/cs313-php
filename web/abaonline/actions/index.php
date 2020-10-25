@@ -217,7 +217,9 @@
             if ($deleteBusinessOwner) {
                 $message = "<p class='bg-success p-3 text-white'>$userName was successfully deleted.</p>";
                 $_SESSION['message'] = $message;
-                header('location: /abaonline/');
+                session_destroy();
+                header('Location: /abaonline/');        
+                setcookie('firstname', '', strtotime('-1 year'), '/');
                 exit;
             } else {
                 $message = "<p class='bg-danger p-3 text-white'>Error: $userName was not deleted.</p>";
