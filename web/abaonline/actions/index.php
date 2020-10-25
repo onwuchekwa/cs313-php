@@ -209,7 +209,7 @@
 
         case 'delete-owner':
             $businessOwnerId = filter_input(INPUT_POST, 'businessOwnerId', FILTER_SANITIZE_NUMBER_INT);
-            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_NUMBER_INT);
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $addressId = filter_input(INPUT_POST, 'addressId', FILTER_SANITIZE_NUMBER_INT);
             $contactId = filter_input(INPUT_POST, 'contactId', FILTER_SANITIZE_NUMBER_INT);
                 
