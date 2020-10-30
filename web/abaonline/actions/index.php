@@ -27,6 +27,11 @@
             exit;
         break;
 
+        case 'add-business':
+            include '../view/add-business.php';
+            exit;
+        break;
+
         case 'logout':
             session_destroy();
             header('Location: /abaonline/');        

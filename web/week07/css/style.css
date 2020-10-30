@@ -1,0 +1,11 @@
+label input {
+    display: block;
+}
+
+.error {
+    color: #f00;
+}
+
+.success {
+    color: green;
+}

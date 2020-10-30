@@ -32,7 +32,7 @@
         ?>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-lg"></i> ADD BUSINESS</a>
+        <a class="nav-link" href="/abaonline/actions/index.php?action=add-business" title="Add Business" class="font-weight-bold"><i class="fa fa-plus fa-lg"></i> ADD BUSINESS</a>
       </li>
       <li class="nav-item">
         <?php if(isset($login_session) == TRUE) {
