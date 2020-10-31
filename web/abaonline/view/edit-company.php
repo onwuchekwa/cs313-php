@@ -6,10 +6,7 @@
     if (!$_SESSION['loggedin']) {
         header("location: /abaonline/actions/index.php?action=login");
     }
-
-    $contactInfo = getContactInfo($reference_id);
-    $addressInfo = getAddressInfo($reference_id);
-
+    
     $addressList = getAddressType();
     $contactList = getContactType();
     
@@ -53,7 +50,7 @@
         <div class="col-sm-12 col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header">
-                    Edit <?php echo $companyInfo['company_name'];  exit;?>
+                    Edit <?php echo $companyInfo['company_name']; ?>
                 </div>
                 <div class="card-body">
                     <?php
