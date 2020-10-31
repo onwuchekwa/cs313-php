@@ -12,8 +12,8 @@ function buildContactTypeList($contactTypes) {
     $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
     foreach($contactTypes as $contactType) { 
         $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
-        if(isset($contactTypeId)){
-            echo $contactTypeId; exit;
+        echo 'This is its ' .$contactTypeId; exit;
+        if(isset($contactTypeId)){            
             if($contactType['contact_type_id'] === $contactTypeId){
                 $contactTypeList .= ' selected ';
             }
