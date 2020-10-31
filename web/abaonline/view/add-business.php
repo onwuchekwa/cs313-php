@@ -142,7 +142,7 @@
                             <div class="col-sm-10">
                                 <input type="submit" value="Register Business" class="btn btn-primary">
                                 <input type="hidden" name="action" value="add-new-business">
-                                <input type="hidden" name="action" value="<?php echo $reference_id; ?>"> 
+                                <input type="hidden" name="reference_id" value="<?php echo $reference_id; ?>"> 
                             </div>
                         </div>     
                     </form>
