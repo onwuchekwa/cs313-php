@@ -14,7 +14,7 @@
 
     $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
     $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
-    foreach($addressLists as $contactType) { 
+    foreach($contactLists as $contactType) { 
         $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
         if(isset($contactTypeId)){ 
             echo 'This is its ' .$contactTypeId . '<br> This is DBs'. $contactType['contact_type_id']; exit;           
