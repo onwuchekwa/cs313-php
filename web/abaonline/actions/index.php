@@ -158,6 +158,8 @@
 
         case 'edit_user':
             $reference_id = filter_input(INPUT_GET, 'business_owner_id', FILTER_SANITIZE_NUMBER_INT);
+            $userName =  filter_input(INPUT_GET, 'userName', FILTER_SANITIZE_NUMBER_INT);
+            $ownerInfo = getAddressType($userName);
             include '../view/business-owner-update.php';
             exit;
         break;

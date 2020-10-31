@@ -6,14 +6,11 @@
     if (!$_SESSION['loggedin']) {
         header("location: /abaonline/");
     }
-
-    $contactInfo = getContactInfo($reference_id);
-    $addressInfo = getAddressInfo($reference_id);
-
-    $addressList = getAddressType();
+    
+    $addressTypes = getAddressType();
     $contactList = getContactType();
 
-    $bindAddressList = buildAddressTypeList($addressList);
+    //$bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
 
     $firstName = $_SESSION['businessOwnerData']['first_name'];
@@ -29,6 +26,23 @@
     $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
     $contactId = $_SESSION['businessOwnerData']['contact_detail_id'];
     $addressId = $_SESSION['businessOwnerData']['address_detail_id'];
+
+    $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
+    $addressTypesList .= "<option value='' selected disabled>Choose Address Type</option>"; 
+    foreach($addressTypes as $addressType) {         
+        $addressTypesList .= "<option id='$addressType[address_type_id]' value='$addressType[address_type_id]'"; 
+        if(isset($addressTypeId)){
+            if($addressType['address_type_id'] === $addressTypeId){
+                $addressTypesList .= ' selected ';
+            }
+        } elseif(isset($ownerInfo['address_detail_id'])) {
+            if($addressType['address_type_id'] === $ownerInfo['address_detail_id']) {
+                $addressTypesList .= ' selected ';
+            }
+        }
+        $addressTypesList .= ">$addressType[description]</option>";
+    } 
+    $addressTypesList .= '</select>'; 
 ?>
 
 <main class="container main-section">

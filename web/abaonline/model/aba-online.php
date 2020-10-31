@@ -174,31 +174,6 @@ function getContactType() {
   return $contactTypes;
 }
 
-// Get contact details by reference id
-function getContactInfo($reference_id){
-  $db = abaOnlineConnect();
-  $sql = 'SELECT cd.*, ct.description FROM contact_detail cd JOIN contact_type ct ON cd.contact_type_id = ct.contact_type_id WHERE reference_id = :reference_id';
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $contactInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $contactInfo;
-}
-
-
-// Get contact details by reference id
-function getAddressInfo($reference_id){
-  $db = abaOnlineConnect();
-  $sql = 'SELECT ad.*, ay.description FROM address_type ay JOIN address_detail ad ON ad.address_type_id = ay.address_type_id WHERE reference_id = :reference_id';
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $addressInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $addressInfo;
-}
-
 // Update Business owner information
 function updateBusinessOwnerInfo($firstName, $middleName, $lastName, $gender, $emailAddress, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated, $businessOwnerId, $addressId, $contactId) {
   // Create a connection object using the acme connection function
