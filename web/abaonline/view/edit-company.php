@@ -65,25 +65,25 @@
                         <div class="form-group row">
                             <label for="company_name" class="col-sm-4 col-form-label">Company Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Comapny Name" required <?php if(isset($company_name)){echo "value='$company_name'";} ?>>
+                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Comapny Name" required <?php if(isset($company_name)){echo "value='$company_name'";} elseif(isset($companyInfo['company_name'])) { echo "value='$companyInfo[company_name]'"; } ?>>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="company_summary" class="col-sm-4 col-form-label">Company Summary</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="company_summary" name="company_summary" placeholder="Company Summary" required <?php if(isset($company_summary)){echo "value='$company_summary'";} ?>>
+                                <input type="text" class="form-control" id="company_summary" name="company_summary" placeholder="Company Summary" required <?php if(isset($company_summary)){echo "value='$company_summary'";} elseif(isset($companyInfo['company_summary'])) { echo "value='$companyInfo[company_summary]'"; } ?>>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="company_full_info" class="col-sm-4 col-form-label">Company's Full Info</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="company_full_info" name="company_full_info" cols="30" rows="5" placeholder="Company's Full Background"><?php if(isset($company_full_info)){echo "value='$company_full_info'";} ?></textarea>
+                                <textarea class="form-control" id="company_full_info" name="company_full_info" cols="30" rows="5" placeholder="Company's Full Background"><?php if(isset($company_full_info)){echo "value='$company_full_info'";} elseif(isset($companyInfo['company_full_info'])) { echo "value='$companyInfo[company_full_info]'"; } ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email_address" class="col-sm-4 col-form-label">Email Address</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="email_address" name="email_address" placeholder="Email Address" required <?php if(isset($email_address)){echo "value='$email_address'";} ?>>
+                                <input type="email" class="form-control" id="email_address" name="email_address" placeholder="Email Address" required <?php if(isset($email_address)){echo "value='$email_address'";} elseif(isset($companyInfo['email_address'])) { echo "value='$companyInfo[email_address]'"; } ?>>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -105,7 +105,7 @@
                                     <div class="form-group row">
                                         <label for="contactData" class="col-sm-4 col-form-label">Contact</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} ?>>
+                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} elseif(isset($companyInfo['contactData'])) { echo "value='$companyInfo[contactData]'"; } ?>>
                                         </div>
                                     </div>                             
                                 </div>
@@ -124,19 +124,19 @@
                                     <div class="form-group row">
                                         <label for="address" class="col-sm-4 col-form-label">Address</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" required <?php if(isset($address)){echo "value='$address'";} ?>>
+                                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" required <?php if(isset($address)){echo "value='$address'";} elseif(isset($companyInfo['address'])) { echo "value='$companyInfo[address]'"; } ?>>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
                                         <label for="city" class="col-sm-4 col-form-label">City</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required <?php if(isset($city)){echo "value='$city'";} ?>>
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required <?php if(isset($city)){echo "value='$city'";} elseif(isset($companyInfo['city'])) { echo "value='$companyInfo[city]'"; } ?>>
                                         </div>
                                     </div> 
                                     <div class="form-group row">
                                         <label for="stateLocated" class="col-sm-4 col-form-label">State</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} ?>>
+                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} elseif(isset($companyInfo['stateLocated'])) { echo "value='$companyInfo[stateLocated]'"; } ?>>
                                         </div>
                                     </div>                             
                                 </div>
@@ -145,8 +145,10 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <input type="submit" value="Register Business" class="btn btn-primary">
-                                <input type="hidden" name="action" value="add-new-business">
-                                <input type="hidden" name="reference_id" value="<?php echo $reference_id; ?>"> 
+                                <input type="hidden" name="action" value="update-company-info">
+                                <input type="hidden" name="company_id" value="<?php echo $companyInfo['company_id']; ?>"> 
+                                <input type="hidden" name="contact_detail_id" value="<?php echo $companyInfo['contact_detail_id']; ?>"> 
+                                <input type="hidden" name="address_detail_id" value="<?php echo $companyInfo['address_detail_id']; ?>"> 
                             </div>
                         </div>     
                     </form>

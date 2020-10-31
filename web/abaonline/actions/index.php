@@ -329,6 +329,7 @@
 
         case 'view_company':
             $company_id = filter_input(INPUT_GET, 'company_id', FILTER_SANITIZE_NUMBER_INT);
+            $companyInfo = getCompanyInfo($company_id);
             include '../view/view-company.php';
             exit;
         break;
@@ -342,8 +343,13 @@
 
         case 'delete_company':
             $company_id = filter_input(INPUT_GET, 'company_id', FILTER_SANITIZE_NUMBER_INT);
+            $companyInfo = getCompanyInfo($company_id);
             include '../view/delete-company.php';
             exit;
+        break;
+
+        case 'update-company-info':
+
         break;
         
         default:
