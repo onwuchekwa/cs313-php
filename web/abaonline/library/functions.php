@@ -48,10 +48,12 @@ function buildAddressTypeList($addressTypes) {
     return $addressTypesList; 
 }
 
-function buildCompanyList($companyLsts) {    
+function buildCompanyList($companies) {    
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
-    foreach ($companyLsts as $companyList) {
+    var_dump($companies);
+    exit;
+    foreach ($companies as $companyList) {
         $cp .= '<div class="row">';
         $cp .= '<div class="col-sm-8">';
         $cp .= "<h6 class='mb-0 text-secondary'>$companyList[company_name]</h6>";
