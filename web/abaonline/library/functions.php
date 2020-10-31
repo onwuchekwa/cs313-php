@@ -52,9 +52,6 @@ function buildCompanyList($companyLsts) {
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
     foreach ($companyLsts as $companyList) {
-        print_r($companyList);
-        echo $companyList['company_name'];
-        exit;
         $cp .= '<div class="row">';
         $cp .= '<div class="col-sm-8">';
         $cp .= "<h6 class='mb-0 text-secondary'>$companyList[company_name]</h6>";
