@@ -85,7 +85,7 @@
                         <div class="form-group row">
                             <label for="email_address" class="col-sm-4 col-form-label">Category</label>
                             <div class="col-sm-8">
-                                <?php echo $category; ?>
+                                <?php echo $categoryList; ?>
                             </div>
                         </div>                        
                         <div class="form-group row">
