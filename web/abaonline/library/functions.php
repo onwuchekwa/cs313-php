@@ -52,7 +52,7 @@ function buildCompanyList($companies) {
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
     foreach($companies as $company) {  
-        echo  $company['company_name'];
+        print_r($company['company_name']);
         exit;
         $cp .= '<div class="row">';
         $cp .= '<div class="col-sm-8">';
