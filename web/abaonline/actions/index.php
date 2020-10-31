@@ -281,6 +281,8 @@
         default:
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
             $companyList = getCompanyInfoByOwner($businessOwnerId);
+            var_dump($companyList);
+            exit;
             if(count($companyList) > 0) {
                 $displayCompanyInfoByOwner = buildCompanyList($companyList);
             }

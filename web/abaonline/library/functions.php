@@ -60,6 +60,7 @@ function buildCompanyList($companies) {
         $cp .= "<a href='/abaonline/actions/index.php?action=view_company&company_id=$company[company_id]' title='Edit this company'>View</a> | <a href='/abaonline/actions/index.php?action=edit_company&company_id=$company[company_id]' title='Edit this company'>Edit</a> | <a href='/abaonline/actions/index.php?action=delete_company&company_id=$company[company_id]' title='Delete this company'>Delete</a>";
         $cp .= '</div>';
         $cp .= '</div>';
+        $cp .= '<hr>';
     }
     $cp .= '</div>';
     $cp .= '</div>';
