@@ -121,22 +121,25 @@
         </div>
 
         <div class="row mt-3">
-          <div class="col-sm-12 mb-3"> 
-            <?php foreach($companyLists as $companyList) : ?>
-            <div class="card">
+          <div class="col-sm-12 mb-3">            
+            <?php 
+              if(isset($displayCompanyInfoByOwner)) {
+                echo $displayCompanyInfoByOwner; 
+              }
+              ?>
+            <!--<div class="card">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h6 class="mb-0 text-secondary"><?php echo $companyList['company_name']; ?></h6>
+                    <h6 class="mb-0 text-secondary">Mattmeral Academy</h6>
                   </div>
                   <div class="col-sm-4">
                     <a href="#" title="Edit this company">Edit</a> |
                     <a href="#" title="Delete this company">Delete</a>
                   </div>                  
                 </div>
-              </div>              
-            </div>
-            <?php endforeach; ?>
+              </div>
+            </div>-->
           </div>
         </div>
       </div>
