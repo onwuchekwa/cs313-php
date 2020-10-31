@@ -123,8 +123,8 @@
         <div class="row mt-3">
           <div class="col-sm-12 mb-3">            
             <?php 
-              if(isset($displayCompanyInfoByOwner)) {
-                echo $displayCompanyInfoByOwner; 
+              if(isset($displayCompanyInfo)) {
+                echo $displayCompanyInfo; 
               }
               ?>
             <!--<div class="card">
