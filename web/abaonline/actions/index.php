@@ -280,6 +280,8 @@
         
         default:
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
+            echo  $businessOwnerId;
+            exit;
             $companyList = getCompanyInfoByOwner($businessOwnerId);
             var_dump($companyList);
             exit;
