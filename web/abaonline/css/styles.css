@@ -41,3 +41,7 @@ body, html {
 .rounded-circle {
     width: 150px;
 }
+
+.company-list:last-child > hr {
+    display: none;
+}

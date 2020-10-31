@@ -121,25 +121,12 @@
         </div>
 
         <div class="row mt-3">
-          <div class="col-sm-12 mb-3">            
+          <div class="col-sm-12 mb-3 company-list">            
             <?php 
               if(isset($displayCompanyInfo)) {
                 echo $displayCompanyInfo; 
               }
               ?>
-            <!--<div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h6 class="mb-0 text-secondary">Mattmeral Academy</h6>
-                  </div>
-                  <div class="col-sm-4">
-                    <a href="#" title="Edit this company">Edit</a> |
-                    <a href="#" title="Delete this company">Delete</a>
-                  </div>                  
-                </div>
-              </div>
-            </div>-->
           </div>
         </div>
       </div>
