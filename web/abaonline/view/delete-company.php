@@ -38,13 +38,13 @@
                         <div class="form-group row">
                             <label for="company_name" class="col-sm-4 col-form-label">Company Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Comapny Name" required <?php if(isset($company_name)){echo "value='$company_name'";} elseif(isset($companyInfo['company_name'])) { echo "value='$companyInfo[company_name]'"; } ?>>
+                                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Comapny Name" <?php if(isset($company_name)){echo "value='$company_name'";} elseif(isset($companyInfo['company_name'])) { echo "value='$companyInfo[company_name]'"; } ?> readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="company_summary" class="col-sm-4 col-form-label">Company Summary</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="company_summary" name="company_summary" placeholder="Company Summary" required <?php if(isset($company_summary)){echo "value='$company_summary'";} elseif(isset($companyInfo['company_summary'])) { echo "value='$companyInfo[company_summary]'"; } ?>>
+                                <input type="text" class="form-control" id="company_summary" name="company_summary" placeholder="Company Summary" <?php if(isset($company_summary)){echo "value='$company_summary'";} elseif(isset($companyInfo['company_summary'])) { echo "value='$companyInfo[company_summary]'"; } ?> readonly>
                             </div>
                         </div>
                         <div class="form-group row">
