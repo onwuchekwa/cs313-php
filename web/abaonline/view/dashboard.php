@@ -18,11 +18,6 @@
     $reference_id = $_SESSION['businessOwnerData']['business_owner_id'];
 
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
-
-    $companyList = getCompanyInfoByOwner($reference_id);
-    if(count($companyList) > 0) {
-        $displayCompanyInfoByOwner = buildCompanyList($companyList);
-    }
 ?>
 
 <main class="container main-section">
