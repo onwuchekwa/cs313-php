@@ -48,16 +48,18 @@ function buildAddressTypeList($addressTypes) {
     return $addressTypesList; 
 }
 
-function buildCompanyList($companyLists) {    
+function buildCompanyList($companies) {    
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
-    foreach($companyLists as $companyList) { 
+    foreach($companies as $company) { 
+        echo 'This is issue: ' .$company['company_name'];
+        exit;
         $cp .= '<div class="row">';
         $cp .= '<div class="col-sm-8">';
-        $cp .= "<h6 class='mb-0 text-secondary'>$companyList[company_name]</h6>";
+        $cp .= "<h6 class='mb-0 text-secondary'>$company[company_name]</h6>";
         $cp .= '</div>';
         $cp .= '<div class="col-sm-4">';
-        $cp .= "<a href='/abaonline/actions/index.php?action=view_company&company_id=$companyList[company_id]' title='Edit this company'>View</a> | <a href='/abaonline/actions/index.php?action=edit_company&company_id=$companyList[company_id]' title='Edit this company'>Edit</a> | <a href='/abaonline/actions/index.php?action=delete_company&company_id=$companyList[company_id]' title='Delete this company'>Delete</a>";
+        $cp .= "<a href='/abaonline/actions/index.php?action=view_company&company_id=$company[company_id]' title='Edit this company'>View</a> | <a href='/abaonline/actions/index.php?action=edit_company&company_id=$company[company_id]' title='Edit this company'>Edit</a> | <a href='/abaonline/actions/index.php?action=delete_company&company_id=$company[company_id]' title='Delete this company'>Delete</a>";
         $cp .= '</div>';
         $cp .= '</div>';
         $cp .= '<hr>';
