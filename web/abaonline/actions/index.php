@@ -249,6 +249,11 @@
             $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);    
             $userName = filter_input(INPUT_INPUT, 'userName', FILTER_SANITIZE_STRING);
 
+            echo 'password '. $password .'<br>';
+            echo 'confirm_password '. $confirm_password .'<br>';
+            echo 'userName '. $userName .'<br>';
+            exit;
+
             // Call the validation functions
             $checkPassword = checkPassword($password);
 
