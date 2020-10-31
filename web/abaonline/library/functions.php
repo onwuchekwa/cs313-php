@@ -49,11 +49,11 @@ function buildAddressTypeList($addressTypes) {
 }
 
 function buildCompanyList($companies) {
+    var_dump($companies);
+    exit;
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
-    foreach($companies as $company) {  
-        print_r($company['company_name']);
-        exit;
+    foreach($companies as $company) { 
         $cp .= '<div class="row">';
         $cp .= '<div class="col-sm-8">';
         $cp .= "<h6 class='mb-0 text-secondary'>$company[company_name]</h6>";

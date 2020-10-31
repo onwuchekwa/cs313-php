@@ -337,7 +337,7 @@ function regBusiness($company_name, $company_full_info, $company_summary, $email
 
 function getCompanyInfoByOwner($businessOwnerId) {
   $db = abaOnlineConnect();
-  $sql = 'SELECT * FROM company_detail WHERE business_owner_id = :business_owner_id ORDER BY company_name';
+  $sql = 'SELECT company_id, company_name FROM company_detail WHERE business_owner_id = :business_owner_id ORDER BY company_name';
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':business_owner_id', $businessOwnerId, PDO::PARAM_INT);
   $stmt->execute();
