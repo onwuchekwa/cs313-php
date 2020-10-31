@@ -3,33 +3,14 @@
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
-    // Build Contact List
-    $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
-    $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
-    foreach($contactLists as $contactList) { 
-        $contactTypeList .= "<option id='$contactList[contact_type_id]' value='$contactList[contact_type_id]'"; 
-        if(isset($contactTypeId)){
-            if($contactList['contact_type_id'] === $contactTypeId){
-                $contactTypeList .= ' selected ';
-            }
-        }
-        $contactTypeList .= ">$contactList[description]</option>";
-    } 
-    $contactTypeList .= '</select>'; 
+    $contactInfo = getContactInfo($reference_id);
+    $addressInfo = getAddressInfo($reference_id);
 
-    // Build Address List
-    $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
-    $addressTypesList .= "<option value='' selected disabled>Choose Address Type</option>"; 
-    foreach($addressLists as $addressList) {         
-        $addressTypesList .= "<option id='$addressList[address_type_id]' value='$addressList[address_type_id]'"; 
-        if(isset($addressTypeId)){
-            if($addressList['address_type_id'] === $addressTypeId){
-                $addressTypesList .= ' selected ';
-            }
-        } 
-        $addressTypesList .= ">$addressList[description]</option>";
-    } 
-    $addressTypesList .= '</select>'; 
+    $addressList = getAddressType();
+    $contactList = getContactType();
+    
+    $bindAddressList = buildAddressTypeList($addressList);
+    $bindContactList = buildContactTypeList($contactList);
 ?>
 
 <main class="container main-section">
@@ -123,7 +104,7 @@
                                     <div class="form-group row">
                                         <label for="contactTypeId" class="col-sm-4 col-form-label">Contact Type</label>
                                         <div class="col-sm-8">
-                                            <?php echo $contactTypeList; ?>
+                                            <?php echo $bindContactList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -142,7 +123,7 @@
                                     <div class="form-group row">
                                         <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
                                         <div class="col-sm-8">
-                                            <?php echo $addressTypesList; ?>
+                                            <?php echo $bindAddressList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
