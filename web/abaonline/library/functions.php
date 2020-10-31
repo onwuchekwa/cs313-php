@@ -47,3 +47,21 @@ function buildAddressTypeList($addressTypes) {
     $addressTypesList .= '</select>'; 
     return $addressTypesList; 
 }
+
+function buildCompanyList($companies) {
+    $cp = '<div class="card">';
+    $cp .= '<div class="card-body">';
+    foreach($companies as $company) {   
+        $cp .= '<div class="row">';
+        $cp .= '<div class="col-sm-8">';
+        $cp .= "<h6 class='mb-0 text-secondary'>$company[company_name]</h6>";
+        $cp .= '</div>';
+        $cp .= '<div class="col-sm-4">';
+        $cp .= "<a href='/abaonline/actions/index.php?action=view_company&company_id=$company[company_id]' title='Edit this company'>View</a> | <a href='/abaonline/actions/index.php?action=edit_company&company_id=$company[company_id]' title='Edit this company'>Edit</a> | <a href='/abaonline/actions/index.php?action=delete_company&company_id=$company[company_id]' title='Delete this company'>Delete</a>";
+        $cp .= '</div>';
+        $cp .= '</div>';
+    }
+    $cp .= '</div>';
+    $cp .= '</div>';
+    return $cp;
+}

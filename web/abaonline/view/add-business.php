@@ -77,13 +77,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email_address" class="col-sm-4 col-form-label">Last Name</label>
+                            <label for="email_address" class="col-sm-4 col-form-label">Email Address</label>
                             <div class="col-sm-8">
                                 <input type="email" class="form-control" id="email_address" name="email_address" placeholder="Email Address" required <?php if(isset($email_address)){echo "value='$email_address'";} ?>>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email_address" class="col-sm-4 col-form-label">Category</label>
+                            <label for="category_id" class="col-sm-4 col-form-label">Category</label>
                             <div class="col-sm-8">
                                 <?php echo $categoryList; ?>
                             </div>
@@ -141,15 +141,11 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <input type="submit" value="Register Business" class="btn btn-primary">
-                                <input type="hidden" name="action" value="add-business">
+                                <input type="hidden" name="action" value="add-new-business">
                                 <input type="hidden" name="action" value="<?php echo $reference_id; ?>"> 
                             </div>
                         </div>     
                     </form>
-                </div> 
-                <div class="card-footer text-center">
-                    <span class="d-block">Already a member?</span>
-                    <a href="/abaonline/actions/index.php?action=login">Click here to login</a>
                 </div>
             </div>
         </div>

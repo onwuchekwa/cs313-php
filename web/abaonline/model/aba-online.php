@@ -181,9 +181,9 @@ function getContactInfo($reference_id){
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
   $stmt->execute();
-  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $contactInfo = $stmt->fetch(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
-  return $prodInfo;
+  return $contactInfo;
 }
 
 
@@ -194,9 +194,9 @@ function getAddressInfo($reference_id){
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':reference_id', $reference_id, PDO::PARAM_INT);
   $stmt->execute();
-  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $addressInfo = $stmt->fetch(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
-  return $prodInfo;
+  return $addressInfo;
 }
 
 // Update Business owner information
@@ -287,4 +287,61 @@ function getCategory() {
   // The next line sends the array of data back to where the function 
   // was called (this should be the controller) 
   return $category;
+}
+
+function regBusiness($company_name, $company_full_info, $company_summary, $email_address, $category_id, $reference_id, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated) { 
+  // Create a connection object using the aba-online connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+   $sql = 'WITH comidkey AS 
+   (
+     INSERT INTO company_detail (business_owner_id, entity_type_id, category_id, company_name, company_summary, company_full_info, email_address, created_by, update_date, update_by)
+     VALUES (:business_owner_id, 2, :category_id, :company_name, :company_summary, :company_full_info, :email_address, :business_owner_id, NOW(), :business_owner_id) 
+     RETURNING company_id
+   ),
+   cdkey AS
+   (
+     INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
+     VALUES (:contactTypeId, (SELECT company_id FROM comidkey), 2, :contactData, :business_owner_id, NOW(), :business_owner_id)
+   )
+   INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
+   VALUES (:addressTypeId, (SELECT company_id FROM comidkey), 2, :address, :city, :stateLocated, :business_owner_id, NOW(), (SELECT business_owner_id FROM comidkey));';
+
+  // Create the prepared statement using the acme connection
+  $stmt = $db->prepare($sql);
+  // The next four lines replace the placeholders in the SQL
+  // statement with the actual values in the variables
+  // and tells the database the type of data it is
+  $stmt->bindValue(':business_owner_id', $reference_id, PDO::PARAM_STR);
+  $stmt->bindValue(':category_id', $category_id, PDO::PARAM_STR);
+  $stmt->bindValue(':company_name', $company_name, PDO::PARAM_STR);
+  $stmt->bindValue(':company_summary', $company_summary, PDO::PARAM_STR);
+  $stmt->bindValue(':company_full_info', $company_full_info, PDO::PARAM_STR);
+  $stmt->bindValue(':email_address', $email_address, PDO::PARAM_STR);
+  $stmt->bindValue(':contactTypeId', $contactTypeId, PDO::PARAM_STR);
+  $stmt->bindValue(':contactData', $contactData, PDO::PARAM_STR);
+  $stmt->bindValue(':addressTypeId', $addressTypeId, PDO::PARAM_STR);
+  $stmt->bindValue(':address', $address, PDO::PARAM_STR);
+  $stmt->bindValue(':city', $city, PDO::PARAM_STR);
+  $stmt->bindValue(':stateLocated', $stateLocated, PDO::PARAM_STR);
+
+  // Insert the data
+  $stmt->execute();
+  // Ask how many rows changed as a result of our insert
+  $rowsChanged = $stmt->rowCount();
+  // Close the database interaction
+  $stmt->closeCursor();
+  // Return the indication of success (rows changed)
+  return $rowsChanged;       
+}
+
+function getCompanyInfoByOwner($businessOwnerId) {
+  $db = abaOnlineConnect();
+  $sql = 'SELECT company_id, company_name FROM company_detail WHERE business_owner_id = :business_owner_id';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':business_owner_id', $businessOwnerId, PDO::PARAM_INT);
+  $stmt->execute();
+  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $prodInfo;
 }

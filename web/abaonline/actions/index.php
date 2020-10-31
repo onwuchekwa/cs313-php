@@ -142,7 +142,7 @@
             array_pop($businessOwnerData);
             // Store the array into the session
             $_SESSION['businessOwnerData'] = $businessOwnerData;            
-            // Send them to the admin view
+            // Send them to the Dashboard view
             header("location: /abaonline/actions/");
             exit;
         break;
@@ -233,9 +233,57 @@
                 exit;
             }
         break;
+
+        case 'modify-password':
+            // Holds the change password codes
+        break;
+
+        case 'add-new-business':
+             // Filter and store the data
+             $company_name = filter_input(INPUT_POST, 'company_name', FILTER_SANITIZE_STRING);
+             $company_summary = filter_input(INPUT_POST, 'company_summary', FILTER_SANITIZE_STRING);
+             $company_full_info = filter_input(INPUT_POST, 'company_full_info', FILTER_SANITIZE_STRING);
+             $email_address = filter_input(INPUT_POST, 'email_address', FILTER_SANITIZE_EMAIL);
+             $category_id = filter_input(INPUT_POST, 'category_id', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+             $reference_id = filter_input(INPUT_POST, 'reference_id', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+             $contactTypeId = filter_input(INPUT_POST, 'contactTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+             $contactData = filter_input(INPUT_POST, 'contactData', FILTER_SANITIZE_STRING);
+             $addressTypeId = filter_input(INPUT_POST, 'addressTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+             $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
+             $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
+ 
+             // Call the validation functions
+             $email_address = checkEmail($email_address);
+ 
+             // Check for missing data
+             if(empty($company_name) || empty($company_full_info) || empty($company_summary) || empty($email_address) || empty($category_id) || empty($reference_id) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
+                 $message = '<p class="bg-danger p-3 text-white">Please provide information for all empty form fields.</p>';
+                 include '../view/add-business.php';
+                 exit; 
+             }
+
+              // Send the data to the model
+            $regBusinessOutcome = regBusiness($company_name, $company_full_info, $company_summary, $email_address, $category_id, $reference_id, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated);
+
+            // Check and report the result
+            if($regBusinessOutcome === 1){
+                $message = "<p class='bg-success p-3 text-white'>Thanks for registering, $company_name.</p>";
+                header("location: /abaonline/actions/");
+                exit;
+            } else {
+                $message = "<p class='bg-danger p-3 text-white'>Sorry $company_name, but the registration failed. Please try again.</p>";
+                include '../view/add-business.php';
+                exit;
+            }
+        break;
         
         default:
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
+            $companyList = getCompanyInfoByOwner($businessOwnerId);
+            if(count($companyByOwner) > 0) {
+                $displayCompanyInfoByOwner = buildCompanyList($companyList);
+            }
             include '../view/dashboard.php';
             exit;
         break;
