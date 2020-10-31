@@ -367,3 +367,41 @@ function updateBusinessOwnerPassword($hashedPassword, $userName) {
   // Return the indication of success (rows changed)
   return $rowsChanged;    
 }
+
+function getCompanyInfo($company_id) {
+  // Create a connection object using the acme connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+  $sql = '
+      SELECT
+        co.business_owner_id
+      , company_id
+      , category_id
+      , company_name
+      , company_summary
+      , email_address
+      , company_full_info
+      , contact_data
+      , email_address
+      , address
+      , city
+      , state_located
+      , contact_detail_id
+      , address_detail_id
+      FROM company_detail co 
+        JOIN contact_detail cd ON cd.reference_id = co.business_owner_id 
+        JOIN address_detail ad ON ad.reference_id = co.business_owner_id
+      WHERE company_id = :company_id;
+    ';
+  // Create the prepared statement using the aba-online connection
+  $stmt = $db->prepare($sql);
+  // The next line replace the placeholder in the SQL
+  $stmt->bindValue(':company_id', $company_id, PDO::PARAM_INT);
+  // Retrieve the data
+  $stmt->execute();
+  $companyData = $stmt->fetch(PDO::FETCH_ASSOC);
+  // Close cursor
+  $stmt->closeCursor();
+  // Return Client Data
+  return $companyData;
+}
