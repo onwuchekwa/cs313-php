@@ -6,7 +6,7 @@
     if (!$_SESSION['loggedin']) {
         header("location: /abaonline/actions/index.php?action=login");
     }
-    
+
     $addressList = getAddressType();
     $contactList = getContactType();
     
@@ -74,7 +74,7 @@
                         <div class="form-group row">
                             <label for="company_full_info" class="col-sm-4 col-form-label">Company's Full Info</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="company_full_info" name="company_full_info" cols="30" rows="5" placeholder="Company's Full Background"><?php if(isset($company_full_info)){echo "value='$company_full_info'";} elseif(isset($companyInfo['company_full_info'])) { echo "value='$companyInfo[company_full_info]'"; } ?></textarea>
+                                <textarea class="form-control" id="company_full_info" name="company_full_info" cols="30" rows="5" placeholder="Company's Full Background"><?php if(isset($company_full_info)){echo $company_full_info;} elseif(isset($companyInfo['company_full_info'])) { echo $companyInfo['company_full_info']; } ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -102,7 +102,7 @@
                                     <div class="form-group row">
                                         <label for="contactData" class="col-sm-4 col-form-label">Contact</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} elseif(isset($companyInfo['contactData'])) { echo "value='$companyInfo[contactData]'"; } ?>>
+                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} elseif(isset($companyInfo['contact_data'])) { echo "value='$companyInfo[contact_data]'"; } ?>>
                                         </div>
                                     </div>                             
                                 </div>
@@ -133,7 +133,7 @@
                                     <div class="form-group row">
                                         <label for="stateLocated" class="col-sm-4 col-form-label">State</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} elseif(isset($companyInfo['stateLocated'])) { echo "value='$companyInfo[stateLocated]'"; } ?>>
+                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} elseif(isset($companyInfo['state_located'])) { echo "value='$companyInfo[state_located]'"; } ?>>
                                         </div>
                                     </div>                             
                                 </div>
