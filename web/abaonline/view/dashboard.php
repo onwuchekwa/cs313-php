@@ -127,7 +127,7 @@
                 echo $displayCompanyInfoByOwner; 
               }
               ?>
-            <!--<div class="card">
+            <div class="card">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-8">
@@ -139,7 +139,7 @@
                   </div>                  
                 </div>
               </div>
-            </div>-->
+            </div>
           </div>
         </div>
     </div>
