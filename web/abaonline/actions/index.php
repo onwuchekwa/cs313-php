@@ -250,11 +250,11 @@
             $userName = filter_input(INPUT_INPUT, 'reference_id', FILTER_SANITIZE_STRING);
 
             // Call the validation functions
-            $checkPassword = checkPassword($clientPassword);
+            $checkPassword = checkPassword($password);
 
             // Check for missing data
             if(empty($checkPassword) || empty($confirm_password)) {
-                $message = '<p class="error">Please provide information for all empty form fields.</p>';
+                $message = '<p class="bg-danger p-3 text-white">Please provide information for all empty form fields.</p>';
                 include '../view/change-password.php';
                 exit; 
             }
@@ -274,12 +274,12 @@
 
             // Check and report the result
             if($updatePwdOutcome === 1){
-                $message = "<p class='success'>Your password has been updated</p>";
+                $message = "<p class='bg-success p-3 text-white'>Your password has been updated</p>";
                 $_SESSION['message'] = $message;
                 header('location: /abaonline/actions/');
                 exit;
             } else {
-                $message = "<p class='error'>Sorry, update of your password failed. Please try again.</p>";
+                $message = "<p class='bg-danger p-3 text-white'>Sorry, update of your password failed. Please try again.</p>";
                 $_SESSION['message'] = $message;
                 header('location: /abaonline/actions/');
                 exit;
