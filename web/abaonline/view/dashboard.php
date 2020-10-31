@@ -122,7 +122,12 @@
 
         <div class="row mt-3">
           <div class="col-sm-12 mb-3">
-            <?php echo $displayCompanyInfoByOwner; ?>
+            
+            <?php 
+              if(isset($displayCompanyInfoByOwner)) {
+                echo $displayCompanyInfoByOwner; 
+              }
+              ?>
             <!--<div class="card">
               <div class="card-body">
                 <div class="row">

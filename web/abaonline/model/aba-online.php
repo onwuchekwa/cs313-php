@@ -299,13 +299,13 @@ function regBusiness($company_name, $company_full_info, $company_summary, $email
      VALUES (:business_owner_id, 2, :category_id, :company_name, :company_summary, :company_full_info, :email_address, :business_owner_id, NOW(), :business_owner_id) 
      RETURNING company_id
    ),
-   cdkey AS
+   cdckey AS
    (
      INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
      VALUES (:contactTypeId, (SELECT company_id FROM comidkey), 2, :contactData, :business_owner_id, NOW(), :business_owner_id)
    )
    INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
-   VALUES (:addressTypeId, (SELECT company_id FROM comidkey), 2, :address, :city, :stateLocated, :business_owner_id, NOW(), (SELECT business_owner_id FROM comidkey));';
+   VALUES (:addressTypeId, (SELECT company_id FROM comidkey), 2, :address, :city, :stateLocated, :business_owner_id, NOW(), :business_owner_id);';
 
   // Create the prepared statement using the acme connection
   $stmt = $db->prepare($sql);
@@ -337,11 +337,11 @@ function regBusiness($company_name, $company_full_info, $company_summary, $email
 
 function getCompanyInfoByOwner($businessOwnerId) {
   $db = abaOnlineConnect();
-  $sql = 'SELECT company_id, company_name FROM company_detail WHERE business_owner_id = :business_owner_id';
+  $sql = 'SELECT company_id, company_name FROM company_detail WHERE business_owner_id = :business_owner_id ORDER BY company_name';
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':business_owner_id', $businessOwnerId, PDO::PARAM_INT);
   $stmt->execute();
-  $prodInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $companyInfo = $stmt->fetch(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
-  return $prodInfo;
+  return $companyInfo;
 }
