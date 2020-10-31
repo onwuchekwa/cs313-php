@@ -57,7 +57,7 @@
         <div class="card mt-3">
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <a class="btn btn-secondary mb-0" href="#" title="Add a new company">Add a Company</a>
+              <a class="btn btn-secondary mb-0" href="#" title="Change Password">Change Password</a>
               <?php 
                   echo "<a class='btn btn-danger' href='/abaonline/actions/index.php?action=delete_user&business_owner_id=$reference_id' title='Remove my Account'>Remove Account</a>";
               ?>

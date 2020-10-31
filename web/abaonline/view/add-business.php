@@ -16,12 +16,12 @@
     $bindAddressList = buildAddressTypeList($addressList);
     $bindContactList = buildContactTypeList($contactList);
 
-    $category = getCategory();
+    $categories = getCategory();
 
     $reference_id = $_SESSION['businessOwnerData']['business_owner_id'];
 
     // Dynamically generate Sticky Category List
-    $categoryList = "<select id='category_id' name='category_id' required>";
+    $categoryList = "<select id='category_id' name='category_id' class='form-control' required>";
     $categoryList .= "<option selected disabled value=''>Select a Category</option>";
     foreach($categories as $category){
         $categoryList .= "<option id='$category[category_id]' value='$category[category_id]'";
