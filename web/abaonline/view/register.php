@@ -18,7 +18,6 @@
         $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
         if(isset($contactTypeId)){                    
             if($contactType['contact_type_id'] === $contactTypeId){ 
-                echo 'This is its ' .$contactTypeId . '<br> This is DBs'. $contactType['contact_type_id'];
                 $contactTypeList .= ' selected ';
             }
         } elseif(isset($contactInfo['contact_type_id'])) {
@@ -29,7 +28,6 @@
         $contactTypeList .= ">$contactType[description]</option>";
     } 
     $contactTypeList .= '</select>';
-    exit;
 ?>
 
 <main class="container main-section">
