@@ -49,7 +49,7 @@
                 <?php 
                   echo "<a class='btn btn-primary' href='/abaonline/actions/index.php?action=edit_user&business_owner_id=$reference_id' title='Edit my profile'>Edit Profile</a>";
                 ?>
-                <a class="btn btn-outline-primary" href="#" title="Send me a message">Send a Message</a>
+                <a class="btn btn-outline-primary" href="mailto:<?php echo $emailAddress; ?>" title="Send me a message">Send a Message</a>
               </div>
             </div>
           </div>
