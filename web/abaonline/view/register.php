@@ -16,10 +16,9 @@
     $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
     foreach($contactLists as $contactType) { 
         $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
-        if(isset($contactTypeId)){ 
-            var_dump($contactType['contact_type_id'][2]); exit;         
+        if(isset($contactTypeId)){                    
             if($contactType['contact_type_id'] === $contactTypeId){ 
-                echo 'This is its ' .$contactTypeId . '<br> This is DBs'. $contactType['contact_type_id']; exit;
+                echo 'This is its ' .$contactTypeId . '<br> This is DBs'. $contactType['contact_type_id'];
                 $contactTypeList .= ' selected ';
             }
         } elseif(isset($contactInfo['contact_type_id'])) {
@@ -30,6 +29,7 @@
         $contactTypeList .= ">$contactType[description]</option>";
     } 
     $contactTypeList .= '</select>';
+    exit;
 ?>
 
 <main class="container main-section">
