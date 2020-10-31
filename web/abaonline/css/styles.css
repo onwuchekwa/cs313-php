@@ -45,3 +45,7 @@ body, html {
 .company-list hr:last-child {
     display: none;
 }
+
+.password-size {
+    font-size: 0.75rem;
+}

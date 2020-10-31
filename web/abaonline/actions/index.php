@@ -32,6 +32,12 @@
             exit;
         break;
 
+        case 'change-password':        
+            $userName = filter_input(INPUT_GET, 'userName', FILTER_SANITIZE_STRING);
+            include '../view/change-password.php';
+            exit;
+        break;
+
         case 'logout':
             session_destroy();
             header('Location: /abaonline/');        
@@ -56,6 +62,9 @@
             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
             $confirmPassword = filter_input(INPUT_POST, 'confirmPassword', FILTER_SANITIZE_STRING);
 
+             // Call the validation functions
+             $checkPassword = checkPassword($password);
+
             // Call the validation functions
             $emailAddress = checkEmail($emailAddress);
 
@@ -70,7 +79,7 @@
             }
 
             // Check for missing data
-            if(empty($userName) || empty($firstName) || empty($lastName) || empty($password) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
+            if(empty($userName) || empty($firstName) || empty($lastName) || empty($checkPassword) || empty($gender) || empty($emailAddress) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated)) {
                 $message = '<p class="bg-danger p-3 text-white">Please provide information for all empty form fields.</p>';
                 include '../view/register.php';
                 exit; 
@@ -108,8 +117,11 @@
             $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
+            // Call the validation functions
+            $checkPassword = checkPassword($password);
+
             // Run basic checks, return if errors
-            if(empty($userName) || empty($password)) {
+            if(empty($userName) || empty($checkPassword)) {
                 $message = '<p class="bg-danger p-3 text-white">Please provide a valid username and password.</p>';
                 include '../view/login.php';
                 exit; 
@@ -235,7 +247,46 @@
         break;
 
         case 'modify-password':
-            // Holds the change password codes
+            // Filter and store the data
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);            
+            $userName = filter_input(INPUT_INPUT, 'reference_id', FILTER_SANITIZE_STRING);
+
+            // Call the validation functions
+            $checkPassword = checkPassword($clientPassword);
+
+            // Check for missing data
+            if(empty($checkPassword) || empty($confirm_password)) {
+                $message = '<p class="error">Please provide information for all empty form fields.</p>';
+                include '../view/change-password.php';
+                exit; 
+            }
+
+            // Check if password matches with confirm password
+            if($password !== $confirm_password) {
+                $message = '<p class="bg-danger p-3 text-white">Password is unmatched with confirm password filed</p>';
+                include '../view/change-password.php';
+                exit; 
+            }
+
+            // Hash the checked password
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            // Send the data to the model
+            $updatePwdOutcome = updateBusinessOwnerPassword($hashedPassword, $userName);
+
+            // Check and report the result
+            if($updatePwdOutcome === 1){
+                $message = "<p class='success'>Your password has been updated</p>";
+                $_SESSION['message'] = $message;
+                header('location: /abaonline/actions/');
+                exit;
+            } else {
+                $message = "<p class='error'>Sorry, update of your password failed. Please try again.</p>";
+                $_SESSION['message'] = $message;
+                header('location: /abaonline/actions/');
+                exit;
+            }
         break;
 
         case 'add-new-business':

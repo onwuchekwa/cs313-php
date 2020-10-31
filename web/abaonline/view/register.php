@@ -45,13 +45,15 @@
                         <div class="form-group row">
                             <label for="password" class="col-sm-4 col-form-label">Password</label>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <span class="text-danger password-size">Passwords must be at least 8 characters and contain at least 1 number, capital letter, and special character</span>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="confirmPassword" class="col-sm-4 col-form-label">Confirm Password</label>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                                <span class="text-danger password-size">Passwords must be at least 8 characters and contain at least 1 number, capital letter, and special character</span>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                             </div>
                         </div>
                         <div class="form-group row">

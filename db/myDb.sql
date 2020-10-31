@@ -383,18 +383,3 @@ CREATE TABLE user_login
 
 
 -- heroku pg:psql
-
-
-WITH comidkey AS 
-   (
-     INSERT INTO company_detail (business_owner_id, entity_type_id, category_id, company_name, company_summary, company_full_info, email_address, created_by, update_date, update_by)
-     VALUES (4, 2, 2, 'Mattmral Academy', 'Mattmral Academy was established in 2003 with a vision to be an international school of choice that produces world-class citizens.', 'Mattmral Academy was established in 2003 with a vision to be an international school of choice that produces world-class citizens. As a a private coeducational P-12 school and IB World School authorised to offer the Middle Years Programme (MYP) and the Diploma Programme (DP). We ensures that our Grade 12 students exit with a rigorous and internationally acclaimed IB Diploma, based on a philosophy of responsibility, performance and service. As a school, we are extremely proud of our students’ outstanding achievements across all areas.', 'info@mattmeral.com', 4, NOW(), 4) 
-     RETURNING company_id
-   ),
-   cdkey AS
-   (
-     INSERT INTO contact_detail (contact_type_id, reference_id, entity_type_id, contact_data, created_by, update_date, update_by)
-     VALUES (2, (SELECT company_id FROM comidkey), 2, '0265973704', 4, NOW(), 4)
-   )
-   INSERT INTO address_detail (address_type_id, reference_id, entity_type_id, address, city, state_located, created_by, update_date, update_by)
-   VALUES (2, (SELECT company_id FROM comidkey), 2, 'Kubekro II', 'Katamanso', 'Greater Accra', 4, NOW(), 4);

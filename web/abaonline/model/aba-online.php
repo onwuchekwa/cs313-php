@@ -345,3 +345,25 @@ function getCompanyInfoByOwner($businessOwnerId) {
   $stmt->closeCursor();
   return $companyInfo;
 }
+
+function updateBusinessOwnerPassword($hashedPassword, $userName) {
+  // Create a connection object using the acme connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+  $sql = 'UPDATE user_login SET password = :password WHERE user_name = :user_name';
+  // Create the prepared statement using the acme connection
+  $stmt = $db->prepare($sql);
+  // The next four lines replace the placeholders in the SQL
+  // statement with the actual values in the variables
+  // and tells the database the type of data it is
+  $stmt->bindValue(':user_name', $clientId, PDO::PARAM_STR);
+  $stmt->bindValue(':password', $userName, PDO::PARAM_STR);
+  // Insert the data
+  $stmt->execute();
+  // Ask how many rows changed as a result of our insert
+  $rowsChanged = $stmt->rowCount();
+  // Close the database interaction
+  $stmt->closeCursor();
+  // Return the indication of success (rows changed)
+  return $rowsChanged;    
+}
