@@ -364,6 +364,7 @@
             $company_id = filter_input(INPUT_POST, 'company_id', FILTER_SANITIZE_NUMBER_INT);
             $addressId = filter_input(INPUT_POST, 'address_detail_id', FILTER_SANITIZE_NUMBER_INT);
             $contactId = filter_input(INPUT_POST, 'contact_detail_id', FILTER_SANITIZE_NUMBER_INT);
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
 
             // Call the validation functions
             $email_address = checkEmail($email_address);

@@ -15,7 +15,7 @@
 
     $categories = getCategory();
 
-    $reference_id = $_SESSION['businessOwnerData']['business_owner_id'];
+    $userName = $_SESSION['businessOwnerData']['user_name'];
 
      // Dynamically generate Sticky Category List
      $categoryList = "<select id='category_id' name='category_id' class='form-control' required>";
@@ -146,6 +146,7 @@
                                 <input type="hidden" name="company_id" value="<?php if(isset($company_id)){echo "value='$company_id'";} elseif(isset($companyInfo['company_id'])) { echo "value='$companyInfo[company_id]'"; } ?>"> 
                                 <input type="hidden" name="contact_detail_id" value="<?php if(isset($contact_detail_id)){echo "value='$contact_detail_id'";} elseif(isset($companyInfo['contact_detail_id'])) { echo "value='$companyInfo[contact_detail_id]'"; } ?>"> 
                                 <input type="hidden" name="address_detail_id" value="<?php if(isset($address_detail_id)){echo "value='$address_detail_id'";} elseif(isset($companyInfo['address_detail_id'])) { echo "value='$companyInfo[address_detail_id]'"; } ?>"> 
+                                <input type="hidden" name="userName" value="<?php if(isset($businessOwnerData['user_name'])){ echo $businessOwnerData['user_name'];} elseif(isset($userName)){ echo $userName; } ?>">
                             </div>
                         </div>     
                     </form>
