@@ -3,14 +3,27 @@
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
-    $contactInfo = getContactInfo($reference_id);
+    //$contactInfo = getContactInfo($reference_id);
     $addressInfo = getAddressInfo($reference_id);
 
     $addressList = getAddressType();
-    $contactList = getContactType();
+    //$contactList = getContactType();
     
     $bindAddressList = buildAddressTypeList($addressList);
-    $bindContactList = buildContactTypeList($contactList);
+    //$bindContactList = buildContactTypeList($contactList);
+
+    $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
+    $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
+    foreach($contactLists as $contactList) { 
+        $contactTypeList .= "<option value='$contactList[contact_type_id]'"; 
+        if(isset($contactTypeId)){
+            if($contactType['contact_type_id'] === $contactTypeId){
+                $contactTypeList .= ' selected ';
+            }
+        }
+        $contactTypeList .= ">$contactList[description]</option>";
+    } 
+    $contactTypeList .= '</select>'; 
 ?>
 
 <main class="container main-section">

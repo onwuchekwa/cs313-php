@@ -304,7 +304,7 @@ CREATE TABLE company_detail
 , company_logo VARCHAR(150)
 , company_summary VARCHAR(50) NOT NULL
 , company_full_info TEXT NOT NULL
-, business_hour VARCHAR(150) NOT NULL
+-- , business_hour VARCHAR(150) NOT NULL
 , email_address VARCHAR(64) NOT NULL
 , create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 , created_by INT NOT NULL
