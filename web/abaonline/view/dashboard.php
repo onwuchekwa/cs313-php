@@ -124,7 +124,6 @@
           <div class="col-sm-12 mb-3">            
             <?php 
               if(isset($displayCompanyInfoByOwner)) {
-                echo 'I am here';
                 echo $displayCompanyInfoByOwner; 
               }
               ?>

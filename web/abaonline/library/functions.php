@@ -49,6 +49,8 @@ function buildAddressTypeList($addressTypes) {
 }
 
 function buildCompanyList($companies) {
+    var_dump($companies);
+    exit;
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
     foreach($companies as $company) {   
