@@ -380,3 +380,46 @@ function getCompanyInfo($company_id) {
   // Return Client Data
   return $companyData;
 }
+
+function updateCompanyInfo($company_name, $company_summary, $company_full_info, $email_address, $category_id, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated, $company_id, $addressId, $contactId) {
+  // Create a connection object using the acme connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+  $sql = 'WITH updateBusinessOwner AS
+  ( 
+    UPDATE company_detail SET company_name = :company_name, company_summary = :company_summary, company_full_info = :company_full_info, category_id = :category_id, email_address = :email_address, update_date = NOW() WHERE company_id = :company_id
+  ),
+  updateContact AS
+  (
+    UPDATE contact_detail SET contact_data = :contactData, contact_type_id = :contactTypeId, update_date = NOW() WHERE contact_detail_id = :contactId
+  )
+  UPDATE address_detail SET address_type_id = :addressTypeId, address = :address, city = :city, state_located = :stateLocated, update_date = NOW() WHERE address_detail_id = :addressId;';
+  // Create the prepared statement using the acme connection
+  $stmt = $db->prepare($sql);
+  // The next four lines replace the placeholders in the SQL
+  // statement with the actual values in the variables
+  // and tells the database the type of data it is
+    $stmt->bindValue(':company_name', $company_name, PDO::PARAM_STR);
+    $stmt->bindValue(':company_summary', $company_summary, PDO::PARAM_STR);
+    $stmt->bindValue(':company_full_info', $company_full_info, PDO::PARAM_STR);
+    $stmt->bindValue(':category_id', $category_id, PDO::PARAM_STR);
+    $stmt->bindValue(':email_address', $email_address, PDO::PARAM_STR);
+    $stmt->bindValue(':contactTypeId', $contactTypeId, PDO::PARAM_STR);
+    $stmt->bindValue(':contactData', $contactData, PDO::PARAM_STR);
+    $stmt->bindValue(':addressTypeId', $addressTypeId, PDO::PARAM_STR);
+    $stmt->bindValue(':address', $address, PDO::PARAM_STR);
+    $stmt->bindValue(':city', $city, PDO::PARAM_STR);
+    $stmt->bindValue(':stateLocated', $stateLocated, PDO::PARAM_STR);
+    $stmt->bindValue(':addressId', $addressId, PDO::PARAM_STR);
+    $stmt->bindValue(':contactId', $contactId, PDO::PARAM_STR);
+    $stmt->bindValue(':company_id', $company_id, PDO::PARAM_STR);
+
+  // Insert the data
+  $stmt->execute();
+  // Ask how many rows changed as a result of our insert
+  $rowsChanged = $stmt->rowCount();
+  // Close the database interaction
+  $stmt->closeCursor();
+  // Return the indication of success (rows changed)
+  return $rowsChanged;
+}

@@ -349,7 +349,55 @@
         break;
 
         case 'update-company-info':
+            // Filter and store the data
+            $company_name = filter_input(INPUT_POST, 'company_name', FILTER_SANITIZE_STRING);
+            $company_summary = filter_input(INPUT_POST, 'company_summary', FILTER_SANITIZE_STRING);
+            $company_full_info = filter_input(INPUT_POST, 'company_full_info', FILTER_SANITIZE_STRING);
+            $email_address = filter_input(INPUT_POST, 'email_address', FILTER_SANITIZE_EMAIL);
+            $category_id = filter_input(INPUT_POST, 'emailAddress', FILTER_SANITIZE_NUMBER_INT);
+            $contactTypeId = filter_input(INPUT_POST, 'contactTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+            $contactData = filter_input(INPUT_POST, 'contactData', FILTER_SANITIZE_STRING);
+            $addressTypeId = filter_input(INPUT_POST, 'address_type_id', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+            $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
+            $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+            $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
+            $company_id = filter_input(INPUT_POST, 'company_id', FILTER_SANITIZE_NUMBER_INT);
+            $addressId = filter_input(INPUT_POST, 'address_detail_id', FILTER_SANITIZE_NUMBER_INT);
+            $contactId = filter_input(INPUT_POST, 'contact_detail_id', FILTER_SANITIZE_NUMBER_INT);
 
+            // Call the validation functions
+            $email_address = checkEmail($email_address);
+
+            // Check for missing data
+            if(empty($company_name) || empty($company_summary) || empty($company_full_info) || empty($email_address) || empty($contactTypeId) || empty($contactData) || empty($addressTypeId) || empty($address) || empty($city) || empty($stateLocated) || empty($category_id)) {
+                $message = '<p class="bg-danger p-3 text-white">Please provide information for all empty form fields.</p>';
+                include '../view/edit-company.php';
+                exit; 
+            }
+
+            // Send the data to the model
+            $updateInfoOutcome = updateCompanyInfo($company_name, $company_summary, $company_full_info, $email_address, $category_id, $contactTypeId, $contactData, $addressTypeId, $address, $city, $stateLocated, $company_id, $addressId, $contactId);
+
+            // Query the business owner data based on the user name
+            $businessOwnerData = getBusinessOwner($userName); 
+
+            // Check and report the result
+            if($updateInfoOutcome === 1){
+                $message = "<p class='bg-success p-3 text-white'>Your data has been updated.</p>";
+                $_SESSION['message'] = $message;
+                // Remove the password from the array
+                // the array_pop function removes the last
+                // element from an array
+                array_pop($businessOwnerData);            
+                $_SESSION['businessOwnerData'] = $businessOwnerData;
+                header('location: /abaonline/actions/'); 
+                exit;
+
+            } else {
+                $message = "<p class='bg-danger p-3 text-white'>Your data update failed. Please try again.</p>";
+                header('location: /abaonline/actions/');
+                exit;
+            }
         break;
         
         default:
