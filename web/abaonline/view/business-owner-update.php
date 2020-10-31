@@ -27,7 +27,7 @@
     $contactId = $_SESSION['businessOwnerData']['contact_detail_id'];
     $addressId = $_SESSION['businessOwnerData']['address_detail_id'];
 
-    $addressTypesList = '<select id="addressTypeId" name="addressTypeId" class="form-control" required>'; 
+    $addressTypesList = '<select id="address_type_id" name="address_type_id" class="form-control" required>'; 
     $addressTypesList .= "<option value='' selected disabled>Choose Address Type</option>"; 
     foreach($addressTypes as $addressType) {         
         $addressTypesList .= "<option id='$addressType[address_type_id]' value='$addressType[address_type_id]'"; 
@@ -35,8 +35,8 @@
             if($addressType['address_type_id'] === $addressTypeId){
                 $addressTypesList .= ' selected ';
             }
-        } elseif(isset($ownerInfo['address_detail_id'])) {
-            if($addressType['address_type_id'] === $ownerInfo['address_detail_id']) {
+        } elseif(isset($addressId)) {
+            if($addressType['address_type_id'] === $addressId) {
                 $addressTypesList .= ' selected ';
             }
         }

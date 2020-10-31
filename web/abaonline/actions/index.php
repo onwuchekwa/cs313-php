@@ -158,8 +158,6 @@
 
         case 'edit_user':
             $reference_id = filter_input(INPUT_GET, 'business_owner_id', FILTER_SANITIZE_NUMBER_INT);
-            $userName =  filter_input(INPUT_GET, 'userName', FILTER_SANITIZE_NUMBER_INT);
-            $ownerInfo = getAddressType($userName);
             include '../view/business-owner-update.php';
             exit;
         break;
@@ -173,7 +171,7 @@
             $emailAddress = filter_input(INPUT_POST, 'emailAddress', FILTER_SANITIZE_EMAIL);
             $contactTypeId = filter_input(INPUT_POST, 'contactTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
             $contactData = filter_input(INPUT_POST, 'contactData', FILTER_SANITIZE_STRING);
-            $addressTypeId = filter_input(INPUT_POST, 'addressTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+            $addressTypeId = filter_input(INPUT_POST, 'address_type_id', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
             $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
             $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
             $stateLocated = filter_input(INPUT_POST, 'stateLocated', FILTER_SANITIZE_STRING);
