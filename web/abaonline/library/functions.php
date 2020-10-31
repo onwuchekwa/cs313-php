@@ -13,6 +13,7 @@ function buildContactTypeList($contactTypes) {
     foreach($contactTypes as $contactType) { 
         $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
         if(isset($contactTypeId)){
+            echo $contactTypeId; exit;
             if($contactType['contact_type_id'] === $contactTypeId){
                 $contactTypeList .= ' selected ';
             }
