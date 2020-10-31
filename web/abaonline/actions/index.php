@@ -281,9 +281,7 @@
         default:
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
             $companyList = getCompanyInfoByOwner($businessOwnerId);
-            echo $companyList;
-            exit;
-            if(count($companyByOwner) > 0) {
+            if(count($companyList) > 0) {
                 $displayCompanyInfoByOwner = buildCompanyList($companyList);
             }
             include '../view/dashboard.php';
