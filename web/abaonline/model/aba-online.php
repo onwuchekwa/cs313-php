@@ -341,7 +341,7 @@ function getCompanyInfoByOwner($businessOwnerId) {
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':business_owner_id', $businessOwnerId, PDO::PARAM_INT);
   $stmt->execute();
-  $companyInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $companyInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
   return $companyInfo;
 }
