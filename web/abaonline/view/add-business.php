@@ -87,11 +87,62 @@
                             <div class="col-sm-8">
                                 <?php echo $categoryList; ?>
                             </div>
-                        </div>                        
+                        </div>  
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-4 pt-0">Contact Information</legend>
+                                <div class="col-sm-8">
+                                    <div class="form-group row">
+                                        <label for="contactTypeId" class="col-sm-4 col-form-label">Contact Type</label>
+                                        <div class="col-sm-8">
+                                            <?php echo $bindContactList; ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="contactData" class="col-sm-4 col-form-label">Contact</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="contactData" name="contactData" placeholder="Contact Details" required <?php if(isset($contactData)){echo "value='$contactData'";} ?>>
+                                        </div>
+                                    </div>                             
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-4 pt-0">Address Information</legend>
+                                <div class="col-sm-8">
+                                    <div class="form-group row">
+                                        <label for="addressTypeId" class="col-sm-4 col-form-label">Address Type</label>
+                                        <div class="col-sm-8">
+                                            <?php echo $bindAddressList; ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="address" class="col-sm-4 col-form-label">Address</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" required <?php if(isset($address)){echo "value='$address'";} ?>>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label for="city" class="col-sm-4 col-form-label">City</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required <?php if(isset($city)){echo "value='$city'";} ?>>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label for="stateLocated" class="col-sm-4 col-form-label">State</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="stateLocated" name="stateLocated" placeholder="State" required <?php if(isset($stateLocated)){echo "value='$stateLocated'";} ?>>
+                                        </div>
+                                    </div>                             
+                                </div>
+                            </div>
+                        </fieldset>                      
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <input type="submit" value="Register" class="btn btn-primary">
-                                <input type="hidden" name="action" value="registered"> 
+                                <input type="submit" value="Register Business" class="btn btn-primary">
+                                <input type="hidden" name="action" value="add-business">
+                                <input type="hidden" name="action" value="<?php echo $reference_id; ?>"> 
                             </div>
                         </div>     
                     </form>
