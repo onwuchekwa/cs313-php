@@ -354,7 +354,7 @@
             $company_summary = filter_input(INPUT_POST, 'company_summary', FILTER_SANITIZE_STRING);
             $company_full_info = filter_input(INPUT_POST, 'company_full_info', FILTER_SANITIZE_STRING);
             $email_address = filter_input(INPUT_POST, 'email_address', FILTER_SANITIZE_EMAIL);
-            $category_id = filter_input(INPUT_POST, 'emailAddress', FILTER_SANITIZE_NUMBER_INT);
+            $category_id = filter_input(INPUT_POST, 'category_id', FILTER_SANITIZE_NUMBER_INT);
             $contactTypeId = filter_input(INPUT_POST, 'contactTypeId', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
             $contactData = filter_input(INPUT_POST, 'contactData', FILTER_SANITIZE_STRING);
             $addressTypeId = filter_input(INPUT_POST, 'address_type_id', FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
