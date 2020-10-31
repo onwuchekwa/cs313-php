@@ -269,3 +269,22 @@ function deleteBusinessOwner($businessOwnerId, $userName, $addressId, $contactId
   $stmt->closeCursor();
   return $rowsChanged;
 }
+
+function getCategory() {
+  // Create a connection object from the acme connection function
+  $db = abaOnlineConnect(); 
+  // The SQL statement to be used with the database 
+  $sql = 'SELECT category_id, category_name FROM category ORDER BY category_name ASC'; 
+  // The next line creates the prepared statement using the abaonlinedirect connection      
+  $stmt = $db->prepare($sql);
+  // The next line runs the prepared statement 
+  $stmt->execute(); 
+  // The next line gets the data from the database and 
+  // stores it as an array in the $category variable 
+  $category = $stmt->fetchAll(); 
+  // The next line closes the interaction with the database 
+  $stmt->closeCursor(); 
+  // The next line sends the array of data back to where the function 
+  // was called (this should be the controller) 
+  return $category;
+}

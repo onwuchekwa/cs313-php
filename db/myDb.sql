@@ -301,7 +301,7 @@ CREATE TABLE company_detail
 , entity_type_id INT NOT NULL
 , category_id INT NOT NULL
 , company_name VARCHAR(225) NOT NULL
-, company_logo VARCHAR(150)
+--, company_logo VARCHAR(150)
 , company_summary VARCHAR(50) NOT NULL
 , company_full_info TEXT NOT NULL
 -- , business_hour VARCHAR(150) NOT NULL

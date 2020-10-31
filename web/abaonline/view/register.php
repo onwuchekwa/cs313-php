@@ -3,31 +3,14 @@
     $pageDescription = 'To add a business, you must have an account with us.';
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 
-   // $contactInfo = getContactInfo($reference_id);
+    $contactInfo = getContactInfo($reference_id);
     $addressInfo = getAddressInfo($reference_id);
 
     $addressList = getAddressType();
-    //$contactList = getContactType();
+    $contactList = getContactType();
     
     $bindAddressList = buildAddressTypeList($addressList);
-    //$bindContactList = buildContactTypeList($contactList);
-
-    $contactTypeList = '<select id="contactTypeId" name="contactTypeId" class="form-control" required>'; 
-    $contactTypeList .= "<option value='' selected disabled>Choose Contact Type</option>"; 
-    foreach($contactLists as $contactType) { 
-        $contactTypeList .= "<option id='$contactType[contact_type_id]' value='$contactType[contact_type_id]'"; 
-        if(isset($contactTypeId)){                    
-            if($contactType['contact_type_id'] === $contactTypeId){ 
-                $contactTypeList .= ' selected ';
-            }
-        } elseif(isset($contactInfo['contact_type_id'])) {
-            if($contactType['contact_type_id'] === $contactInfo['contact_type_id']) {
-                $addressTypesList .= ' selected ';
-            }
-        }
-        $contactTypeList .= ">$contactType[description]</option>";
-    } 
-    $contactTypeList .= '</select>';
+    $bindContactList = buildContactTypeList($contactList);
 ?>
 
 <main class="container main-section">
@@ -121,7 +104,7 @@
                                     <div class="form-group row">
                                         <label for="contactTypeId" class="col-sm-4 col-form-label">Contact Type</label>
                                         <div class="col-sm-8">
-                                            <?php echo $contactTypeList; ?>
+                                            <?php echo $bindContactList; ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
