@@ -47,7 +47,7 @@ function buildAddressTypeList($addressTypes) {
     $addressTypesList .= '</select>'; 
     return $addressTypesList; 
 }
-
+/*
 function buildCompanyList($companies) {    
     $cp = '<div class="card">';
     $cp .= '<div class="card-body">';
@@ -67,4 +67,20 @@ function buildCompanyList($companies) {
     $cp .= '</div>';
     $cp .= '</div>';
     return $cp;
+}
+*/
+function buildCompanyList($products){
+    $pd = '<ul id="prod-display">';
+    foreach ($products as $product) {
+        $pd .= '<li>';
+        $pd .= '<a class="product-container" href="/acme/products/?action=product-info&invId='.$product['company_id'].'&categoryName='.$product['company_name'].'" title="Click to view this product">';
+        //$pd .= "<img src='$product[invThumbnail]' alt='Image of $product[invName] on Acme.com'>";
+        $pd .= '<hr class="separator">';
+        $pd .= "<h2>$product[company_name]</h2>";
+        //$pd .= "<span>$".number_format($product['invPrice'], 2)."</span>";
+        $pd .= "</a>";
+        $pd .= '</li>';
+    }
+    $pd .= '</ul>';
+    return $pd;
 }
