@@ -276,8 +276,9 @@
             if($updatePwdOutcome === 1){
                 $message = "<p class='bg-success p-3 text-white'>Your password has been updated</p>";
                 $_SESSION['message'] = $message;
-                header('location: /abaonline/actions/');
-                exit;
+                session_destroy();        
+                setcookie('firstname', '', strtotime('-1 year'), '/');
+                include '../view/login.php';
             } else {
                 $message = "<p class='bg-danger p-3 text-white'>Sorry, update of your password failed. Please try again.</p>";
                 $_SESSION['message'] = $message;
