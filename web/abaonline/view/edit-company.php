@@ -141,7 +141,7 @@
                         </fieldset>                      
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <input type="submit" value="Register Business" class="btn btn-primary">
+                                <input type="submit" value="Update Company Data" class="btn btn-primary">
                                 <input type="hidden" name="action" value="update-company-info">
                                 <input type="hidden" name="company_id" value="<?php if(isset($company_id)){echo "value='$company_id'";} elseif(isset($companyInfo['company_id'])) { echo "value='$companyInfo[company_id]'"; } ?>"> 
                                 <input type="hidden" name="contact_detail_id" value="<?php if(isset($contact_detail_id)){echo "value='$contact_detail_id'";} elseif(isset($companyInfo['contact_detail_id'])) { echo "value='$companyInfo[contact_detail_id]'"; } ?>"> 

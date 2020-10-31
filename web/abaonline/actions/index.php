@@ -400,13 +400,42 @@
                 exit;
             }
         break;
+
+        case 'delete-company_info':
+        $company_id = filter_input(INPUT_POST, 'company_id', FILTER_SANITIZE_NUMBER_INT);
+        $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+        $del_address_detail_id = filter_input(INPUT_POST, 'del_address_detail_id', FILTER_SANITIZE_NUMBER_INT);
+        $del_contact_detail_id = filter_input(INPUT_POST, 'del_contact_detail_id', FILTER_SANITIZE_NUMBER_INT);
+            
+        $deleteCompanyData = deleteCompanyData($company_id, $del_address_detail_id, $del_contact_detail_id);
+        
+        // Query the business owner data based on the user name
+        $businessOwnerData = getBusinessOwner($userName); 
+        
+        if ($deleteCompanyData) {
+            $message = "<p class='bg-success p-3 text-white'>Your company was successfully deleted.</p>";
+            $_SESSION['message'] = $message;
+            // Remove the password from the array
+                // the array_pop function removes the last
+                // element from an array
+                array_pop($businessOwnerData);            
+                $_SESSION['businessOwnerData'] = $businessOwnerData;
+                header('location: /abaonline/actions/');  
+            exit;
+        } else {
+            $message = "<p class='bg-danger p-3 text-white'>Error: Company was not deleted.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /abaonline/actions/');
+            exit;
+        }
+        break;
         
         default:
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
             $companyLists = getCompanyInfoByOwner($businessOwnerId);
-            //if(count($companyLists) > 0) {
+            if(count($companyLists) > 0) {
                 $displayCompanyInfo = buildCompanyList($companyLists);
-            //}
+            }
             include '../view/dashboard.php';
             exit;
         break;

@@ -423,3 +423,25 @@ function updateCompanyInfo($company_name, $company_summary, $company_full_info, 
   // Return the indication of success (rows changed)
   return $rowsChanged;
 }
+
+function deleteCompanyData($company_id, $del_address_detail_id, $del_contact_detail_id) {
+  $db = abaOnlineConnect();
+  $sql = 'WITH deleteAddress AS 
+  (
+    DELETE FROM address_detail WHERE address_detail_id = :del_address_detail_id
+  ),
+  deleteContact AS 
+  (
+    DELETE FROM contact_detail WHERE contact_detail_id = :del_contact_detail_id
+  )
+  DELETE FROM company_detail WHERE company_id = :company_id;';
+
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':company_id', $company_id, PDO::PARAM_INT);
+  $stmt->bindValue(':del_address_detail_id', $del_address_detail_id, PDO::PARAM_INT);
+  $stmt->bindValue(':del_contact_detail_id', $del_contact_detail_id, PDO::PARAM_INT);
+  $stmt->execute();
+  $rowsChanged = $stmt->rowCount();
+  $stmt->closeCursor();
+  return $rowsChanged;
+}
