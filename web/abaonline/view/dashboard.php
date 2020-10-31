@@ -47,7 +47,7 @@
                 <h4><?php echo $userName; ?></h4>
                 <p class="text-muted font-size-sm"><?php echo $city . ', '. $stateLocated; ?></p>
                 <?php 
-                  echo "<a class='btn btn-primary' href='/abaonline/actions/index.php?action=edit_user&business_owner_id=$reference_id&userName=$userName' title='Edit my profile'>Edit Profile</a>";
+                  echo "<a class='btn btn-primary' href='/abaonline/actions/index.php?action=edit_user&business_owner_id=$reference_id' title='Edit my profile'>Edit Profile</a>";
                 ?>
                 <a class="btn btn-outline-primary" href="mailto:<?php echo $emailAddress; ?>" title="Send me a message">Send a Message</a>
               </div>

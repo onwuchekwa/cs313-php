@@ -53,7 +53,7 @@
         <div class="col-sm-12 col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header">
-                    Edit <?php echo $companyInfo['company_name']; ?>
+                    Edit <?php echo $companyInfo['company_name'];  exit;?>
                 </div>
                 <div class="card-body">
                     <?php
