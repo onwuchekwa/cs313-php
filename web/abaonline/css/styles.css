@@ -42,6 +42,6 @@ body, html {
     width: 150px;
 }
 
-.company-list:last-child > hr {
+.company-list hr:nth-last-of-type() {
     display: none;
 }
