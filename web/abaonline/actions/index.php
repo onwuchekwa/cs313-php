@@ -117,11 +117,8 @@
             $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-            // Call the validation functions
-            $checkPassword = checkPassword($password);
-
             // Run basic checks, return if errors
-            if(empty($userName) || empty($checkPassword)) {
+            if(empty($userName) || empty($password)) {
                 $message = '<p class="bg-danger p-3 text-white">Please provide a valid username and password.</p>';
                 include '../view/login.php';
                 exit; 

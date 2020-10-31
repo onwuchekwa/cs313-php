@@ -36,8 +36,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <span class="text-danger password-size">Passwords must be at least 8 characters and contain at least 1 number, capital letter, and special character</span>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group row">
