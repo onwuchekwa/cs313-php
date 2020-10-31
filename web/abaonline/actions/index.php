@@ -246,8 +246,8 @@
         case 'modify-password':
             // Filter and store the data
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);            
-            $userName = filter_input(INPUT_INPUT, 'reference_id', FILTER_SANITIZE_STRING);
+            $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);    
+            $userName = filter_input(INPUT_INPUT, 'userName', FILTER_SANITIZE_STRING);
 
             // Call the validation functions
             $checkPassword = checkPassword($password);
