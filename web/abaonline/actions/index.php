@@ -282,7 +282,7 @@
             $businessOwnerId = $_SESSION['businessOwnerData']['business_owner_id'];
             $companyList = getCompanyInfoByOwner($businessOwnerId);
             if(count($companyList) > 0) {
-                //$displayCompanyInfoByOwner = buildCompanyList($companyList);
+                $displayCompanyInfoByOwner = buildCompanyList($companyList);
             }
             include '../view/dashboard.php';
             exit;
