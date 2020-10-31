@@ -11,8 +11,8 @@
     // Get the functions.php file
     require_once '../library/functions.php';
 
-    //$addressLists = getAddressType();
-    //$contactLists = getContactType();
+    $addressLists = getAddressType();
+    $contactLists = getContactType();
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     if ($action == NULL){
