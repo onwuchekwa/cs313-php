@@ -77,7 +77,7 @@ function buildCompanyList($companies) {
 
 function buildCompanyDisplay($companyInfos) {
     $pd = '<h1 class="text-center font-weight-bold">FEATURED BUSINESS LISTINGS</h1>';
-    $pd .= '<div class="col-sm-12 col-md-6 col-lg-3">';
+    $pd .= '<div class="row col-sm-12 col-md-6 col-lg-3">';
     foreach ($companyInfos as $companyData) {
         $pd .= '<div class="card">';
         $pd .= '<div class="card-body">';
