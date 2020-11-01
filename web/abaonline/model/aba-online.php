@@ -445,3 +445,27 @@ function deleteCompanyData($company_id, $del_address_detail_id, $del_contact_det
   $stmt->closeCursor();
   return $rowsChanged;
 }
+
+function getCompanyInfoHome() {
+  // Create a connection object using the acme connection function
+  $db = abaOnlineConnect();
+  // The SQL statement
+  $sql = '
+      SELECT
+        company_id
+      , company_name
+      , company_summary
+      FROM company_detail
+      ORDER BY create_date DESC
+      LIMIT 12;
+    ';
+  // Create the prepared statement using the aba-online connection
+  $stmt = $db->prepare($sql);
+  // Retrieve the data
+  $stmt->execute();
+  $companyData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // Close cursor
+  $stmt->closeCursor();
+  // Return Client Data
+  return $companyData;
+}

@@ -14,8 +14,13 @@
         </div>
     </div>
 
-    <div class="company listing">
-        <h1>FEATURED BUSINESS LISTINGS</h1>
+    <div class="company-listing">
+        <h1 class="text-center font-weight-bold">FEATURED BUSINESS LISTINGS</h1>
+        <?php
+            if(isset($displayCompany)) {
+                $displayCompany;
+            }
+        ?>
     </div>
 </main>
 

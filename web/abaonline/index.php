@@ -21,6 +21,10 @@
         break;
         
         default:
+            $companyInfos = getCompanyInfoHome();
+            if(count($companyInfo) > 0) {
+                $displayCompany = buildCompanyDisplay($companyInfos);
+            }
             include 'view/home.php';
         break;
     }

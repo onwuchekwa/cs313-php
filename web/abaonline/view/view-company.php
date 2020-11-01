@@ -19,7 +19,7 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/abaonline/" title="return to home page">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Business Owner Dashboard</li>
+        <li class="breadcrumb-item active" aria-current="page">View Company</li>
       </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -37,7 +37,7 @@
               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle">
               <div class="mt-3">
                 <h4><?php echo $companyInfo['company_name']; ?></h4>
-                <p class="text-muted font-size-sm"><?php echo $companyInfo['city']. ' ' .$companyInfo['state_located'];; ?></p>
+                <p class="text-muted font-size-sm"><?php echo $companyInfo['city']. ', ' .$companyInfo['state_located'];; ?></p>
                 <a class="btn btn-outline-primary" href="mailto:<?php echo$companyInfo['email_address']; ?>" title="Send me a message">Send a Message</a>
               </div>
             </div>
