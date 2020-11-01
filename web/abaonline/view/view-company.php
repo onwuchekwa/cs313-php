@@ -1,7 +1,7 @@
 <?php 
     $pageTitle = 'Dashboard';
     $pageDescription = "To view business owner's profile and perform other task";
-    if (!$_SESSION['loggedin']) {       
+    if ($_SESSION['loggedin']) {       
       $firstName = $_SESSION['businessOwnerData']['first_name'];
       $lastName = $_SESSION['businessOwnerData']['last_name'];
       $middleName = $_SESSION['businessOwnerData']['middle_name'];
@@ -87,7 +87,7 @@
                 <?php echo $companyInfo['address'] . ', ' . $companyInfo['city'] . ', ' . $companyInfo['state_location']; ?>
               </div>
             </div>
-            <?php if (!$_SESSION['loggedin']) : ?>
+            <?php if ($_SESSION['loggedin']) : ?>
             <hr>
             <div class="row">
               <div class="col-sm-3">
