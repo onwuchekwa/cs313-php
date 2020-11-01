@@ -5,6 +5,10 @@
         header("location: /abaonline/");
     }
 
+    $firstName = $_SESSION['businessOwnerData']['first_name'];
+    $lastName = $_SESSION['businessOwnerData']['last_name'];
+    $middleName = $_SESSION['businessOwnerData']['middle_name'];
+
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
 
@@ -49,11 +53,10 @@
       </div>
       <div class="col-md-8">
         <div class="card mb-3">
-          <div class="card-header">Company Data</div>
           <div class="card-body">            
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Company Full Information</h6>
+                <h6 class="mb-0">Company Information</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <?php echo $companyInfo['company_full_info']; ?>
@@ -86,21 +89,20 @@
                 <?php echo $companyInfo['address'] . ', ' . $companyInfo['city'] . ', ' . $companyInfo['state_location']; ?>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col-sm-12 mb-3"> 
-            <div class="card-header">Business Owner Data</div>           
-            <div class="card-body">            
+            <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Company Full Information</h6>
+                <h6 class="mb-0">Business Owner</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <?php echo $companyInfo['company_full_info']; ?>
+              <?php 
+                  if(!empty($middleName))
+                    echo $firstName . ' ' . $middleName . ' '. $lastName;
+                  else
+                    echo $firstName . ' ' . $lastName; 
+                ?>
               </div>
             </div>
-            <hr> 
           </div>
         </div>
       </div>
