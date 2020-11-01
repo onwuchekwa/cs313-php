@@ -7,9 +7,6 @@
         header("location: /abaonline/actions/index.php?action=login");
     }
 
-    $contactInfo = getContactInfo($reference_id);
-    $addressInfo = getAddressInfo($reference_id);
-
     $addressList = getAddressType();
     $contactList = getContactType();
     
