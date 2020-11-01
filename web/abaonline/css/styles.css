@@ -49,3 +49,12 @@ body, html {
 .password-size {
     font-size: 0.75rem;
 }
+
+.company-listing a {
+    text-decoration: none;
+}
+
+.company-listing a:hover {
+    text-decoration: underline;
+    color: brown;
+}
