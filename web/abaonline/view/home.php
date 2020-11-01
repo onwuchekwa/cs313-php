@@ -15,10 +15,9 @@
     </div>
 
     <div class="company-listing">
-        <h1 class="text-center font-weight-bold">FEATURED BUSINESS LISTINGS</h1>
         <?php
             if(isset($displayCompany)) {
-                $displayCompany;
+                echo $displayCompany;
             }
         ?>
     </div>

@@ -463,9 +463,9 @@ function getCompanyInfoHome() {
   $stmt = $db->prepare($sql);
   // Retrieve the data
   $stmt->execute();
-  $companyData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $companyHomeData = $stmt->fetchAll(PDO::FETCH_ASSOC);
   // Close cursor
   $stmt->closeCursor();
   // Return Client Data
-  return $companyData;
+  return $companyHomeData;
 }
