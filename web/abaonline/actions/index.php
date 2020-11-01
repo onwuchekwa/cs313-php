@@ -135,7 +135,7 @@
             // If the hashes don't match create an bg-danger
             // and return to the login view
             if (!$hashCheck) {
-                $message = '<p class="bg-danger p-3 text-white">Please check your password and try again.</p>';
+                $message = '<p class="bg-danger p-3 text-white">Please check your credentials and try again.</p>';
                 include '../view/login.php';
                 exit; 
             }
@@ -416,11 +416,11 @@
             $message = "<p class='bg-success p-3 text-white'>Your company was successfully deleted.</p>";
             $_SESSION['message'] = $message;
             // Remove the password from the array
-                // the array_pop function removes the last
-                // element from an array
-                array_pop($businessOwnerData);            
-                $_SESSION['businessOwnerData'] = $businessOwnerData;
-                header('location: /abaonline/actions/');  
+            // the array_pop function removes the last
+            // element from an array
+            array_pop($businessOwnerData);            
+            $_SESSION['businessOwnerData'] = $businessOwnerData;
+            header('location: /abaonline/actions/');  
             exit;
         } else {
             $message = "<p class='bg-danger p-3 text-white'>Error: Company was not deleted.</p>";
