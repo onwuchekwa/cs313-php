@@ -77,6 +77,8 @@ function buildCompanyList($companies) {
 
 function buildCompanyDisplay($companyInfo) {
     $pd = '<div class="col-sm-12 col-md-6 col-lg-3">';
+    var_dump($companyInfo);
+    exit;
     foreach ($companyInfo as $companyList) {
         $pd .= '<div class="card-body">';
         $pd .= "<a class='container' href='/abaonline/actions/index.php?action=view_company&company_id=$companyList[company_id]' title='Click to view this company'>";
