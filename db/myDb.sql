@@ -383,3 +383,13 @@ CREATE TABLE user_login
 
 
 -- heroku pg:psql
+
+WITH deleteAddress AS 
+  (
+    SELECT * FROM address_detail WHERE address_detail_id = 1
+  ),
+  deleteContact AS 
+  (
+    SELECT * FROM contact_detail WHERE contact_detail_id = 1
+  )
+  SELECT * FROM company_detail WHERE company_id = 1;';
