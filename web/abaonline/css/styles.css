@@ -52,9 +52,9 @@ body, html {
 
 .company-listing a {
     text-decoration: none;
+    color: #000;
 }
 
 .company-listing a:hover {
-    text-decoration: underline;
-    color: brown;
+    color: #a52a2a;
 }

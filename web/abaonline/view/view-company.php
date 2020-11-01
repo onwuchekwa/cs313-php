@@ -1,13 +1,11 @@
 <?php 
     $pageTitle = 'Dashboard';
     $pageDescription = "To view business owner's profile and perform other task";
-    if (!$_SESSION['loggedin']) {
-        header("location: /abaonline/");
+    if (!$_SESSION['loggedin']) {       
+      $firstName = $_SESSION['businessOwnerData']['first_name'];
+      $lastName = $_SESSION['businessOwnerData']['last_name'];
+      $middleName = $_SESSION['businessOwnerData']['middle_name'];
     }
-
-    $firstName = $_SESSION['businessOwnerData']['first_name'];
-    $lastName = $_SESSION['businessOwnerData']['last_name'];
-    $middleName = $_SESSION['businessOwnerData']['middle_name'];
 
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
@@ -89,6 +87,7 @@
                 <?php echo $companyInfo['address'] . ', ' . $companyInfo['city'] . ', ' . $companyInfo['state_location']; ?>
               </div>
             </div>
+            <?php if (!$_SESSION['loggedin']) : ?>
             <hr>
             <div class="row">
               <div class="col-sm-3">
@@ -103,6 +102,7 @@
                 ?>
               </div>
             </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
