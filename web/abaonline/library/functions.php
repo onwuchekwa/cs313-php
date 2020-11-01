@@ -77,9 +77,9 @@ function buildCompanyList($companies) {
 
 function buildCompanyDisplay($companyInfos) {
     $pd = '<h1 class="text-center font-weight-bold">FEATURED BUSINESS LISTINGS</h1>';
-    $pd .= '<div class="row col-md-4">';
-    $pd .= '<div class="col-lg-12">';
-    foreach ($companyInfos as $companyData) {
+    $pd .= '<div class="row>';
+    foreach ($companyInfos as $companyData) {        
+        $pd .= '<div class="col-md-4">';
         $pd .= '<div class="card">';
         $pd .= '<div class="card-body">';
         $pd .= "<a class='container' href='/abaonline/actions/index.php?action=view_company&company_id=$companyData[company_id]' title='Click to view this company'>";
@@ -90,8 +90,8 @@ function buildCompanyDisplay($companyInfos) {
         $pd .= "</a>";
         $pd .= '</div>';
         $pd .= '</div>';
+        $pd .= '</div>';
     }
-    $pd .= '</div>';
     $pd .= '</div>';
     return $pd;
 }
