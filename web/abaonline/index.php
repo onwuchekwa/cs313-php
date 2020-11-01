@@ -22,6 +22,8 @@
         
         default:
             $companyInfos = getCompanyInfoHome();
+            var_dump($companyInfos);
+            exit;
             if(count($companyInfo) > 0) {
                 $displayCompany = buildCompanyDisplay($companyInfos);
             }
