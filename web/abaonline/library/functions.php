@@ -77,18 +77,16 @@ function buildCompanyList($companies) {
 
 function buildCompanyDisplay($companyInfos) {
     $pd = '<h1 class="text-center font-weight-bold">FEATURED BUSINESS LISTINGS</h1>';
-    $pd .= '<div class="row card-deck">';
+    $pd .= '<div class="row">';
     foreach ($companyInfos as $companyData) {        
         $pd .= '<div class="col-sm-12 col-md-6 col-lg-4">';
-        $pd .= '<div class="card mb-3">';
-        $pd .= '<div class="card-body">';
+        $pd .= '<div class="card card-body mb-3 h-100">';
         $pd .= "<a class='container' href='/abaonline/actions/index.php?action=view_company&company_id=$companyData[company_id]' title='Click to view this company'>";
         $pd .= "<img src='https://bootdey.com/img/Content/avatar/avatar7.png' alt='Admin' class='rounded-circle'>";
         $pd .= '<hr>';
         $pd .= "<h2>$companyData[company_name]</h2>";
         $pd .= "<span>$companyData[company_summary]</span>";
         $pd .= "</a>";
-        $pd .= '</div>';
         $pd .= '</div>';
         $pd .= '</div>';
     }

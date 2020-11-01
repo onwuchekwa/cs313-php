@@ -4,7 +4,7 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/abaonline/common/header.php'; 
 ?>
 
-<main>
+<main class="mb-3">
     <div class="hero-image">
         <img class="w-100" src= "/abaonline/images/aba2.jpg"> 
         <div class="hero-text">
