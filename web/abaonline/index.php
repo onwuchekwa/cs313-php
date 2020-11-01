@@ -22,9 +22,7 @@
         
         default:
             $companyInfos = getCompanyInfoHome();
-            var_dump($companyInfos);
-            exit;
-            if(count($companyInfo) > 0) {
+            if(count($companyInfos) > 0) {
                 $displayCompany = buildCompanyDisplay($companyInfos);
             }
             include 'view/home.php';
