@@ -80,7 +80,7 @@ function buildCompanyDisplay($companyInfos) {
     $pd .= '<div class="row">';
     foreach ($companyInfos as $companyData) {        
         $pd .= '<div class="col-md-4">';
-        $pd .= '<div class="card h-100">';
+        $pd .= '<div class="card h-80">';
         $pd .= '<div class="card-body">';
         $pd .= "<a class='container' href='/abaonline/actions/index.php?action=view_company&company_id=$companyData[company_id]' title='Click to view this company'>";
         $pd .= "<img src='https://bootdey.com/img/Content/avatar/avatar7.png' alt='Admin' class='rounded-circle'>";
