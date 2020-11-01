@@ -408,7 +408,7 @@
             $deleteCompanyData = deleteCompanyData($company_id, $del_address_detail_id, $del_contact_detail_id);
             
             // Query the business owner data based on the user name
-            $businessOwnerData = getBusinessOwner($userName); 
+           // $businessOwnerData = getBusinessOwner($userName); 
             
             if ($deleteCompanyData) {
                 $message = "<p class='bg-success p-3 text-white'>Your company was successfully deleted.</p>";
@@ -416,8 +416,8 @@
                 // Remove the password from the array
                 // the array_pop function removes the last
                 // element from an array
-                array_pop($businessOwnerData);            
-                $_SESSION['businessOwnerData'] = $businessOwnerData;
+                //array_pop($businessOwnerData);            
+               // $_SESSION['businessOwnerData'] = $businessOwnerData;
                 header('location: /abaonline/actions/');  
                 exit;
             } else {
