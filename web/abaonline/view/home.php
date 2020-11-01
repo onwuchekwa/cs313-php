@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="company-listing text-center">
+    <div class="company-listing text-center container">
         <?php
             if(isset($displayCompany)) {
                 echo $displayCompany;
